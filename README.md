@@ -15,3 +15,6 @@ Pływalnia "Pocałunek Neptuna"
 - PHP
 - MySQL
 - Vue
+
+## Model bazy dancyh:
+![db_schema](https://github.com/Vex0on/ICC_15_00/blob/main/db_schema.png)
