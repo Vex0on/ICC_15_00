@@ -17,4 +17,4 @@ Pływalnia "Pocałunek Neptuna"
 - Vue
 
 ## Model bazy danych:
-![db_schema](https://github.com/Vex0on/ICC_15_00/blob/main/db_schema.png)
+![db_schema](https://github.com/Vex0on/ICC_15_00/blob/main/Laby/db_schema.png)
