@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -7,7 +8,7 @@
     <title>Pocałunek Neptuna</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../style/login.css">
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
 </head>
 
 <body>
@@ -25,13 +26,13 @@
             <button type="submit">Zaloguj</button>
 
             <div class="remind-register-container">
-                <a href="remind_password.html">Przypomnij hasło</a>
-                <a href="registration.html">Zarejestruj się</a>
+                <a href="{% url 'remind_password' %}">Przypomnij hasło</a>
+                <a href="{% url 'registration' %}">Zarejestruj się</a>
             </div>
         </form>
 
         <nav class="mini-nav">
-            <a href="../index.html">Strona Główna</a>
+            <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
     </main>
     

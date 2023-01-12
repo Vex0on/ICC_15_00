@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
 </head>
 <body>
     <a href="#"><i class="to-top fa-solid fa-arrow-up"></i></a>
@@ -21,14 +22,14 @@
                 <li> <a href="#spa"> SPA</a></li>
                 <li> <a href="#aboutus"> O nas</a></li>
                 <li> <a href="#contact"> Kontakt</a></li>
-                <li> <a href="subpages/login.html">Zaloguj się</a></li>
+                <li> <a href="{% url 'login' %}">Zaloguj się</a></li>
             </ul>
         </nav>
         <h1>Pocałunek Neptuna</h1>
     </section>
 
     <section class="offers" id="swimming-pool">
-        <img src="img/offers-01.jpg" alt="">
+        <img src="{% static 'img/offers-01.jpg' %}" alt="">
         <div>
             <h2>Basen</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi tenetur vero?</p>
@@ -42,11 +43,11 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi tenetur vero?</p>
             <input type="submit" value="Sprawdź">
         </div>
-        <img src="img/offers-02.jpg" alt="">
+        <img src="{% static '/img/offers-02.jpg' %}" alt="">
     </section>
 
     <section class="offers" id="spa">
-        <img src="img/offers-03.jpg" alt="">
+        <img src="{% static '/img/offers-03.jpg' %}" alt="">
         <div>
             <h2>SPA</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi tenetur vero?</p>
@@ -55,7 +56,7 @@
     </section>
 
     <section class="aboutus" id="aboutus">
-        <img src="img/aboutus-01.jpg" alt="">
+        <img src="{% static '/img/aboutus-01.jpg' %}" alt="">
         <div>
             <h3>O nas</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt deserunt velit nihil repudiandae hic inventore molestiae quas provident incidunt fuga animi at id, quae doloremque cupiditate saepe, fugiat aut dolor. Nesciunt deserunt velit nihil repudiandae hic inventore molestiae quas provident incidunt fuga animi at id, quae doloremque cupiditate saepe, fugiat aut dolor.</p>
@@ -99,6 +100,6 @@
         </div>
     </section>
 
-    <script src="js/index.js"></script>
+    <script src="{% static '/js/index.js' %}"></script>
 </body>
 </html>
