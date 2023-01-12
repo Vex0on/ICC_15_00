@@ -226,6 +226,13 @@ body {
     border-bottom: 0.01rem solid rgb(78, 78, 78);
     width: 14rem;
     margin-top: 0.5rem;
+}
+
+.contact > form > input[type="email"] {
+    background: none;
+    border-bottom: 0.01rem solid rgb(78, 78, 78);
+    width: 14rem;
+    margin-top: 0.5rem;
 } 
 
 .contact > form > textarea {
