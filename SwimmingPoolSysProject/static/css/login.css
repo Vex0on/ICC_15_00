@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
+
+* {
+    border: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: #ccc;
+}
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover!important;
+    background: linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.86)),url("../img/registration-01.jpg");
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+.login > h1 {
+    text-align: center;
+    padding: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+.login > input {
+    background: none;
+    padding: 0.7rem;
+    border-bottom: 0.1rem solid #888;
+    outline: none;
+}
+
+.login > label {
+    margin-top: 1rem;
+    margin-left: -0.3rem;
+}
+
+.login > button {
+    width: 10rem;
+    margin: 2rem auto;
+    margin-bottom: 1rem;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: rgb(7, 7, 7);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+}
+
+.login > button:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.remind-register-container > a{ 
+    text-decoration: none;
+}
+
+.remind-register-container > a:nth-child(2) {
+    margin-left: 2rem;
+}
+
+.remind-register-container > a:hover {
+    color: #bbb;
+}
+
+.mini-nav {
+    position: fixed;
+    top: 88%;
+    left: 82%;
+}
+
+.mini-nav > a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 0.1rem solid #999;
+    padding: 0.6rem;
+}

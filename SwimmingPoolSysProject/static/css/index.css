@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
+
+* {
+    border: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(7, 7, 7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-top {
+    right: 7rem;
+    bottom: 4rem;
+    position: fixed;
+    color: white;
+    font-size: 3rem;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.to-bottom {
+    position: absolute;
+    color: #ccc;
+    font-size: 3rem;
+    top: 85%;
+    left: 90%;
+    opacity: 1;
+    transition: 0.2s;
+}
+
+.to-top-active {
+    opacity: 1;
+}
+
+.to-bottom-active {
+    opacity: 0;
+}
+
+
+.home-page {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url("../img/basen.jpg");
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home-page > nav > ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin-right: 3rem;
+    padding: 1rem;
+    letter-spacing: 0.1rem;
+    font-size: 1.1rem;
+}
+
+.home-page > nav > ul > li > a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+.home-page > nav > ul > li > a:hover {
+    color: #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+.home-page > h1 {
+    position: absolute;
+    top: 45%;
+    left: 36%;
+    color: rgb(184, 179, 179);
+    font-weight: 400;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+}
+
+/* Offers*/
+
+.offers {
+    width:70%;
+    height: 83vh;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+}
+
+.offers > img {
+    width: 25rem;
+    height: 30rem;
+    opacity: 0.8;
+}
+
+.offers > div {
+    text-align: center;
+    width: 40%;
+    color: #ccc;
+}
+
+.offers > div > h2 {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    padding: 1rem;
+    font-weight: 100;
+}
+
+.offers > div > p {
+    font-weight: 100;
+}
+
+.offers > div > input {
+    background-color: rgb(15, 15, 15);
+    border: #ccc solid 1px;
+    color: #ccc;
+    width: 10rem;
+    height: 2.5rem;
+    margin-top: 2rem;
+}
+
+.offers > div > input:hover {
+    color:rgb(15, 15, 15);
+    background-color: #ccc;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+/* aboutus */
+
+.aboutus {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    padding: 2rem 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 4rem;
+    background: linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.95)),url("../img/spa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.aboutus > img {
+    width: 22rem;
+    height: 22rem;
+    border-radius: 50%;
+}
+
+.aboutus > div {
+    width: 35rem;
+    color: #ccc;
+    height: 26rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    align-items: center;
+    line-height: 1.6rem;
+}
+
+.aboutus > div > h3 {
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+}
+
+.aboutus > div > p {
+    margin-top: 1.5rem;
+    width: 24rem;
+    height: 15rem;    
+}
+
+.break {
+    width: 100%;
+    height: 13rem;
+}
+
+/* contact */
+
+.contact {
+    height: 70vh;
+    width: 100%;
+    padding-top: 4rem;
+    background: linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.95)),url("../img/contact-01.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.contact > form {
+    display: flex;
+    flex-direction: column;
+    color: #ccc;
+}
+
+.contact > form > h4 {
+    font-weight: 300;
+    font-size: 2rem; 
+    padding-bottom: 2rem;
+}
+
+.contact > form > label {
+    font-weight: 100;
+    margin-top: 1rem;
+}
+
+.contact > form > input[type="text"] {
+    background: none;
+    border-bottom: 0.01rem solid rgb(78, 78, 78);
+    width: 14rem;
+    margin-top: 0.5rem;
+} 
+
+.contact > form > textarea {
+    background: none;
+    width: 13rem;
+    border-bottom: 0.01rem solid rgb(78, 78, 78);
+    padding: 1rem;
+}
+
+.contact > form > input[type="submit"] {
+    width: 14rem;
+    background-color: rgb(15, 15, 15);
+    border: rgb(78, 78, 78) solid 1px;
+    color: #ccc;
+    height: 2.5rem;
+    margin-top: 1rem;
+}
+
+.contact > form > input[type="submit"]:hover {
+    color:rgb(15, 15, 15);
+    background-color: #ccc;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.contact-information {
+    color: #ccc;
+    width: 25rem;
+    margin-left: 1rem;
+}
+
+.contact-information > h4 {
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.contact-information > p {
+    font-weight: 100;
+    margin-top: 1rem;
+}
+
+.contact-information > div {
+    display: flex;
+    margin-top: 3rem;
+    font-weight: 100;
+}
+
+.contact-information > div > p {
+    margin-left: 0.7rem;
+    font-size: 1rem;
+    padding-top: 0.5rem;
+}
+
+.contact-information .fa-solid {
+    font-size: 2rem;
+    color: #aaa;
+}
+
+input, textarea { 
+    outline: none;
+    color: #ccc;
+    padding: 0.5rem;
+}
