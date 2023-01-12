@@ -1,16 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pocałunek Neptuna</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{% static '/css/index.css' %}">
 </head>
+
 <body>
     <a href="#"><i class="to-top fa-solid fa-arrow-up"></i></a>
     <a href="#swimming-pool"><i class="to-bottom fa-solid fa-arrow-down"></i></a>
@@ -25,6 +29,13 @@
                 <li> <a href="{% url 'login' %}">Zaloguj się</a></li>
             </ul>
         </nav>
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.tags %}
+        <div class="message">{{ message }}</div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
         <h1>Pocałunek Neptuna</h1>
     </section>
 
@@ -32,7 +43,9 @@
         <img src="{% static 'img/offers-01.jpg' %}" alt="">
         <div>
             <h2>Basen</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi tenetur vero?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque
+                tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi
+                tenetur vero?</p>
             <input type="submit" value="Sprawdź">
         </div>
     </section>
@@ -40,7 +53,9 @@
     <section class="offers" id="gym">
         <div>
             <h2>Siłownia</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi tenetur vero?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque
+                tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi
+                tenetur vero?</p>
             <input type="submit" value="Sprawdź">
         </div>
         <img src="{% static '/img/offers-02.jpg' %}" alt="">
@@ -50,7 +65,9 @@
         <img src="{% static '/img/offers-03.jpg' %}" alt="">
         <div>
             <h2>SPA</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi tenetur vero?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque
+                tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi
+                tenetur vero?</p>
             <input type="submit" value="Sprawdź">
         </div>
     </section>
@@ -59,21 +76,25 @@
         <img src="{% static '/img/aboutus-01.jpg' %}" alt="">
         <div>
             <h3>O nas</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt deserunt velit nihil repudiandae hic inventore molestiae quas provident incidunt fuga animi at id, quae doloremque cupiditate saepe, fugiat aut dolor. Nesciunt deserunt velit nihil repudiandae hic inventore molestiae quas provident incidunt fuga animi at id, quae doloremque cupiditate saepe, fugiat aut dolor.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt deserunt velit nihil repudiandae hic
+                inventore molestiae quas provident incidunt fuga animi at id, quae doloremque cupiditate saepe, fugiat
+                aut dolor. Nesciunt deserunt velit nihil repudiandae hic inventore molestiae quas provident incidunt
+                fuga animi at id, quae doloremque cupiditate saepe, fugiat aut dolor.</p>
         </div>
     </section>
 
     <div class="break"></div>
 
     <section class="contact" id="contact">
-        <form action="">
+        <form action="." method="POST">
+            {% csrf_token %}
             <h4>Skontaktuj się z nami</h4>
             <label for="name">Imie i nazwisko</label>
-            <input name="name" type="text">
+            {{ form.name }}
             <label for="Email">Email</label>
-            <input name="email" type="text">
+            {{ form.email }}
             <label for="Wiadomość">Wiadomość</label>
-            <textarea name="message"></textarea>
+            {{ form.message }}
             <input type="submit" value="Wyślij">
         </form>
         <div class="contact-information">
@@ -102,4 +123,5 @@
 
     <script src="{% static '/js/index.js' %}"></script>
 </body>
+
 </html>

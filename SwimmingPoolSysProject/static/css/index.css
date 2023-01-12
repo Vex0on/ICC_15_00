@@ -289,3 +289,13 @@ input, textarea {
     color: #ccc;
     padding: 0.5rem;
 }
+
+.message{
+    margin-top: 12px;
+    background-color: green;
+    width: 100%;
+    color: black;
+    text-align: center;
+    padding: 8px;
+    font-size: 1.2rem;
+}
