@@ -32,7 +32,7 @@ class Shift(models.Model):
         ("2 zmiana", "2 zmiana")
     )
 
-    worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
+    worker = models.ManyToManyField(Worker)
     startTime = models.DateTimeField()
     endTime = models.DateTimeField(null=True, blank=True, editable=False)
     description = models.CharField(max_length=12, choices=SHIFTS_CHOICES)

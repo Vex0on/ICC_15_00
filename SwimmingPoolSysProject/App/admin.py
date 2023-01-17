@@ -30,8 +30,7 @@ class WorkerAddressAdmin(admin.ModelAdmin):
 @admin.register(Shift)
 class ShiftAdmin(admin.ModelAdmin):
     list_display = [
-        'description', 
-        'worker', 
+        'description',
         'startTime', 
         'endTime'
     ]
