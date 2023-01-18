@@ -306,3 +306,61 @@ input, textarea {
     padding: 8px;
     font-size: 1.2rem;
 }
+
+/* complaint */
+
+.complaint {
+    display: flex;
+    flex-direction: column;
+    color: #ccc;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.complaint > h5 {
+    font-size: 2rem;
+}
+
+.complaint-container {
+    display: flex;
+    margin-top: 1rem;
+    gap: 4rem;
+}
+
+.complaint-information {
+    width: 27rem;
+    padding: 1.5rem;
+    text-align: justify;
+}
+
+.complaint-container > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.complaint-container > form > label {
+    padding: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+.complaint-container > form > input, textarea {
+    color: #333;
+    background-color: #aaa;
+}
+
+.complaint-container > form > input[type="submit"] {
+    width: 16rem;
+    background-color: rgb(15, 15, 15);
+    border: rgb(78, 78, 78) solid 1px;
+    color: #ccc;
+    height: 2.5rem;
+    margin-top: 1rem;
+}
+
+.complaint-container > form > input[type="submit"]:hover {
+    color:rgb(15, 15, 15);
+    background-color: #ccc;
+    cursor: pointer;
+    transition: 0.5s;
+}
