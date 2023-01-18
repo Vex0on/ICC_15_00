@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover!important;
+    background: linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.86)),url("../img/ticket_buy-01.jpg");
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+}
+
+form {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(7, 7, 7, 0.65);
+    min-height: 90vh;
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    align-items: center;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-form > h1 {
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.container-form > h2 {
+    letter-spacing: 0.1rem;
+    font-size: 1.25rem;
+    padding: 0.3rem;
+    margin-left: -0.5rem;
+}
+
+.container-form > label {
+    padding: 0.2rem 0;
+    margin-top: 0.5rem;
+    letter-spacing: 0.1rem;
+    margin-left: -0.2rem;
+}
+
+.container-form > input { 
+    background: none;
+    padding: 0.7rem;
+    outline: none;
+    width: 22rem;
+    border: none;
+    border-bottom: 0.1rem solid #777;
+    color: #ccc;
+}
+
+.container-form > select {
+    margin-top: 0.5rem;
+    background: none;
+    padding: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #ccc;
+}
+
+.container-form > select:hover {
+    cursor: pointer;
+}
+
+.container-form > select > option {
+    background-color: black;
+    letter-spacing: 0.1rem;
+    color: #ccc;
+}
+
+.container-form > select > option:hover {
+    cursor: pointer;
+}
+
+::-webkit-calendar-picker-indicator{
+    transform:scale(1.2);
+    cursor:pointer;
+    background-color: #ccc;
+}
+
+form > button {
+    width: 10rem;
+    margin: 1rem auto;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: rgb(7, 7, 7);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+    color: #ccc;
+    letter-spacing: 0.1rem;
+}
+
+form > button:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
+}
+
+.mini-nav {
+    position: fixed;
+    top: 88%;
+    left: 82%;
+}
+
+.mini-nav > a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 0.1rem solid #999;
+    padding: 0.6rem;
+    color: #ccc;
+}

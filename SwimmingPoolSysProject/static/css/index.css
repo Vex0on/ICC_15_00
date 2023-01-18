@@ -73,7 +73,7 @@ body {
 
 .home-page > nav > ul > li > a:hover {
     color: #aaa;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #555;
 }
 
 .home-page > h1 {
@@ -84,6 +84,12 @@ body {
     font-weight: 400;
     font-size: 2.5rem;
     letter-spacing: 0.15rem;
+}
+
+
+/* hidden */
+.hidden {
+    display: none;
 }
 
 /* Offers*/
@@ -120,7 +126,7 @@ body {
     font-weight: 100;
 }
 
-.offers > div > input {
+.offers > div > a > input {
     background-color: rgb(15, 15, 15);
     border: #ccc solid 1px;
     color: #ccc;
@@ -129,7 +135,7 @@ body {
     margin-top: 2rem;
 }
 
-.offers > div > input:hover {
+.offers > div > a > input:hover {
     color:rgb(15, 15, 15);
     background-color: #ccc;
     cursor: pointer;
@@ -226,13 +232,6 @@ body {
     border-bottom: 0.01rem solid rgb(78, 78, 78);
     width: 14rem;
     margin-top: 0.5rem;
-}
-
-.contact > form > input[type="email"] {
-    background: none;
-    border-bottom: 0.01rem solid rgb(78, 78, 78);
-    width: 14rem;
-    margin-top: 0.5rem;
 } 
 
 .contact > form > textarea {
@@ -325,7 +324,7 @@ input, textarea {
 .complaint-container {
     display: flex;
     margin-top: 1rem;
-    gap: 4rem;
+    gap: 7rem;
 }
 
 .complaint-information {
@@ -342,11 +341,12 @@ input, textarea {
 .complaint-container > form > label {
     padding: 0.3rem;
     margin-top: 0.5rem;
+    margin-left: -0.6rem;
 }
 
 .complaint-container > form > input, textarea {
     color: #333;
-    background-color: #aaa;
+    background-color: #999;
 }
 
 .complaint-container > form > input[type="submit"] {
