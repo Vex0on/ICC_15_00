@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../../style/manager_employees.css">
+    <link rel="stylesheet" href="{% static '/css/manager_employees.css' %}">
 </head>
 <body>
     <main>
@@ -60,19 +61,19 @@
             </div>
 
             <div class="buttons">
-                <a href="manager_employees_show.html">
+                <a href="{% url 'manager_employees_show' %}">
                     <input type="button" value="Wyświetl">
                 </a>
     
-                <a href="manager_employees_add.html">
+                <a href="{% url 'manager_employees_add' %}">
                     <input type="button" value="Dodaj">
                 </a>
     
-                <a href="manager_employees_delete.html">
+                <a href="{% url 'manager_employees_delete' %}">
                     <input type="button" value="Usuń">
                 </a>
                 
-                <a href="manager_panel.html">
+                <a href="{% url 'manager_panel' %}">
                     <input type="button" value="Wróć">
                 </a>
             </div>
@@ -80,7 +81,7 @@
         </form>
 
         <nav class="mini-nav">
-            <a href="../../index.html">Strona Główna</a>
+            <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
     </main>
 </body>

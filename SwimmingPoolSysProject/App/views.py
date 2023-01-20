@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
 
+
 # Create your views here.
 
 
@@ -22,7 +23,8 @@ def homePage(request):
                 'message': message
             })
 
-            send_mail('Formularz kontaktowy', 'wiadomosc', 'pocalunekneptuna@gmail.com', ['pocalunekneptuna@gmail.com'], html_message=html)
+            send_mail('Formularz kontaktowy', 'wiadomosc', 'pocalunekneptuna@gmail.com', ['pocalunekneptuna@gmail.com'],
+                      html_message=html)
             messages.info(request, 'Successfully Sent The Message!')
             return redirect('home')
     else:
@@ -44,3 +46,39 @@ def registration(request):
 
 def remind_password(request):
     return render(request, 'App/subpages/remind_password.html')
+
+
+# Manager panel
+
+def manager_panel(request):
+    return render(request, 'App/subpages/manager/manager_panel.html')
+
+
+# Manager panel list
+
+
+def manager_plan(request):
+    return render(request, 'App/subpages/manager/manager_plan.html')
+
+
+def manager_plan_list(request):
+    return render(request, 'App/subpages/manager/manager_plan_list.html')
+
+
+# Manager plan employees
+
+
+def manager_employees(request):
+    return render(request, 'App/subpages/manager/manager_employees.html')
+
+
+def manager_employees_add(request):
+    return render(request, 'App/subpages/manager/manager_employees_add.html')
+
+
+def manager_employees_show(request):
+    return render(request, 'App/subpages/manager/manager_employees_show.html')
+
+
+def manager_employees_delete(request):
+    return render(request, 'App/subpages/manager/manager_employees_delete.html')
