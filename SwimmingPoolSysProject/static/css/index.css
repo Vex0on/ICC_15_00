@@ -227,7 +227,7 @@ body {
     margin-top: 1rem;
 }
 
-.contact > form > input[type="text"] {
+.contact > form > input[type="text"], input[type="email"] {
     background: none;
     border-bottom: 0.01rem solid rgb(78, 78, 78);
     width: 14rem;
@@ -236,9 +236,10 @@ body {
 
 .contact > form > textarea {
     background: none;
-    width: 13rem;
+    width: 14rem;
     border-bottom: 0.01rem solid rgb(78, 78, 78);
-    padding: 1rem;
+    padding: 0.5rem;
+    color: #ccc;
 }
 
 .contact > form > input[type="submit"] {
