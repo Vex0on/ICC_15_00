@@ -4,7 +4,8 @@ from .forms import ContactForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
-
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 
 # Create your views here.
 
@@ -36,8 +37,34 @@ def homePage(request):
     return render(request, 'App/index.html', context)
 
 
+# login
+
 def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('email')
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, 'Nazwa użytkownika jest niepoprawna')
+            return render(request, 'App/subpages/login.html')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            auth_login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Hasło nie jest zgodne.')
+            return render(request, 'App/subpages/login.html')
+
     return render(request, 'App/subpages/login.html')
+
+
+def logout(request):
+    auth_logout(request)
+    return redirect('home')
 
 
 def registration(request):

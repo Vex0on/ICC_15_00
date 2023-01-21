@@ -14,7 +14,8 @@
 <body>
 
     <main>
-        <form action="" class="login">
+        <form action="" class="login" method="POST">
+            {% csrf_token %}
             <h1>Logowanie</h1>
 
             <label for="email">E-mail</label>
@@ -22,7 +23,12 @@
 
             <label for="password">Hasło</label>
             <input type="password" name="password">
-
+            {% if messages %}
+            {% for message in messages %}
+            <br>
+            <p class="error_message">{{ message }}</p>
+            {% endfor %}
+            {% endif %}
             <button type="submit">Zaloguj</button>
 
             <div class="remind-register-container">
