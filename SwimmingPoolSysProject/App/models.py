@@ -97,3 +97,12 @@ class Ticket(models.Model):
 
     def __str__(self):
         return f'{self.zone}'
+
+
+class Complaint(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    ticket = models.OneToOneField(Ticket, on_delete=models.CASCADE)
+    description = models.CharField(max_length=255, null=False)
+
+    def __str__(self):
+        return f'{self.client} {self.ticket}'
