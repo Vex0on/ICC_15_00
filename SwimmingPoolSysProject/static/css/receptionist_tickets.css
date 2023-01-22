@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover!important;
+    background: linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.86)),url("../img/ticket_buy-01.jpg");
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+}
+
+form {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(7, 7, 7, 0.65);
+    min-height: 90vh;
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    position: relative;
+}
+
+form > h1 {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.list {
+    width: 90%;
+    margin-top: 1rem;
+    height: 20rem;
+    overflow-x:auto;
+    overflow-y:auto;
+    border: 0.1rem solid #333;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: #050505;
+    font-weight: bold;
+    padding: 8px;
+    border: 1px solid #333;
+}
+
+td {
+    border: 1px solid #333;
+    padding: 8px;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+input[type="radio"]:hover {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.buttons > a > input {
+    width: 15rem;
+    height: 4.2rem;
+    font-size: 1.25rem;
+    background-color: rgb(10, 10, 10);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+    color: #ccc;
+    letter-spacing: 0.1rem;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.buttons > a > input:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
+}
+
+.mini-nav {
+    position: fixed;
+    top: 88%;
+    left: 82%;
+}
+
+.mini-nav > a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 0.1rem solid #999;
+    padding: 0.6rem;
+    color: #ccc;
+}
