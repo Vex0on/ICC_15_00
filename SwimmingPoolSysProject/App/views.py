@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from .models import Worker
 
 # Create your views here.
 
@@ -96,7 +97,9 @@ def manager_plan_list(request):
 
 
 def manager_employees(request):
-    return render(request, 'App/subpages/manager/manager_employees.html')
+    workers = Worker.objects.all()
+    context = {'workers': workers}
+    return render(request, 'App/subpages/manager/manager_employees.html', context)
 
 
 def manager_employees_add(request):
