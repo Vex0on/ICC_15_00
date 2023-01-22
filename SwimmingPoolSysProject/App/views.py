@@ -1,12 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
-from .models import Worker
+from .models import *
 
 # Create your views here.
 
@@ -90,7 +90,9 @@ def manager_plan(request):
 
 
 def manager_plan_list(request):
-    return render(request, 'App/subpages/manager/manager_plan_list.html')
+    workers = Worker.objects.all()
+    context = {'workers': workers}
+    return render(request, 'App/subpages/manager/manager_plan_list.html', context)
 
 
 # Manager plan employees
@@ -106,8 +108,12 @@ def manager_employees_add(request):
     return render(request, 'App/subpages/manager/manager_employees_add.html')
 
 
-def manager_employees_show(request):
-    return render(request, 'App/subpages/manager/manager_employees_show.html')
+def manager_employees_show(request, worker_id):
+    worker = get_object_or_404(Worker, pk=worker_id)
+    workerAddress = get_object_or_404(WorkerAddress, worker=worker)
+    context = {'worker': worker,
+               'workerAddress': workerAddress}
+    return render(request, 'App/subpages/manager/manager_employees_show.html', context)
 
 
 def manager_employees_delete(request):

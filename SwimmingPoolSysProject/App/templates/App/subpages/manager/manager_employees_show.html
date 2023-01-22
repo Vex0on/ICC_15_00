@@ -17,37 +17,37 @@
             <h1>Dane Pracownika</h1>
             <table>
                 <tr>
-                    <td>ID</td><td>id</td>
+                    <td>ID</td><td>{{ worker.id }}</td>
                 </tr>
                 <tr>
-                    <td>Imię</td><td>imie</td>
+                    <td>Imię</td><td>{{ worker.name }}</td>
                 </tr>
                 <tr>
-                    <td>Nazwisko</td><td>nazwisko</td>
+                    <td>Nazwisko</td><td>{{ worker.surname }}</td>
                 </tr>
                 <tr>
-                    <td>Numer Telefonu</td><td>telefon</td>
+                    <td>Numer Telefonu</td><td>{{ worker.phoneNumber }}</td>
                 </tr>
                 <tr>
-                    <td>E-mail</td><td>mail</td>
+                    <td>E-mail</td><td>{{ worker.email }}</td>
                 </tr>
                 <tr>
-                    <td>Pesel</td><td>pesel</td>
+                    <td>Pesel</td><td>{{ worker.pesel }}</td>
                 </tr>
                 <tr>
-                    <td>Ulica</td><td>ulica</td>
+                    <td>Ulica</td><td>{{ workerAddress.street }}</td>
                 </tr>
                 <tr>
-                    <td>Numer Domu</td><td>nrdom</td>
+                    <td>Numer Domu</td><td>{{ workerAddress.houseNumber }}</td>
                 </tr>
                 <tr>
-                    <td>Numer Mieszkania</td><td>nrmieszka</td>
+                    <td>Numer Mieszkania</td><td>{{ workerAddress.flatNumber }}</td>
                 </tr>
                 <tr>
-                    <td>Kod Pocztowy</td><td>kod</td>
+                    <td>Kod Pocztowy</td><td>{{ workerAddress.postcode }}</td>
                 </tr>
                 <tr>
-                    <td>Miejscowość</td><td>miejscowosc</td>
+                    <td>Miejscowość</td><td>{{ workerAddress.placeName }}</td>
                 </tr>
             </table>
             

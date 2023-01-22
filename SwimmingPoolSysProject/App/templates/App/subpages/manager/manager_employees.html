@@ -22,20 +22,19 @@
                     </tr>
                     {% for worker in workers %}
                     <tr>
-                        <td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td><td><input type="radio" name="list-employees"></td>
+                        <td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td><td><input type="radio" name="worker_id" value="{{ worker.id }}" onclick="location.href='{% url 'manager_employees_show' worker_id=worker.id %}'"></td>
                     </tr>
-                    <tr>
                     {% endfor %}
                 </table>
             </div>
 
             <div class="buttons">
-                <a href="{% url 'manager_employees_show' %}">
-                    <input type="button" value="Wyświetl">
-                </a>
-    
                 <a href="{% url 'manager_employees_add' %}">
-                    <input type="button" value="Dodaj">
+                    <input type="button" value="Dodaj" >
+                </a>
+
+                <a href="{% url 'manager_employees_add' %}">
+                    <input type="button" value="Dodaj" >
                 </a>
     
                 <a href="{% url 'manager_employees_delete' %}">
