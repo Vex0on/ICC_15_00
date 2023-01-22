@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -105,14 +106,20 @@ def manager_employees(request):
 
 
 def manager_employees_add(request):
-    return render(request, 'App/subpages/manager/manager_employees_add.html')
+    form = CreateWorkerForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect(manager_panel)
+    context = {'form': form}
+    return render(request, 'App/subpages/manager/manager_employees_add.html', context)
 
 
 def manager_employees_show(request, worker_id):
     worker = get_object_or_404(Worker, pk=worker_id)
-    workerAddress = get_object_or_404(WorkerAddress, worker=worker)
+    worker_address = get_object_or_404(WorkerAddress, worker=worker)
     context = {'worker': worker,
-               'workerAddress': workerAddress}
+               'workerAddress': worker_address}
     return render(request, 'App/subpages/manager/manager_employees_show.html', context)
 
 
