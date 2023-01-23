@@ -12,6 +12,7 @@ urlpatterns = [
     path('manager_panel/plan/list/', views.manager_plan_list, name='manager_plan_list'),
     path('manager_panel/employees/', views.manager_employees, name='manager_employees'),
     path('manager_panel/employees/add/', views.manager_employees_add, name='manager_employees_add'),
+    path('manager_panel/employees/add/workerAddress', views.manager_employees_add_worker_address, name='manager_employees_add_worker_address'),
     path('manager_panel/employees/show/<int:worker_id>/', views.manager_employees_show, name='manager_employees_show'),
-    path('manager_panel/employees/delete/', views.manager_employees_delete, name='manager_employees_delete'),
+    path('manager_panel/employees/delete/<int:worker_id>', views.manager_employees_delete, name='manager_employees_delete'),
 ]

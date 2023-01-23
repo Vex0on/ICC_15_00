@@ -13,33 +13,12 @@
 </head>
 <body>
     <main>
-        <form action="">
+        <form method="POST" action="">
+            {% csrf_token %}
             <h1>Dodaj Pracownika</h1>
 
             <div class="form-container">
-                <label for="first-name">Imię</label>
-                <input type="text" name="first-name">
-
-                <label for="last-name">Nazwisko</label>
-                <input type="text" name="last-name">
-
-                <label for="phone-number">Numer telefonu</label>
-                <input type="tel" name="phone-number">
-
-                <label for="email">E-mail</label>
-                <input type="email" name="email">
-
-                <label for="pesel">Pesel</label>
-                <input type="text" name="pesel">
-
-                <label for="address">Adres zamieszkania</label>
-                <input type="text" name="address">
-
-                <label for="postcode">Kod pocztowy</label>
-                <input type="text" pattern="[0-9]{5}" name="postcode">
-                
-                <label for="place">Miejscowość</label>
-                <input type="text" name="place">
+                {{ form }}
             </div>
 
             <div class="form-buttons">
