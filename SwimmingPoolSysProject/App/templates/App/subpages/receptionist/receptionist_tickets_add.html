@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocałunek Neptuna</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../../style/receptionist_tickets_add.css">
+</head>
+<body>
+    <main>
+        <form action="">
+            <h1>Dodaj Bilet</h1>
+
+            <div class="form-container">
+                <label for="price">Cena</label>
+                <input type="text" name="price">
+
+                <label for="zone">Strefa</label>
+                <input type="text" name="zone">
+
+                <label for="data-purchase">Data Zakupu</label>
+                <input type="datetime-local" name="data-purchase">
+            </div>
+
+            <div class="form-buttons">
+                <a href="receptionist_panel.html">
+                    <input type="button" value="Wróć">
+                </a>
+                <input type="submit" name="add" value="Dodaj">
+            </div>
+        </form>
+
+        <nav class="mini-nav">
+            <a href="../../index.html">Strona Główna</a>
+        </nav>
+    </main>
+</body>
+</html>
