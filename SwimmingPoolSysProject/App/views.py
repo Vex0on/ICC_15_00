@@ -170,6 +170,38 @@ def manager_employees_edit_worker_address(request, worker_id):
     return render(request, 'App/subpages/manager/manager_employees_edit.html', context)
 
 
+# receptionist panel
+
+
+def receptionist_panel(request):
+    return render(request, 'App/subpages/receptionist/receptionist_panel.html')
+
+
+def receptionist_tickets(request):
+    return render(request, 'App/subpages/receptionist/receptionist_tickets.html')
+
+
+def receptionist_tickets_add(request):
+    return render(request, 'App/subpages/receptionist/receptionist_tickets_add.html')
+
+
+# accountant panel
+
+
+def accountant_panel(request):
+    return render(request, 'App/subpages/accountant/accountant_panel.html')
+
+
+def accountant_accountancy(request):
+    return render(request, 'App/subpages/accountant/accountant_accountancy.html')
+
+
+def accountant_result(request):
+    return render(request, 'App/subpages/accountant/accountant_result.html')
+
+
+# Tickets
+
 
 def ticket_buy_gym(request):
     return render(request, 'App/subpages/client/ticket_buy_gym.html')

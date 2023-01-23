@@ -38,12 +38,12 @@
                 {% endfor %}
                 {% for group in request.user.groups.all %}
                     {% if group.name == 'ksiegowa' %}
-                        <li class=""> <a href="">Panel</a></li>
+                        <li class=""> <a href="{% url 'accountant_panel' %}">Panel</a></li>
                     {% endif %}
                 {% endfor %}
                 {% for group in request.user.groups.all %}
                     {% if group.name == 'recepcjonista' %}
-                        <li class=""> <a href="">Panel</a></li>
+                        <li class=""> <a href="{% url 'receptionist_panel' %}">Panel</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
