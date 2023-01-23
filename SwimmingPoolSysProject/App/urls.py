@@ -14,5 +14,5 @@ urlpatterns = [
     path('manager_panel/employees/add/', views.manager_employees_add, name='manager_employees_add'),
     path('manager_panel/employees/add/workerAddress', views.manager_employees_add_worker_address, name='manager_employees_add_worker_address'),
     path('manager_panel/employees/show/<int:worker_id>/', views.manager_employees_show, name='manager_employees_show'),
-    path('manager_panel/employees/delete/', views.manager_employees_delete, name='manager_employees_delete'),
+    path('manager_panel/employees/delete/<int:worker_id>', views.manager_employees_delete, name='manager_employees_delete'),
 ]

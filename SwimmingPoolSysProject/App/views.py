@@ -125,6 +125,14 @@ def manager_employees_add_worker_address(request):
     return render(request, 'App/subpages/manager/manager_employees_add.html', context)
 
 
+def manager_employees_delete(request, worker_id):
+    worker = Worker.objects.get(pk=worker_id)
+    if request.method == 'POST':
+        worker.delete()
+        return redirect('manager_employees')
+    return render(request, 'App/subpages/manager/manager_employees_delete.html', {'worker': worker})
+
+
 def manager_employees_show(request, worker_id):
     worker = get_object_or_404(Worker, pk=worker_id)
     worker_address = get_object_or_404(WorkerAddress, worker=worker)
@@ -132,6 +140,3 @@ def manager_employees_show(request, worker_id):
                'workerAddress': worker_address}
     return render(request, 'App/subpages/manager/manager_employees_show.html', context)
 
-
-def manager_employees_delete(request):
-    return render(request, 'App/subpages/manager/manager_employees_delete.html')
