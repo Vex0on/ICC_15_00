@@ -90,10 +90,15 @@ def manager_plan(request):
 
 
 def manager_plan_list(request):
-    workers = Worker.objects.all()
-    context = {'workers': workers}
-    return render(request, 'App/subpages/manager/manager_plan_list.html', context)
-
+    return render(request, 'App/subpages/manager/manager_plan_list.html')
+    #     if request.POST.get('calendar'):
+    #         date = request.POST.get('calendar')
+    #         shifts = Shift.objects.filter(startTime__date=date)
+    #         context = {'shifts': shifts}
+    #         return render(request, 'App/subpages/manager/manager_plan_list.html', context)
+    #     else:
+    #         return render(request, 'App/subpages/manager/manager_plan.html')
+            
 
 # Manager plan employees
 

@@ -14,17 +14,28 @@
 <body>
     <main>
         <form action="">
+            {% csrf_token %}
             <h1>Lista pracowników</h1>
 
             <div class="list">
                 <table>
                     <tr>
-                        <th>Imię</th><th>Nazwisko</th><th>Nr Telefonu</th><th></th>
+                        <th>Zmiana</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Nr Telefonu</th>
+                        <th></th>
                     </tr>
-                    {% for worker in workers %}
+                    {% for shift in shifts %}
+                    {% for worker in shift.worker.all %}
                     <tr>
-                        <td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td><td><input type="radio" name="list-employees"></td>
+                        <td>{{shift.description}}</td>
+                        <td>{{worker.name}}</td>
+                        <td>{{worker.surname}}</td>
+                        <td>{{worker.phoneNumber}}</td>
+                        <td><input type="radio" name="list-employees"></td>
                     </tr>
+                    {% endfor %}
                     {% endfor %}
                 </table>
             </div>
