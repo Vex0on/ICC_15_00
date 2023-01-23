@@ -22,7 +22,7 @@
                     </tr>
                     {% for worker in workers %}
                     <tr>
-                        <td>{{worker.id}}</td><td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td><td><input type="radio" name="worker_id" value="{{ worker.id }}" onclick="location.href='{% url 'manager_employees_show' worker_id=worker.id %}'"></td>
+                        <td>{{worker.id}}</td><td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td><td><input type="button" name="worker_id" value="szczegóły" onclick="location.href='{% url 'manager_employees_show' worker_id=worker.id %}'"></td>
                     </tr>
                     {% endfor %}
                 </table>

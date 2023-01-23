@@ -13,3 +13,11 @@ class CreateWorkerForm(ModelForm):
     class Meta:
         model = Worker
         fields = "__all__"
+
+
+class CreateWorkerAddressForm(ModelForm):
+    class Meta:
+        model = WorkerAddress
+        fields = "__all__"
+
+

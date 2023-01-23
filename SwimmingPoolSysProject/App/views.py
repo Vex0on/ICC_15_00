@@ -110,7 +110,17 @@ def manager_employees_add(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect(manager_panel)
+            return redirect('manager_employees_add_worker_address')
+    context = {'form': form}
+    return render(request, 'App/subpages/manager/manager_employees_add.html', context)
+
+
+def manager_employees_add_worker_address(request):
+    form = CreateWorkerAddressForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('manager_employees')
     context = {'form': form}
     return render(request, 'App/subpages/manager/manager_employees_add.html', context)
 
