@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocałunek Neptuna</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../../style/ticket_buy.css">
+</head>
+<body>
+    <main>
+        <form action="">
+            <h1>Kup Bilet - Siłownia</h1>
+            <div class="container-form">
+                <h2>Dane Personalne</h2>
+                <label for="first-name">Imię</label>
+                <input type="text" name="first-name">
+
+                <label for="last-name">Nazwisko</label>
+                <input type="text" name="last-name">
+
+                <label for="email">E-mail</label>
+                <input type="email" name="email">
+
+                <label for="pesel">Pesel</label>
+                <input type="text" name="pesel">
+
+                <label for="phone-number">Numer telefonu</label>
+                <input type="tel" name="phone-number">
+
+                <h2>Adres zamieszkania</h2>
+                <label for="place">Miejscowość</label>
+                <input type="text" name="place">
+
+                <label for="postcode">Kod pocztowy</label>
+                <input type="text" pattern="[0-9]{5}" name="postcode">
+
+                <label for="address">Adres zamieszkania</label>
+                <input type="text" name="address">
+
+                <h2>Bilet</h2> 
+                <label for="ticket-type">Rodzaj biletu</label>
+                <select name="ticket-type">
+                    <option value="">Wybierz bilet</option>
+                    <option value="">BASEN</option>
+                    <option value="swimming-pool-option-1">35zł/h Ulgowy</option>
+                    <option value="swimming-pool-option-2">45zł/h Normalny</option>
+                    <option value="swimming-pool-option-3">30zł/h Grupowy</option>
+                    <option value="">SIŁOWNIA</option>
+                    <option value="gym-option-1">35zł/h Ulgowy</option>
+                    <option value="gym-option-2">45zł/h Normalny</option>
+                    <option value="gym-option-3">30zł/h Grupowy</option>
+                    <option value="">SPA</option>
+                    <option value="spa-option-1">35zł/h Ulgowy</option>
+                    <option value="spa-option-2">45zł/h Normalny</option>
+                    <option value="spa-option-3">30zł/h Grupowy</option>
+                </select>
+
+                <label for="visit-date">Data i godzina wizyty:</label>
+                <input type="datetime-local" name="visit-date">
+            </div>
+            <button type="submit" name="register">Kup Bilet</button>
+        </form>
+
+        <nav class="mini-nav">
+            <a href="../../index.html">Strona Główna</a>
+        </nav>
+    </main>
+</body>
+</html>
