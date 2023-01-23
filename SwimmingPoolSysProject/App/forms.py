@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from .models import *
 import re
 
+
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=255)
     email = forms.EmailField(widget=forms.EmailInput)
@@ -33,6 +34,8 @@ class CreateWorkerForm(ModelForm):
             raise forms.ValidationError("Pole nie może zawierać liter")
         if len(number) != 9:
             raise ValidationError('Numer telefonu musi zawierać 9 cyfr')
+        if number[0] == '0':
+            raise ValidationError('Numer nie moze sie zaczynac od 0')
         return number
 
     def clean_pesel(self):

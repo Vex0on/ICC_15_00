@@ -25,6 +25,7 @@
                         <td>{{worker.id}}</td><td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td>
                         <td><input type="button" name="worker_id" value="szczegóły" onclick="location.href='{% url 'manager_employees_show' worker_id=worker.id %}'"></td>
                         <td><input type="button" name="worker_id" value="usuń" onclick="location.href='{% url 'manager_employees_delete' worker_id=worker.id %}'"></td>
+                        <td><input type="button" name="worker_id" value="edytuj" onclick="location.href='{% url 'manager_employees_edit' worker_id=worker.id %}'"></td>
                     </tr>
                     {% endfor %}
                 </table>

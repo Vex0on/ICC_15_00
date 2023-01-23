@@ -141,7 +141,34 @@ def manager_employees_show(request, worker_id):
     return render(request, 'App/subpages/manager/manager_employees_show.html', context)
 
 
-# Kupowanie biletów
+def manager_employees_edit(request, worker_id):
+    worker = Worker.objects.get(pk=worker_id)
+    form = CreateWorkerForm(instance=worker)
+
+    if request.method == 'POST':
+        form = CreateWorkerForm(request.POST, instance=worker)
+        if form.is_valid():
+            form.save()
+            return redirect('manager_employees_edit_worker_address', worker_id)
+
+    context = {'form':form}
+    return render(request, 'App/subpages/manager/manager_employees_edit.html', context)
+
+
+def manager_employees_edit_worker_address(request, worker_id):
+    worker = Worker.objects.get(pk=worker_id)
+    worker_address = WorkerAddress.objects.get(worker=worker)
+    form = CreateWorkerAddressForm(instance=worker_address)
+
+    if request.method == 'POST':
+        form = CreateWorkerAddressForm(request.POST, instance=worker_address)
+        if form.is_valid():
+            form.save()
+            return redirect('manager_employees')
+
+    context = {'form': form}
+    return render(request, 'App/subpages/manager/manager_employees_edit.html', context)
+
 
 
 def ticket_buy_gym(request):
