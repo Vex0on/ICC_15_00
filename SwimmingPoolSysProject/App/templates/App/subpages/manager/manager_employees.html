@@ -18,11 +18,14 @@
             <div class="list">
                 <table>
                     <tr>
-                        <th>Imię</th><th>Nazwisko</th><th>Nr Telefonu</th><th></th>
+                        <th>ID</th><th>Imię</th><th>Nazwisko</th><th>Nr Telefonu</th><th></th>
                     </tr>
                     {% for worker in workers %}
                     <tr>
-                        <td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td><td><input type="radio" name="worker_id" value="{{ worker.id }}" onclick="location.href='{% url 'manager_employees_show' worker_id=worker.id %}'"></td>
+                        <td>{{worker.id}}</td><td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td>
+                        <td><input type="button" name="worker_id" value="szczegóły" onclick="location.href='{% url 'manager_employees_show' worker_id=worker.id %}'"></td>
+                        <td><input type="button" name="worker_id" value="usuń" onclick="location.href='{% url 'manager_employees_delete' worker_id=worker.id %}'"></td>
+                        <td><input type="button" name="worker_id" value="edytuj" onclick="location.href='{% url 'manager_employees_edit' worker_id=worker.id %}'"></td>
                     </tr>
                     {% endfor %}
                 </table>
@@ -33,11 +36,7 @@
                 <a href="{% url 'manager_employees_add' %}">
                     <input type="button" value="Dodaj" >
                 </a>
-    
-                <a href="{% url 'manager_employees_delete' %}">
-                    <input type="button" value="Usuń">
-                </a>
-                
+
                 <a href="{% url 'manager_panel' %}">
                     <input type="button" value="Wróć">
                 </a>

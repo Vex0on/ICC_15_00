@@ -61,6 +61,21 @@ form > h1 {
     color: #ccc;
 }
 
+.price, .zone, .worker, .client {
+    background: none;
+    padding: 0.7rem;
+    outline: none;
+    width: 22rem;
+    border: none;
+    border-bottom: 0.1rem solid #777;
+    color: #ccc;
+    margin-top: 0.3rem;
+}
+
+.price option, .zone option, .worker option, .client option {
+    background: rgba(7, 7, 7, 0.9);
+}
+
 .form-buttons {
     margin-top: 3rem;
     display: flex;

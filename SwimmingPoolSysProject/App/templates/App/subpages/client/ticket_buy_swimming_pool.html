@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../../style/ticket_buy.css">
+    <link rel="stylesheet" href="{% static '/css/ticket_buy.css' %}">
 </head>
 <body>
     <main>
@@ -45,18 +46,9 @@
                 <label for="ticket-type">Rodzaj biletu</label>
                 <select name="ticket-type">
                     <option value="">Wybierz bilet</option>
-                    <option value="">BASEN</option>
-                    <option value="swimming-pool-option-1">35zł/h Ulgowy</option>
                     <option value="swimming-pool-option-2">45zł/h Normalny</option>
+                    <option value="swimming-pool-option-1">35zł/h Ulgowy</option>
                     <option value="swimming-pool-option-3">30zł/h Grupowy</option>
-                    <option value="">SIŁOWNIA</option>
-                    <option value="gym-option-1">35zł/h Ulgowy</option>
-                    <option value="gym-option-2">45zł/h Normalny</option>
-                    <option value="gym-option-3">30zł/h Grupowy</option>
-                    <option value="">SPA</option>
-                    <option value="spa-option-1">35zł/h Ulgowy</option>
-                    <option value="spa-option-2">45zł/h Normalny</option>
-                    <option value="spa-option-3">30zł/h Grupowy</option>
                 </select>
 
                 <label for="visit-date">Data i godzina wizyty:</label>
@@ -66,7 +58,7 @@
         </form>
 
         <nav class="mini-nav">
-            <a href="../../index.html">Strona Główna</a>
+            <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
     </main>
 </body>

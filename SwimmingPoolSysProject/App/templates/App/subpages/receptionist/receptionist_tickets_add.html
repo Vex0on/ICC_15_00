@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,26 +9,30 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../../style/receptionist_tickets_add.css">
+    <link rel="stylesheet" href="{% static '/css/receptionist_tickets_add.css' %}">
 </head>
 <body>
     <main>
-        <form action="">
+        <form method="POST" action="">
+            {% csrf_token %}
             <h1>Dodaj Bilet</h1>
 
             <div class="form-container">
                 <label for="price">Cena</label>
-                <input type="text" name="price">
+                {{ form.price }}
 
                 <label for="zone">Strefa</label>
-                <input type="text" name="zone">
+                {{ form.zone }}
 
-                <label for="data-purchase">Data Zakupu</label>
-                <input type="datetime-local" name="data-purchase">
+                <label for="worker">Pracownik</label>
+                {{ form.worker }}
+
+                <label for="client">Klient</label>
+                {{ form.client }}
             </div>
 
             <div class="form-buttons">
-                <a href="receptionist_panel.html">
+                <a href="{% url 'receptionist_panel' %}">
                     <input type="button" value="Wróć">
                 </a>
                 <input type="submit" name="add" value="Dodaj">
@@ -35,7 +40,7 @@
         </form>
 
         <nav class="mini-nav">
-            <a href="../../index.html">Strona Główna</a>
+            <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
     </main>
 </body>

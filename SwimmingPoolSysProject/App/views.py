@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -110,16 +111,118 @@ def manager_employees(request):
 
 
 def manager_employees_add(request):
-    return render(request, 'App/subpages/manager/manager_employees_add.html')
+    form = CreateWorkerForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('manager_employees_add_worker_address')
+    context = {'form': form}
+    return render(request, 'App/subpages/manager/manager_employees_add.html', context)
+
+
+def manager_employees_add_worker_address(request):
+    form = CreateWorkerAddressForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('manager_employees')
+    context = {'form': form}
+    return render(request, 'App/subpages/manager/manager_employees_add.html', context)
+
+
+def manager_employees_delete(request, worker_id):
+    worker = Worker.objects.get(pk=worker_id)
+    if request.method == 'POST':
+        worker.delete()
+        return redirect('manager_employees')
+    return render(request, 'App/subpages/manager/manager_employees_delete.html', {'worker': worker})
 
 
 def manager_employees_show(request, worker_id):
     worker = get_object_or_404(Worker, pk=worker_id)
-    workerAddress = get_object_or_404(WorkerAddress, worker=worker)
+    worker_address = get_object_or_404(WorkerAddress, worker=worker)
     context = {'worker': worker,
-               'workerAddress': workerAddress}
+               'workerAddress': worker_address}
     return render(request, 'App/subpages/manager/manager_employees_show.html', context)
 
 
-def manager_employees_delete(request):
-    return render(request, 'App/subpages/manager/manager_employees_delete.html')
+def manager_employees_edit(request, worker_id):
+    worker = Worker.objects.get(pk=worker_id)
+    form = CreateWorkerForm(instance=worker)
+
+    if request.method == 'POST':
+        form = CreateWorkerForm(request.POST, instance=worker)
+        if form.is_valid():
+            form.save()
+            return redirect('manager_employees_edit_worker_address', worker_id)
+
+    context = {'form':form}
+    return render(request, 'App/subpages/manager/manager_employees_edit.html', context)
+
+
+def manager_employees_edit_worker_address(request, worker_id):
+    worker = Worker.objects.get(pk=worker_id)
+    worker_address = WorkerAddress.objects.get(worker=worker)
+    form = CreateWorkerAddressForm(instance=worker_address)
+
+    if request.method == 'POST':
+        form = CreateWorkerAddressForm(request.POST, instance=worker_address)
+        if form.is_valid():
+            form.save()
+            return redirect('manager_employees')
+
+    context = {'form': form}
+    return render(request, 'App/subpages/manager/manager_employees_edit.html', context)
+
+
+# receptionist panel
+
+
+def receptionist_panel(request):
+    return render(request, 'App/subpages/receptionist/receptionist_panel.html')
+
+
+def receptionist_tickets(request):
+    tickets = Ticket.objects.all()
+    context = {'tickets': tickets}
+    return render(request, 'App/subpages/receptionist/receptionist_tickets.html', context)
+
+
+def receptionist_tickets_add(request):
+    form = CreateTicketsForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('receptionist_tickets')
+    context = {'form': form}
+    return render(request, 'App/subpages/receptionist/receptionist_tickets_add.html', context)
+
+
+# accountant panel
+
+
+def accountant_panel(request):
+    return render(request, 'App/subpages/accountant/accountant_panel.html')
+
+
+def accountant_accountancy(request):
+    return render(request, 'App/subpages/accountant/accountant_accountancy.html')
+
+
+def accountant_result(request):
+    return render(request, 'App/subpages/accountant/accountant_result.html')
+
+
+# Tickets
+
+
+def ticket_buy_gym(request):
+    return render(request, 'App/subpages/client/ticket_buy_gym.html')
+
+
+def ticket_buy_spa(request):
+    return render(request, 'App/subpages/client/ticket_buy_spa.html')
+
+
+def ticket_buy_swimming_pool(request):
+    return render(request, 'App/subpages/client/ticket_buy_swimming_pool.html')
