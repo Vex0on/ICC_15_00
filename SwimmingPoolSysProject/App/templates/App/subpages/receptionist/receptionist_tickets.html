@@ -21,33 +21,12 @@
                     <tr>
                         <th>Id</th> <th>Cena</th> <th>Strefa</th> <th>Data Zakupu</th>
                     </tr>
+                    {% for ticket in tickets %}
                     <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
+                        <td>{{ ticket.id }}</td> <td>{{ ticket.price }}zł</td> <td>{{ ticket.zone }}</td> <td>
+                        {{ ticket.dateOfPurchase|date:'Y-m-d | H:i'}}</td>
                     </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Strefa</td> <td>Data Zakupu</td>
-                    </tr>
+                    {% endfor %}
                 </table>
             </div>
 

@@ -59,12 +59,16 @@ class CreateWorkerAddressForm(ModelForm):
         fields = "__all__"
 
         labels = {
-            'worker': 'Pracownik',
+            'worker': '',
             'street': 'Ulica',
             'houseNumber': 'Numer domu',
             'flatNumber': 'Numer mieszkania',
             'postcode': 'Kod pocztowy',
             'placeName': 'Miasto',
+        }
+
+        widgets = {
+            'worker': forms.Select(attrs={'class': 'worker'}),
         }
 
     def clean_street(self):
@@ -80,4 +84,14 @@ class CreateWorkerAddressForm(ModelForm):
         return place
 
 
+class CreateTicketsForm(ModelForm):
 
+    class Meta:
+        model = Ticket
+        fields = ['price', 'zone', 'worker', 'client']
+        widgets = {
+            'price': forms.Select(attrs={'class': 'price'}),
+            'zone': forms.Select(attrs={'class': 'zone'}),
+            'worker': forms.Select(attrs={'class': 'worker'}),
+            'client': forms.Select(attrs={'class': 'client'})
+        }

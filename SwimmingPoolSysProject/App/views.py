@@ -178,11 +178,19 @@ def receptionist_panel(request):
 
 
 def receptionist_tickets(request):
-    return render(request, 'App/subpages/receptionist/receptionist_tickets.html')
+    tickets = Ticket.objects.all()
+    context = {'tickets': tickets}
+    return render(request, 'App/subpages/receptionist/receptionist_tickets.html', context)
 
 
 def receptionist_tickets_add(request):
-    return render(request, 'App/subpages/receptionist/receptionist_tickets_add.html')
+    form = CreateTicketsForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('receptionist_tickets')
+    context = {'form': form}
+    return render(request, 'App/subpages/receptionist/receptionist_tickets_add.html', context)
 
 
 # accountant panel

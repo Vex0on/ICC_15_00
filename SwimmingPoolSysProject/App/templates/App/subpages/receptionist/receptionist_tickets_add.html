@@ -13,18 +13,22 @@
 </head>
 <body>
     <main>
-        <form action="">
+        <form method="POST" action="">
+            {% csrf_token %}
             <h1>Dodaj Bilet</h1>
 
             <div class="form-container">
                 <label for="price">Cena</label>
-                <input type="text" name="price">
+                {{ form.price }}
 
                 <label for="zone">Strefa</label>
-                <input type="text" name="zone">
+                {{ form.zone }}
 
-                <label for="data-purchase">Data Zakupu</label>
-                <input type="datetime-local" name="data-purchase">
+                <label for="worker">Pracownik</label>
+                {{ form.worker }}
+
+                <label for="client">Klient</label>
+                {{ form.client }}
             </div>
 
             <div class="form-buttons">

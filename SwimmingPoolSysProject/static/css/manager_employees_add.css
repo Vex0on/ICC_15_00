@@ -18,6 +18,10 @@ main {
     color: #ccc;
 }
 
+.worker {
+    display: none;
+}
+
 form {
     width: 40%;
     display: flex;
