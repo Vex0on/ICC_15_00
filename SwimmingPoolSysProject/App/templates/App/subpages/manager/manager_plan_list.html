@@ -13,9 +13,10 @@
 </head>
 <body>
     <main>
-        <form action="">
+        <form action="" method="POST">
             {% csrf_token %}
-            <h1>Lista pracowników</h1>
+
+            <h1>Lista zmian</h1>
 
             <div class="list">
                 <table>
@@ -33,15 +34,20 @@
                         <td>{{worker.name}}</td>
                         <td>{{worker.surname}}</td>
                         <td>{{worker.phoneNumber}}</td>
-                        <td><input type="radio" name="list-employees"></td>
+                        <td><input type="button" name="worker_id" value="szczegóły" onclick="location.href='{% url 'manager_plan_list_show' shift_id=shift.id %}'"></td>
+                        <td><input type="button" name="worker_id" value="usuń" onclick="location.href='{% url 'manager_plan_list_delete' shift_id=shift.id %}'"></td>
+                        <td><input type="button" name="worker_id" value="edytuj" onclick="location.href='{% url 'manager_plan_list_edit' shift_id=shift.id %}'"></td>
                     </tr>
                     {% endfor %}
                     {% endfor %}
                 </table>
             </div>
 
+            <div>
+                <label for="calendar">Data</label>
+                <input type="date" name="calendar">
+            </div>
             <input type="submit" value="Wybierz">
-            
             <a href="{% url 'manager_plan' %}">
                 <input type="button" value="Wróć">
             </a>

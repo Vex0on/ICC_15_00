@@ -9,21 +9,24 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/manager_plan.css' %}">
+    <link rel="stylesheet" href="{% static '/css/manager_employees_add.css' %}">
 </head>
 <body>
     <main>
-        <form action="">
-            <h1>Grafik</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h1>Edytuj zmiane</h1>
 
-            <a href="{% url 'manager_plan_list'%}">
-                <input type="button" value="Wyświetl">
-            </a>
-            <a href="{% url 'manager_plan_list' %}">
-                <input type="button" value="Dodaj">
-            <a href="{% url 'manager_panel' %}">
-                <input type="button" value="Wróć">
-            </a>
+            <div class="form-container">
+                {{ form }}
+            </div>
+
+            <div class="form-buttons">
+                <a href="{% url 'manager_plan_list' %}">
+                    <input type="button" value="Wróć">
+                </a>
+                <input type="submit" name="register">
+            </div>
         </form>
 
         <nav class="mini-nav">

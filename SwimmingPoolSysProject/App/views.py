@@ -91,15 +91,51 @@ def manager_plan(request):
 
 
 def manager_plan_list(request):
-    return render(request, 'App/subpages/manager/manager_plan_list.html')
-    #     if request.POST.get('calendar'):
-    #         date = request.POST.get('calendar')
-    #         shifts = Shift.objects.filter(startTime__date=date)
-    #         context = {'shifts': shifts}
-    #         return render(request, 'App/subpages/manager/manager_plan_list.html', context)
-    #     else:
-    #         return render(request, 'App/subpages/manager/manager_plan.html')
-            
+    shifts = Shift.objects.all()
+    context = {'shifts': shifts}
+
+    if request.method == "POST":
+        if request.POST.get('calendar'):
+            date = request.POST.get('calendar')
+            shifts = Shift.objects.filter(startTime__date=date)
+            context = {
+                'shifts': shifts
+            }
+            return render(request, 'App/subpages/manager/manager_plan_list.html', context)
+        return render(request, 'App/subpages/manager/manager_plan_list.html', context)
+    return render(request, 'App/subpages/manager/manager_plan_list.html', context)
+
+
+def manager_plan_list_edit(request, shift_id): 
+    shift = Shift.objects.get(pk=shift_id)
+    form = CreateShiftForm(instance=shift)
+
+    if request.method == 'POST':
+        form = CreateShiftForm(request.POST, instance=shift)
+        if form.is_valid():
+            form.save()
+            return redirect('manager_plan_list_edit', shift_id)
+
+    context = {'form':form}
+    return render(request, 'App/subpages/manager/manager_plan_list_edit.html', context)
+
+
+def manager_plan_list_show(request, shift_id): 
+    shift = get_object_or_404(Shift, pk=shift_id)
+    workers = Worker.objects.filter(shift=shift)
+    context = {
+        'shift': shift,
+        'workers': workers
+    }
+    return render(request, 'App/subpages/manager/manager_plan_list_show.html', context)
+
+
+def manager_plan_list_delete(request, shift_id): 
+    shift = Shift.objects.get(pk=shift_id)
+    if request.method == 'POST':
+        shift.delete()
+        return redirect('manager_plan_list')
+    return render(request, 'App/subpages/manager/manager_plan_list_delete.html', {'shift': shift})
 
 # Manager plan employees
 

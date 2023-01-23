@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <p>Czy na pewno chcesz usunac {{shift}}</p>
+
+        <a href="{{request.META.HTTP_REFERER}}"></a>
+        <input type="submit" value="Confirm">
+    </form>
+</head>
+<body>
+
+</body>
+</html>

@@ -8,7 +8,8 @@ import re
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=255)
     email = forms.EmailField(widget=forms.EmailInput)
-    message = forms.CharField(widget=forms.Textarea(attrs={'rows': 5, 'cols': 25}))
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': 5, 'cols': 25}))
 
 
 class CreateWorkerForm(ModelForm):
@@ -94,4 +95,23 @@ class CreateTicketsForm(ModelForm):
             'zone': forms.Select(attrs={'class': 'zone'}),
             'worker': forms.Select(attrs={'class': 'worker'}),
             'client': forms.Select(attrs={'class': 'client'})
+        }
+
+
+class CreateShiftForm(ModelForm):
+    class Meta:
+        model = Shift
+        fields = "__all__"
+        labels = {
+            'worker': 'Pracownicy',
+            'startTime': 'Początek zmiany',
+            'description': 'Zmiana'
+        }
+        widgets = {
+            'startTime': forms.DateTimeInput(
+                attrs={
+                    'type': 'datetime-local',
+                    'class': 'startTime'
+                }
+            ),
         }
