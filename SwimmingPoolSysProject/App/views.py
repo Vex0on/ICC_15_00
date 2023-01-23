@@ -140,3 +140,17 @@ def manager_employees_show(request, worker_id):
                'workerAddress': worker_address}
     return render(request, 'App/subpages/manager/manager_employees_show.html', context)
 
+
+# Kupowanie biletów
+
+
+def ticket_buy_gym(request):
+    return render(request, 'App/subpages/client/ticket_buy_gym.html')
+
+
+def ticket_buy_spa(request):
+    return render(request, 'App/subpages/client/ticket_buy_spa.html')
+
+
+def ticket_buy_swimming_pool(request):
+    return render(request, 'App/subpages/client/ticket_buy_swimming_pool.html')
