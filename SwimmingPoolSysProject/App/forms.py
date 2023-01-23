@@ -16,6 +16,12 @@ class CreateWorkerForm(ModelForm):
         model = Worker
         fields = "__all__"
 
+        labels = {
+            'name': 'Imie',
+            'surname': 'Nazwisko',
+            'phoneNumber': 'Numer telefonu',
+        }
+
     def clean_name(self):
         name = self.cleaned_data.get('name')
         if re.search(r'\d', name):
@@ -51,6 +57,15 @@ class CreateWorkerAddressForm(ModelForm):
     class Meta:
         model = WorkerAddress
         fields = "__all__"
+
+        labels = {
+            'worker': 'Pracownik',
+            'street': 'Ulica',
+            'houseNumber': 'Numer domu',
+            'flatNumber': 'Numer mieszkania',
+            'postcode': 'Kod pocztowy',
+            'placeName': 'Miasto',
+        }
 
     def clean_street(self):
         street = self.cleaned_data.get('street')
