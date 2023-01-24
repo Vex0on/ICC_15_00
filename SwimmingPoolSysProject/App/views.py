@@ -76,6 +76,9 @@ def registration(request):
 def remind_password(request):
     return render(request, 'App/subpages/remind_password.html')
 
+def regulations(request):
+    return render(request, 'App/subpages/regulations.html')
+
 
 # Manager panel
 
@@ -242,7 +245,10 @@ def accountant_panel(request):
 
 
 def accountant_accountancy(request):
-    return render(request, 'App/subpages/accountant/accountant_accountancy.html')
+    tickets = Ticket.objects.all()
+    tickets_sum = round(sum([float(price.split("zł")[0]) for price in [ticket.price for ticket in tickets]]), 2)
+    context = {'tickets': tickets, 'tickets_sum': tickets_sum}
+    return render(request, 'App/subpages/accountant/accountant_accountancy.html', context)
 
 
 def accountant_result(request):

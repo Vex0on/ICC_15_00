@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocałunek Neptuna</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static '/css/regulations.css' %}">
+</head>
+
+<body>
+    <main>
+       <h1>Regulamin</h1>
+       <div class="regulations">
+        <p>1. Serwis internetowy PocalunekNeptuna zwany dalej Serwisem to usługa umożliwiająca zakup biletu na obiekt rekreacyjny przez serwis internetowy w domenie www.PocalunekNeptuna.pl</p>
+        <p>2. Administratorem serwisu jest podmiot upoważniony przez jednostkę zarządzającą firmą do sprawowania pieczy nad funkcjonowaniem serwisu.</p>
+        <p>3. Użytkownikiem serwisu jest osoba posiadająca założone konto</p>
+        <p>4. Wszystkie bilety sprzedawane przez serwis są ważne tylko w dniu zakupu i nie mogą być zwrócone ani wymienione na inne.</p>
+        <p>5. Wszystkie bilety muszą być okazane przy wejściu na pływalnię, bez ważnego biletu nie będzie możliwości wejścia na basen.</p>
+        <p>6. Wszystkie cenniki i godziny otwarcia pływalni mogą ulec zmianie bez uprzedniego powiadomienia.</p>
+        <p>8. Wszelkie roszczenia i skargi należy składać przez formularz kontaktowy w ciągu 7 dni od daty wystąpienia problemu.
+        </p>
+        <p>9. Serwis nie ponosi odpowiedzialności za problemy związane z działaniem pływalni, takie jak brak dostępności basenów, zamknięcie pływalni itp.</p>
+        <p>10. Serwis zastrzega sobie prawo do zmiany regulaminu bez uprzedniego powiadomienia.</p>
+        <p>11. Rejestrując się w Serwisie Użytkownik potwierdza, że zapoznał się i akceptuje Regulamin. Złamanie Regulaminu może prowadzić do czasowego lub stałego zawieszenia w prawach Użytkownika Serwisu.</p>
+        <p>12. Użytkownikowi zabrania się korzystania z Serwisu w sposób zakłócający jego funkcjonowanie lub uciążliwy dla innych Użytkowników</p>
+       </div>
+
+       <a href="{% url 'registration' %}"><input type="button" value="Wróć"></a>
+
+        <nav class="mini-nav">
+            <a href="{% url 'home' %}">Strona Główna</a>
+        </nav>
+    </main>
+    
+</body>
+</html>
