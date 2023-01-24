@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from .models import *
 import re
+from django.utils import timezone
 
 
 class ContactForm(forms.Form):
@@ -98,7 +99,7 @@ class CreateTicketsForm(ModelForm):
         }
 
 
-class CreateShiftForm(ModelForm):
+class ShiftForm(ModelForm):
     class Meta:
         model = Shift
         fields = "__all__"
@@ -115,3 +116,12 @@ class CreateShiftForm(ModelForm):
                 }
             ),
         }
+    def clean_startTime(self):
+        startTime = self.cleaned_data.get('startTime')
+        today = datetime.datetime.now()
+        if startTime.replace(tzinfo=None) < today:
+            print(today)
+            print(startTime.replace(tzinfo=None))
+            print(startTime.replace(tzinfo=None) < today)
+            raise ValidationError('Data nie może być z przeszłości')
+        return startTime

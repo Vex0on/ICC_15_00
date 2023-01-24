@@ -76,6 +76,7 @@ def registration(request):
 def remind_password(request):
     return render(request, 'App/subpages/remind_password.html')
 
+
 def regulations(request):
     return render(request, 'App/subpages/regulations.html')
 
@@ -93,8 +94,20 @@ def manager_plan(request):
     return render(request, 'App/subpages/manager/manager_plan.html')
 
 
+def manager_panel_shift_add(request):
+    form = ShiftForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect('manager_panel_shift_add')
+    context = {
+        'form': form
+    }
+    return render(request, 'App/subpages/manager/manager_panel_shift_add.html', context)
+
+
 def manager_plan_list(request):
-    shifts = Shift.objects.all()
+    shifts = Shift.objects.all().order_by('-startTime')
     context = {'shifts': shifts}
 
     if request.method == "POST":
@@ -102,28 +115,29 @@ def manager_plan_list(request):
             date = request.POST.get('calendar')
             shifts = Shift.objects.filter(startTime__date=date)
             context = {
-                'shifts': shifts
+                'shifts': shifts,
+                'date': date
             }
             return render(request, 'App/subpages/manager/manager_plan_list.html', context)
         return render(request, 'App/subpages/manager/manager_plan_list.html', context)
     return render(request, 'App/subpages/manager/manager_plan_list.html', context)
 
 
-def manager_plan_list_edit(request, shift_id): 
+def manager_plan_list_edit(request, shift_id):
     shift = Shift.objects.get(pk=shift_id)
-    form = CreateShiftForm(instance=shift)
+    form = ShiftForm(instance=shift)
 
     if request.method == 'POST':
-        form = CreateShiftForm(request.POST, instance=shift)
+        form = ShiftForm(request.POST, instance=shift)
         if form.is_valid():
             form.save()
             return redirect('manager_plan_list_edit', shift_id)
 
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'App/subpages/manager/manager_plan_list_edit.html', context)
 
 
-def manager_plan_list_show(request, shift_id): 
+def manager_plan_list_show(request, shift_id):
     shift = get_object_or_404(Shift, pk=shift_id)
     workers = Worker.objects.filter(shift=shift)
     context = {
@@ -133,7 +147,7 @@ def manager_plan_list_show(request, shift_id):
     return render(request, 'App/subpages/manager/manager_plan_list_show.html', context)
 
 
-def manager_plan_list_delete(request, shift_id): 
+def manager_plan_list_delete(request, shift_id):
     shift = Shift.objects.get(pk=shift_id)
     if request.method == 'POST':
         shift.delete()
@@ -195,7 +209,7 @@ def manager_employees_edit(request, worker_id):
             form.save()
             return redirect('manager_employees_edit_worker_address', worker_id)
 
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'App/subpages/manager/manager_employees_edit.html', context)
 
 
@@ -246,7 +260,8 @@ def accountant_panel(request):
 
 def accountant_accountancy(request):
     tickets = Ticket.objects.all()
-    tickets_sum = round(sum([float(price.split("zł")[0]) for price in [ticket.price for ticket in tickets]]), 2)
+    tickets_sum = round(sum([float(price.split("zł")[0])
+                        for price in [ticket.price for ticket in tickets]]), 2)
     context = {'tickets': tickets, 'tickets_sum': tickets_sum}
     return render(request, 'App/subpages/accountant/accountant_accountancy.html', context)
 

@@ -9,6 +9,9 @@ urlpatterns = [
     path('remind_password/', views.remind_password, name='remind_password'),
     path('regulations/', views.regulations, name='regulations'),
     path('manager_panel/', views.manager_panel, name='manager_panel'),
+         
+    path('manager_panel/plan/add_shift/', views.manager_panel_shift_add, name='manager_panel_shift_add'),
+
     path('manager_panel/plan/', views.manager_plan, name='manager_plan'),
     path('manager_panel/plan/list/', views.manager_plan_list, name='manager_plan_list'),
          
