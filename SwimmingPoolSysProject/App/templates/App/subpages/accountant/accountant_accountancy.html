@@ -21,38 +21,16 @@
                     <tr>
                         <th>ID</th> <th>Cena</th> <th>Data Zakupu</th>
                     </tr>
+                    {% for ticket in tickets %}
                     <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
+                        <td>{{ ticket.id }}</td> <td>{{ ticket.price }}zł</td> <td>{{ ticket.dateOfPurchase|date:'Y-m-d | H:i' }}</td>
                     </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
-                    <tr>
-                        <td>Id</td> <td>Cena</td> <td>Data Zakupu</td>
-                    </tr>
+                    {% endfor %}
                 </table>
             </div>
+            <p>Suma cen biletów: {{ tickets_sum }}zł</p>
+
+
 
             <div class="buttons">
                 <a href="{% url 'accountant_panel' %}">
