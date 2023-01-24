@@ -120,8 +120,5 @@ class ShiftForm(ModelForm):
         startTime = self.cleaned_data.get('startTime')
         today = datetime.datetime.now()
         if startTime.replace(tzinfo=None) < today:
-            print(today)
-            print(startTime.replace(tzinfo=None))
-            print(startTime.replace(tzinfo=None) < today)
             raise ValidationError('Data nie może być z przeszłości')
         return startTime
