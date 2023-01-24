@@ -84,7 +84,7 @@ class Ticket(models.Model):
     )
 
     worker = models.ForeignKey(Worker, on_delete=models.SET_NULL, null=True)
-    client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True)
+    client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.CharField(max_length=6, choices=PRICE_CHOICES)
     zone = models.CharField(max_length=45, choices=ZONE_CHOICES)
     dateOfPurchase = models.DateTimeField(default=datetime.datetime.now(), editable=False)
