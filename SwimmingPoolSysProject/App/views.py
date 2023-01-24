@@ -76,6 +76,9 @@ def registration(request):
 def remind_password(request):
     return render(request, 'App/subpages/remind_password.html')
 
+def regulations(request):
+    return render(request, 'App/subpages/regulations.html')
+
 
 # Manager panel
 
