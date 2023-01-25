@@ -6,8 +6,10 @@ from django.template.loader import render_to_string
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
+from .decorators import allowed_users
 
 # Create your views here.
 
@@ -82,18 +84,22 @@ def regulations(request):
 
 
 # Manager panel
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_panel(request):
     return render(request, 'App/subpages/manager/manager_panel.html')
 
 
 # Manager panel list
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_plan(request):
     return render(request, 'App/subpages/manager/manager_plan.html')
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_panel_shift_add(request):
     form = ShiftForm(request.POST)
     if request.method == "POST":
@@ -106,6 +112,8 @@ def manager_panel_shift_add(request):
     return render(request, 'App/subpages/manager/manager_panel_shift_add.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_plan_list(request):
     shifts = Shift.objects.all().order_by('-startTime')
     context = {'shifts': shifts}
@@ -123,6 +131,8 @@ def manager_plan_list(request):
     return render(request, 'App/subpages/manager/manager_plan_list.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_plan_list_edit(request, shift_id):
     shift = Shift.objects.get(pk=shift_id)
     form = ShiftForm(instance=shift)
@@ -137,6 +147,8 @@ def manager_plan_list_edit(request, shift_id):
     return render(request, 'App/subpages/manager/manager_plan_list_edit.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_plan_list_show(request, shift_id):
     shift = get_object_or_404(Shift, pk=shift_id)
     workers = Worker.objects.filter(shift=shift)
@@ -147,6 +159,8 @@ def manager_plan_list_show(request, shift_id):
     return render(request, 'App/subpages/manager/manager_plan_list_show.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_plan_list_delete(request, shift_id):
     shift = Shift.objects.get(pk=shift_id)
     if request.method == 'POST':
@@ -157,12 +171,16 @@ def manager_plan_list_delete(request, shift_id):
 # Manager plan employees
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees(request):
     workers = Worker.objects.all()
     context = {'workers': workers}
     return render(request, 'App/subpages/manager/manager_employees.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_add(request):
     form = CreateWorkerForm(request.POST)
     if request.method == 'POST':
@@ -173,6 +191,8 @@ def manager_employees_add(request):
     return render(request, 'App/subpages/manager/manager_employees_add.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_add_worker_address(request):
     form = CreateWorkerAddressForm(request.POST)
     if request.method == 'POST':
@@ -183,6 +203,8 @@ def manager_employees_add_worker_address(request):
     return render(request, 'App/subpages/manager/manager_employees_add.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_delete(request, worker_id):
     worker = Worker.objects.get(pk=worker_id)
     if request.method == 'POST':
@@ -191,6 +213,8 @@ def manager_employees_delete(request, worker_id):
     return render(request, 'App/subpages/manager/manager_employees_delete.html', {'worker': worker})
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_show(request, worker_id):
     worker = get_object_or_404(Worker, pk=worker_id)
     worker_address = get_object_or_404(WorkerAddress, worker=worker)
@@ -199,6 +223,8 @@ def manager_employees_show(request, worker_id):
     return render(request, 'App/subpages/manager/manager_employees_show.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_edit(request, worker_id):
     worker = Worker.objects.get(pk=worker_id)
     form = CreateWorkerForm(instance=worker)
@@ -213,6 +239,8 @@ def manager_employees_edit(request, worker_id):
     return render(request, 'App/subpages/manager/manager_employees_edit.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_edit_worker_address(request, worker_id):
     worker = Worker.objects.get(pk=worker_id)
     worker_address = WorkerAddress.objects.get(worker=worker)
