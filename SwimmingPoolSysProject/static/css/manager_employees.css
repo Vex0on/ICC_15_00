@@ -69,12 +69,16 @@ td {
     padding: 8px;
 }
 
-input[type="radio"] {
-    margin-right: 8px;
+td > input {
+    width: 5rem;
+    background-color: #050505;
+    color: #aaa;
+    padding: 0.3rem 0.2rem;
 }
 
-input[type="radio"]:hover {
+td > input:hover {
     cursor: pointer;
+    background-color: #080808;
 }
 
 ::-webkit-scrollbar {
@@ -91,6 +95,8 @@ input[type="radio"]:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+    position: absolute;
+    bottom: 10%;
 }
 
 .buttons > a > input {

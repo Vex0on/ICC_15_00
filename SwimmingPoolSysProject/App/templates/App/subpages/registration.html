@@ -25,10 +25,10 @@
             <input type="email" name="email">
 
             <label for="password">Hasło</label>
-            <input type="password" name="password">
+            <input type="password" name="password" autocomplete="off">
 
             <label for="repeat-password">Powtórz hasło</label>
-            <input type="password" name="repeat-password">
+            <input type="password" name="repeat-password" autocomplete="off">
 
             <label for="pesel">Pesel</label>
             <input type="text" name="pesel">
@@ -50,8 +50,8 @@
             <input type="text" name="address">
 
             <div class="regulations-box">
-                <input type="checkbox" name="regulations">
-                <label for="regulations">Zapoznałem się z <a href="{% url 'regulations' %}">regulaminem.</a></label>
+                <input type="checkbox" id="regulations" name="regulations">
+                <label for="regulations">Zapoznałem się z <a href="{% url 'regulations' %}">regulaminem.</a></label></inupt>
             </div>
 
             <button type="submit" name="register">Zarejestruj</button>
