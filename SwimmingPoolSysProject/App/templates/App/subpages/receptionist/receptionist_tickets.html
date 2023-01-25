@@ -19,12 +19,13 @@
             <div class="list">
                 <table>
                     <tr>
-                        <th>Id</th> <th>Cena</th> <th>Strefa</th> <th>Data Zakupu</th> <th>Klient</th> <th>Pracownik</th>
+                        <th>Id</th> <th>Cena</th> <th>Strefa</th> <th>Data Zakupu</th> <th>Data Konca</th> <th>Klient</th> <th>Pracownik</th>
                     </tr>
                     {% for ticket in tickets %}
                     <tr>
                         <td>{{ ticket.id }}</td> <td>{{ ticket.price }}zł</td> <td>{{ ticket.zone }}</td>
                         <td> {{ ticket.dateOfPurchase|date:'Y-m-d | H:i' }}</td>
+                        <td> {{ ticket.dateOfEnd|date:'Y-m-d | H:i' }}</td>
                         <td> {{ ticket.client }}</td> <td> {{ ticket.worker }}</td>
                     </tr>
                     {% endfor %}

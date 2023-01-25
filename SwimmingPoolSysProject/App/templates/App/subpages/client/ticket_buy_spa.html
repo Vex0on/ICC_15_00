@@ -13,11 +13,11 @@
 </head>
 <body>
     <main>
-        <form action="">
+        <form method="POST" action="">
+            {% csrf_token %}
             <h1>Kup Bilet - SPA</h1>
             <div class="container-form">
 
-                <h2>Bilet</h2>
                 {{ form.client }}
                 <label for="ticket-type">Rodzaj biletu</label>
                 {{ form.price }}

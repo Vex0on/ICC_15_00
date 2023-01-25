@@ -115,8 +115,6 @@ def registration(request):
         }
     )
 
-    
-
 
 def remind_password(request):
     return render(request, 'App/subpages/remind_password.html')
@@ -359,7 +357,13 @@ def accountant_result(request):
 
 
 def ticket_buy_gym(request):
-    return render(request, 'App/subpages/client/ticket_buy_gym.html')
+    form = BuyTicketFormGym(request.POST or None, user=request.user)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    context = {'form': form}
+    return render(request, 'App/subpages/client/ticket_buy_gym.html', context)
 
 
 def ticket_buy_spa(request):
@@ -367,10 +371,16 @@ def ticket_buy_spa(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('homePage')
+            return redirect('home')
     context = {'form': form}
     return render(request, 'App/subpages/client/ticket_buy_spa.html', context)
 
 
 def ticket_buy_swimming_pool(request):
-    return render(request, 'App/subpages/client/ticket_buy_swimming_pool.html')
+    form = BuyTicketFormSwimmingPool(request.POST or None, user=request.user)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    context = {'form': form}
+    return render(request, 'App/subpages/client/ticket_buy_swimming_pool.html', context)
