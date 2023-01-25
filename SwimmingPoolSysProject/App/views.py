@@ -11,6 +11,7 @@ from .models import *
 from .forms import *
 from .decorators import allowed_users
 
+
 # Create your views here.
 
 
@@ -30,7 +31,7 @@ def homePage(request):
 
             send_mail('Formularz kontaktowy', 'wiadomosc', 'pocalunekneptuna@gmail.com', ['pocalunekneptuna@gmail.com'],
                       html_message=html)
-            messages.info(request, 'Wiadomość została wysłana!')
+            messages.info(request, 'Udało Ci się wysłać wiadomość!')
             return redirect('home')
     else:
         form = ContactForm()
@@ -57,6 +58,7 @@ def complaint(request):
         'form_complaint': form_complaint,
     }
     return render(request, 'App/index.html', context)
+
 
 # login
 
@@ -107,13 +109,13 @@ def registration(request):
             clientaddress.save()
             auth_login(request, user)
             return redirect('home')
-        
+
     return render(request, 'App/subpages/registration.html', {
         'userForm': userForm,
         'clientForm': clientForm,
         'clientAddressForm': clientAddressForm
-        }
-    )
+    }
+                  )
 
 
 def remind_password(request):
@@ -208,6 +210,7 @@ def manager_plan_list_delete(request, shift_id):
         shift.delete()
         return redirect('manager_plan_list')
     return render(request, 'App/subpages/manager/manager_plan_list_delete.html', {'shift': shift})
+
 
 # Manager plan employees
 
@@ -342,7 +345,7 @@ def accountant_panel(request):
 def accountant_accountancy(request):
     tickets = Ticket.objects.all()
     tickets_sum = round(sum([float(price.split("zł")[0])
-                        for price in [ticket.price for ticket in tickets]]), 2)
+                             for price in [ticket.price for ticket in tickets]]), 2)
     context = {'tickets': tickets, 'tickets_sum': tickets_sum}
     return render(request, 'App/subpages/accountant/accountant_accountancy.html', context)
 

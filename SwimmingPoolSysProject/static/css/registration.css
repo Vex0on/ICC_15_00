@@ -96,6 +96,12 @@ input:-webkit-autofill:focus {
     padding: 0.6rem;
 }
 
+::-webkit-calendar-picker-indicator{
+    transform:scale(1.2);
+    cursor:pointer;
+    background-color: #ccc;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
     background-color: #F5F5F5;
