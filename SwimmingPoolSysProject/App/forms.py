@@ -3,6 +3,8 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from .models import *
 import re
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
 
 
@@ -116,9 +118,107 @@ class ShiftForm(ModelForm):
                 }
             ),
         }
+
     def clean_startTime(self):
         startTime = self.cleaned_data.get('startTime')
         today = datetime.datetime.now()
         if startTime.replace(tzinfo=None) < today:
             raise ValidationError('Data nie może być z przeszłości')
         return startTime
+
+
+class UserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'email',
+            'password1',
+            'password2'
+        ]
+
+
+class ClientForm(ModelForm):
+    class Meta:
+        model = Client
+        fields = [
+            'name',
+            'surname',
+            'phoneNumber',
+            'email',
+            'pesel'
+        ]
+
+
+class ClientAddressForm(ModelForm):
+    class Meta:
+        model = ClientAddress
+        fields = [
+            'client',
+            'street',
+            'houseNumber',
+            'flatNumber',
+            'postcode',
+            'placeName'
+        ]
+
+
+class RegistrationForm(forms.Form):
+    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Username'}))
+    email = forms.EmailField(required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Email'}))
+    password1 = forms.CharField(max_length=30, required=True, widget=forms.PasswordInput(
+        attrs={'placeholder': 'Password'}))
+    password2 = forms.CharField(max_length=30, required=True, widget=forms.PasswordInput(
+        attrs={'placeholder': 'Password confirmation'}))
+    name = forms.CharField(max_length=45, required=True,
+                           widget=forms.TextInput(attrs={'placeholder': 'Name'}))
+    surname = forms.CharField(max_length=45, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Surname'}))
+    phoneNumber = forms.CharField(max_length=9, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Phone number'}))
+    pesel = forms.CharField(max_length=11, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Pesel'}))
+    street = forms.CharField(max_length=255, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Street'}))
+    houseNumber = forms.CharField(max_length=10, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'House number'}))
+    flatNumber = forms.CharField(max_length=10, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Flat number'}))
+    postcode = forms.CharField(max_length=6, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Postcode'}))
+    placeName = forms.CharField(max_length=45, required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Place name'}))
+
+    def clean(self):
+        cleaned_data = super(RegistrationForm, self).clean()
+        password1 = cleaned_data.get("password1")
+        password2 = cleaned_data.get("password2")
+
+        if password1 != password2:
+            raise forms.ValidationError("Passwords do not match")
+
+    def save(self, commit=True):
+        user = User.objects.create_user(
+            self.cleaned_data['username'],
+            self.cleaned_data['email'],
+            self.cleaned_data['password1']
+        )
+        client = Client.objects.create(
+            user=user,
+            name=self.cleaned_data['name'],
+            surname=self.cleaned_data['surname'],
+            phoneNumber=self.cleaned_data['phoneNumber'],
+            pesel=self.cleaned_data['pesel']
+        )
+        client_address = ClientAddress.objects.create(
+            client=client,
+            street=self.cleaned_data['street'],
+            houseNumber=self.cleaned_data['houseNumber'],
+            flatNumber=self.cleaned_data['flatNumber'],
+            postcode=self.cleaned_data['postcode'],
+            placeName=self.cleaned_data['placeName']
+        )
+
+        return user

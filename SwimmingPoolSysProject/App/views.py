@@ -72,7 +72,17 @@ def logout(request):
 
 
 def registration(request):
-    return render(request, 'App/subpages/registration.html')
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = RegistrationForm()
+    return render(request, 'App/subpages/registration.html', {'form': form})
+
+    
 
 
 def remind_password(request):
