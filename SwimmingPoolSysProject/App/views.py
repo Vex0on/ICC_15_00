@@ -258,17 +258,20 @@ def manager_employees_edit_worker_address(request, worker_id):
 
 # receptionist panel
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['receptionist', 'admin'])
 def receptionist_panel(request):
     return render(request, 'App/subpages/receptionist/receptionist_panel.html')
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['receptionist', 'admin'])
 def receptionist_tickets(request):
     tickets = Ticket.objects.all()
     context = {'tickets': tickets}
     return render(request, 'App/subpages/receptionist/receptionist_tickets.html', context)
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['receptionist', 'admin'])
 def receptionist_tickets_add(request):
     form = CreateTicketsForm(request.POST)
     if request.method == 'POST':
