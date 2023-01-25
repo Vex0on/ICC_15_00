@@ -120,7 +120,7 @@ def manager_plan(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['manager', 'admin'])
 def manager_panel_shift_add(request):
-    form = ShiftForm(request.POST)
+    form = ShiftForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
             form.save()
@@ -201,10 +201,11 @@ def manager_employees(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_add(request):
-    form = CreateWorkerForm(request.POST)
+    form = CreateWorkerForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
-            form.save()
+            worker = form.save()
+            request.session['worker_id'] = worker.id
             return redirect('manager_employees_add_worker_address')
     context = {'form': form}
     return render(request, 'App/subpages/manager/manager_employees_add.html', context)
@@ -213,7 +214,10 @@ def manager_employees_add(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_add_worker_address(request):
-    form = CreateWorkerAddressForm(request.POST)
+    worker_id = request.session.get('worker_id')
+    worker = Worker.objects.get(id=worker_id)
+    form = CreateWorkerAddressForm(request.POST or None)
+    form.fields['worker'].queryset = Worker.objects.filter(id=worker.id)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
