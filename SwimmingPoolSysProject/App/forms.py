@@ -132,10 +132,12 @@ class UserForm(UserCreationForm):
         model = User
         fields = [
             'username',
-            'email',
             'password1',
             'password2'
         ]
+        widgets = {
+            'username': forms.EmailInput()
+        }
 
 
 class ClientForm(ModelForm):

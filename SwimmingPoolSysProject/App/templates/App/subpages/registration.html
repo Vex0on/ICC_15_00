@@ -16,12 +16,12 @@
         <form action="" class="registration" method="POST">
             {% csrf_token %}
             <h1>Dane rejestracyjne</h1>
-            <label for="first-name">Login</label>
+            <label for="first-name">Email</label>
             {{ userForm.username }}
-
-            <label for="email">E-mail</label>
-            {{ userForm.email }}
             
+            <label for="pesel">Powtórz email</label>
+            {{ clientForm.email }}
+
             <label for="password">Hasło</label>
             {{ userForm.password1 }}
 
@@ -37,9 +37,6 @@
             <label for="phone-number">Numer telefonu</label>
             {{ clientForm.phoneNumber }}
             
-            <label for="pesel">Powtórz email</label>
-            {{ clientForm.email }}
-
             <label for="pesel">Pesel</label>
             {{ clientForm.pesel }}
 
