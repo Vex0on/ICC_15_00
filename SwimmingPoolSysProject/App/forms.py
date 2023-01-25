@@ -164,32 +164,19 @@ class ClientAddressForm(ModelForm):
 
 
 class RegistrationForm(forms.Form):
-    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Username'}))
-    email = forms.EmailField(required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Email'}))
-    password1 = forms.CharField(max_length=30, required=True, widget=forms.PasswordInput(
-        attrs={'placeholder': 'Password'}))
-    password2 = forms.CharField(max_length=30, required=True, widget=forms.PasswordInput(
-        attrs={'placeholder': 'Password confirmation'}))
-    name = forms.CharField(max_length=45, required=True,
-                           widget=forms.TextInput(attrs={'placeholder': 'Name'}))
-    surname = forms.CharField(max_length=45, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Surname'}))
-    phoneNumber = forms.CharField(max_length=9, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Phone number'}))
-    pesel = forms.CharField(max_length=11, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Pesel'}))
-    street = forms.CharField(max_length=255, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Street'}))
-    houseNumber = forms.CharField(max_length=10, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'House number'}))
-    flatNumber = forms.CharField(max_length=10, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Flat number'}))
-    postcode = forms.CharField(max_length=6, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Postcode'}))
-    placeName = forms.CharField(max_length=45, required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Place name'}))
+    username = forms.CharField(max_length=30, required=True, widget=forms.TextInput())
+    email = forms.EmailField(required=True, widget=forms.TextInput())
+    password1 = forms.CharField(max_length=30, required=True, widget=forms.PasswordInput())
+    password2 = forms.CharField(max_length=30, required=True, widget=forms.PasswordInput())
+    name = forms.CharField(max_length=45, required=True, widget=forms.TextInput())
+    surname = forms.CharField(max_length=45, required=True, widget=forms.TextInput())
+    phoneNumber = forms.CharField(max_length=9, required=True, widget=forms.TextInput())
+    pesel = forms.CharField(max_length=11, required=True, widget=forms.TextInput())
+    street = forms.CharField(max_length=255, required=True, widget=forms.TextInput())
+    houseNumber = forms.CharField(max_length=10, required=True, widget=forms.TextInput())
+    flatNumber = forms.CharField(max_length=10, widget=forms.TextInput())
+    postcode = forms.CharField(max_length=6, required=True, widget=forms.TextInput())
+    placeName = forms.CharField(max_length=45, required=True, widget=forms.TextInput())
 
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
@@ -201,9 +188,9 @@ class RegistrationForm(forms.Form):
 
     def save(self, commit=True):
         user = User.objects.create_user(
-            self.cleaned_data['username'],
-            self.cleaned_data['email'],
-            self.cleaned_data['password1']
+            username = self.cleaned_data['username'],
+            email = self.cleaned_data['email'],
+            password = self.cleaned_data['password1']
         )
         client = Client.objects.create(
             user=user,
