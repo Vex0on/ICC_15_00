@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import redirect
 
 
 def allowed_users(allowed_roles=[]):
@@ -11,6 +11,6 @@ def allowed_users(allowed_roles=[]):
             if group in allowed_roles:
                 return view_func(request, *args, **kwargs)
             else:
-                return HttpResponse('Nie masz uprawnień do przeglądania tej strony.')
+                return redirect('home')
         return wrapper_func
     return decorator
