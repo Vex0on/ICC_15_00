@@ -72,15 +72,30 @@ def logout(request):
 
 
 def registration(request):
+    userForm = UserForm()
+    clientForm = ClientForm()
+    clientAddressForm = ClientAddressForm()
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
+        userForm = UserForm(request.POST)
+        clientForm = ClientForm(request.POST)
+        clientAddressForm = ClientAddressForm(request.POST)
+        if userForm.is_valid() and clientForm.is_valid() and clientAddressForm.is_valid():
+            user = userForm.save()
+            client = clientForm.save(commit=False)
+            clientaddress = clientAddressForm.save(commit=False)
+            client.user = user
+            client.save()
+            clientaddress.client = client
+            clientaddress.save()
+            auth_login(request, user)
             return redirect('home')
-    else:
-        form = RegistrationForm()
-    return render(request, 'App/subpages/registration.html', {'form': form})
+        
+    return render(request, 'App/subpages/registration.html', {
+        'userForm': userForm,
+        'clientForm': clientForm,
+        'clientAddressForm': clientAddressForm
+        }
+    )
 
     
 
