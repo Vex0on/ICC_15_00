@@ -263,12 +263,14 @@ def manager_employees_edit_worker_address(request, worker_id):
 def receptionist_panel(request):
     return render(request, 'App/subpages/receptionist/receptionist_panel.html')
 
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['receptionist', 'admin'])
 def receptionist_tickets(request):
     tickets = Ticket.objects.all()
     context = {'tickets': tickets}
     return render(request, 'App/subpages/receptionist/receptionist_tickets.html', context)
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['receptionist', 'admin'])
@@ -284,11 +286,14 @@ def receptionist_tickets_add(request):
 
 # accountant panel
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['accountant', 'admin'])
 def accountant_panel(request):
     return render(request, 'App/subpages/accountant/accountant_panel.html')
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['accountant', 'admin'])
 def accountant_accountancy(request):
     tickets = Ticket.objects.all()
     tickets_sum = round(sum([float(price.split("zł")[0])
@@ -297,6 +302,8 @@ def accountant_accountancy(request):
     return render(request, 'App/subpages/accountant/accountant_accountancy.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['accountant', 'admin'])
 def accountant_result(request):
     return render(request, 'App/subpages/accountant/accountant_result.html')
 
