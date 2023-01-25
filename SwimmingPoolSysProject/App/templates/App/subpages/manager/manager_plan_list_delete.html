@@ -1,16 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <form method="POST" action="">
-        {% csrf_token %}
-        <p>Czy na pewno chcesz usunac {{shift}}</p>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocałunek Neptuna</title>
 
-        <a href="{{request.META.HTTP_REFERER}}"></a>
-        <input type="submit" value="Confirm">
-    </form>
+    <link rel="stylesheet" href="{% static '/css/manager_employees_delete.css' %}">
 </head>
 <body>
+    <main>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <p>Czy na pewno chcesz usunac {{shift}}</p>
 
+            <div class="form-buttons">
+                <a href="{% url 'manager_plan' %}">
+                    <input type="button" value="Wróć">
+                </a>
+                <a href="{{request.META.HTTP_REFERER}}"></a>
+                <input type="submit" value="Potwierdź">
+            </div>
+        </form>
+
+        <nav class="mini-nav">
+            <a href="{% url 'home' %}">Strona Główna</a>
+        </nav>
+    </main>
 </body>
 </html>
