@@ -3,6 +3,8 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from .models import *
 import re
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
 
 
@@ -61,16 +63,12 @@ class CreateWorkerAddressForm(ModelForm):
         fields = "__all__"
 
         labels = {
-            'worker': '',
+            'worker': 'Pracownik',
             'street': 'Ulica',
             'houseNumber': 'Numer domu',
             'flatNumber': 'Numer mieszkania',
             'postcode': 'Kod pocztowy',
             'placeName': 'Miasto',
-        }
-
-        widgets = {
-            'worker': forms.Select(attrs={'class': 'worker'}),
         }
 
     def clean_street(self):
@@ -116,12 +114,50 @@ class ShiftForm(ModelForm):
                 }
             ),
         }
+
     def clean_startTime(self):
         startTime = self.cleaned_data.get('startTime')
         today = datetime.datetime.now()
         if startTime.replace(tzinfo=None) < today:
             raise ValidationError('Data nie może być z przeszłości')
         return startTime
+
+
+class UserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'password1',
+            'password2'
+        ]
+        widgets = {
+            'username': forms.EmailInput()
+        }
+
+
+class ClientForm(ModelForm):
+    class Meta:
+        model = Client
+        fields = [
+            'name',
+            'surname',
+            'phoneNumber',
+            'email',
+            'pesel'
+        ]
+
+
+class ClientAddressForm(ModelForm):
+    class Meta:
+        model = ClientAddress
+        fields = [
+            'street',
+            'houseNumber',
+            'flatNumber',
+            'postcode',
+            'placeName'
+        ]
 
 
 class ComplaintForm(ModelForm):

@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactForm
@@ -13,10 +12,6 @@ from .forms import *
 from .decorators import allowed_users
 
 # Create your views here.
-
-
-def is_client(user):
-    return user.is_authenticated and hasattr(user, 'client')
 
 
 def homePage(request):
@@ -42,20 +37,6 @@ def homePage(request):
 
     context = {
         'form': form,
-    }
-    return render(request, 'App/index.html', context)
-
-
-@user_passes_test(is_client)
-def complaint(request):
-    logged_user = request.user
-    tickets = Ticket.objects.filter(client=logged_user)
-    form_complaint = ComplaintForm(request.POST, tickets)
-    if form_complaint.is_valid():
-        form_complaint.save()
-        return redirect('home')
-    context = {
-        'form_complaint': form_complaint,
     }
     return render(request, 'App/index.html', context)
 
@@ -91,7 +72,32 @@ def logout(request):
 
 
 def registration(request):
-    return render(request, 'App/subpages/registration.html')
+    userForm = UserForm()
+    clientForm = ClientForm()
+    clientAddressForm = ClientAddressForm()
+    if request.method == 'POST':
+        userForm = UserForm(request.POST)
+        clientForm = ClientForm(request.POST)
+        clientAddressForm = ClientAddressForm(request.POST)
+        if userForm.is_valid() and clientForm.is_valid() and clientAddressForm.is_valid():
+            user = userForm.save()
+            client = clientForm.save(commit=False)
+            clientaddress = clientAddressForm.save(commit=False)
+            client.user = user
+            client.save()
+            clientaddress.client = client
+            clientaddress.save()
+            auth_login(request, user)
+            return redirect('home')
+        
+    return render(request, 'App/subpages/registration.html', {
+        'userForm': userForm,
+        'clientForm': clientForm,
+        'clientAddressForm': clientAddressForm
+        }
+    )
+
+    
 
 
 def remind_password(request):
@@ -120,7 +126,7 @@ def manager_plan(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['manager', 'admin'])
 def manager_panel_shift_add(request):
-    form = ShiftForm(request.POST)
+    form = ShiftForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
             form.save()
@@ -201,10 +207,11 @@ def manager_employees(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_add(request):
-    form = CreateWorkerForm(request.POST)
+    form = CreateWorkerForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
-            form.save()
+            worker = form.save()
+            request.session['worker_id'] = worker.id
             return redirect('manager_employees_add_worker_address')
     context = {'form': form}
     return render(request, 'App/subpages/manager/manager_employees_add.html', context)
@@ -213,7 +220,10 @@ def manager_employees_add(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_add_worker_address(request):
-    form = CreateWorkerAddressForm(request.POST)
+    worker_id = request.session.get('worker_id')
+    worker = Worker.objects.get(id=worker_id)
+    form = CreateWorkerAddressForm(request.POST or None)
+    form.fields['worker'].queryset = Worker.objects.filter(id=worker.id)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
