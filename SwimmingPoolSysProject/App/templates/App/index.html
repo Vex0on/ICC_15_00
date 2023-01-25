@@ -146,6 +146,7 @@
         </div>
     </section>
 
+    {% if request.user.is_authenticated %}
     <section class="complaint" id="complaint">
         <h5>Zgłoś reklamację</h5>
         <div class="complaint-container">
@@ -156,16 +157,20 @@
                     Rerum necessitatibus perspiciatis dolor dignissimos, labore, sed officia ex commodi a consectetur similique! Incidunt quidem veritatis aliquam recusandae, possimus, reiciendis sapiente accusantium dolore illum voluptas fugit ad eum velit veniam!
                 </p>
             </div>
-            <form action="">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form_complaint.client.as_hidden }}
                 <label for="ticket-id">Numer Identyfikacjny Biletu</label>
-                <input type="text" name="ticket-id">
+                {{ form_complaint.ticket }}
                 <label for="ticket-description">Opis reklamacji</label>
-                <textarea name="ticket-description" id="" cols="30" rows="10"></textarea>
+                {{ form_complaint.description }}
                 <input type="submit" value="Zgłoś">
             </form>
+
         </div>
         
     </section>
+    {% endif %}
 
     <script src="{% static '/js/index.js' %}"></script>
 </body>

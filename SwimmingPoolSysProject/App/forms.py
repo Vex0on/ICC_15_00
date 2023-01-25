@@ -122,3 +122,10 @@ class ShiftForm(ModelForm):
         if startTime.replace(tzinfo=None) < today:
             raise ValidationError('Data nie może być z przeszłości')
         return startTime
+
+
+class ComplaintForm(ModelForm):
+    class Meta:
+        model = Complaint
+        fields = '__all__'
+

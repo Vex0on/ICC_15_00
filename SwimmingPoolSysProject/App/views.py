@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactForm
@@ -10,6 +11,10 @@ from .models import *
 from .forms import *
 
 # Create your views here.
+
+
+def is_client(user):
+    return user.is_authenticated and hasattr(user, 'client')
 
 
 def homePage(request):
@@ -35,6 +40,20 @@ def homePage(request):
 
     context = {
         'form': form,
+    }
+    return render(request, 'App/index.html', context)
+
+
+@user_passes_test(is_client)
+def complaint(request):
+    logged_user = request.user
+    tickets = Ticket.objects.filter(client=logged_user)
+    form_complaint = ComplaintForm(request.POST, tickets)
+    if form_complaint.is_valid():
+        form_complaint.save()
+        return redirect('home')
+    context = {
+        'form_complaint': form_complaint,
     }
     return render(request, 'App/index.html', context)
 
