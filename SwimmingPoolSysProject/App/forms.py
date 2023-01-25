@@ -63,16 +63,12 @@ class CreateWorkerAddressForm(ModelForm):
         fields = "__all__"
 
         labels = {
-            'worker': '',
+            'worker': 'Pracownik',
             'street': 'Ulica',
             'houseNumber': 'Numer domu',
             'flatNumber': 'Numer mieszkania',
             'postcode': 'Kod pocztowy',
             'placeName': 'Miasto',
-        }
-
-        widgets = {
-            'worker': forms.Select(attrs={'class': 'worker'}),
         }
 
     def clean_street(self):
