@@ -162,54 +162,6 @@ class ClientAddressForm(ModelForm):
         ]
 
 
-# class RegistrationForm(forms.Form):
-#     username = forms.CharField(max_length=30, required=True, widget=forms.TextInput())
-#     email = forms.EmailField(required=True, widget=forms.TextInput())
-#     password1 = forms.CharField(max_length=30, required=True, widget=forms.PasswordInput())
-#     password2 = forms.CharField(max_length=30, required=True, widget=forms.PasswordInput())
-#     name = forms.CharField(max_length=45, required=True, widget=forms.TextInput())
-#     surname = forms.CharField(max_length=45, required=True, widget=forms.TextInput())
-#     phoneNumber = forms.CharField(max_length=9, required=True, widget=forms.TextInput())
-#     pesel = forms.CharField(max_length=11, required=True, widget=forms.TextInput())
-#     street = forms.CharField(max_length=255, required=True, widget=forms.TextInput())
-#     houseNumber = forms.CharField(max_length=10, required=True, widget=forms.TextInput())
-#     flatNumber = forms.CharField(max_length=10, widget=forms.TextInput())
-#     postcode = forms.CharField(max_length=6, required=True, widget=forms.TextInput())
-#     placeName = forms.CharField(max_length=45, required=True, widget=forms.TextInput())
-
-#     def clean(self):
-#         cleaned_data = super(RegistrationForm, self).clean()
-#         password1 = cleaned_data.get("password1")
-#         password2 = cleaned_data.get("password2")
-
-#         if password1 != password2:
-#             raise forms.ValidationError("Passwords do not match")
-
-#     def save(self, commit=True):
-#         user = User.objects.create_user(
-#             username = self.cleaned_data['username'],
-#             email = self.cleaned_data['email'],
-#             password = self.cleaned_data['password1']
-#         )
-#         client = Client.objects.create(
-#             user=user,
-#             name=self.cleaned_data['name'],
-#             surname=self.cleaned_data['surname'],
-#             phoneNumber=self.cleaned_data['phoneNumber'],
-#             pesel=self.cleaned_data['pesel']
-#         )
-#         client_address = ClientAddress.objects.create(
-#             client=client,
-#             street=self.cleaned_data['street'],
-#             houseNumber=self.cleaned_data['houseNumber'],
-#             flatNumber=self.cleaned_data['flatNumber'],
-#             postcode=self.cleaned_data['postcode'],
-#             placeName=self.cleaned_data['placeName']
-#         )
-
-#         return user
-
-
 class ComplaintForm(ModelForm):
     class Meta:
         model = Complaint
