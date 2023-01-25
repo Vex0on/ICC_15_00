@@ -180,26 +180,32 @@ class RegistrationForm(forms.Form):
 
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
+        email = cleaned_data.get("email")
+        username = cleaned_data.get("username")
         password1 = cleaned_data.get("password1")
         password2 = cleaned_data.get("password2")
 
         if password1 != password2:
             raise forms.ValidationError("Passwords do not match")
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Email already in use.")
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("Username already in use.")
 
     def save(self, commit=True):
         user = User.objects.create_user(
-            username = self.cleaned_data['username'],
-            email = self.cleaned_data['email'],
-            password = self.cleaned_data['password1']
+            username=self.cleaned_data['username'],
+            email=self.cleaned_data['email'],
+            password=self.cleaned_data['password1']
         )
-        client = Client.objects.create(
+        client, _ = Client.objects.get_or_create(
             user=user,
             name=self.cleaned_data['name'],
             surname=self.cleaned_data['surname'],
             phoneNumber=self.cleaned_data['phoneNumber'],
             pesel=self.cleaned_data['pesel']
         )
-        client_address = ClientAddress.objects.create(
+        client_address, _ = ClientAddress.objects.get_or_create(
             client=client,
             street=self.cleaned_data['street'],
             houseNumber=self.cleaned_data['houseNumber'],

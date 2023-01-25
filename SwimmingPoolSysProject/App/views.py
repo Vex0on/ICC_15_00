@@ -75,9 +75,13 @@ def registration(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
+            print(request.POST)
+            print("Form is valid.")
             user = form.save()
             login(request, user)
             return redirect('home')
+        else:
+            print("Form is not valid.")
     else:
         form = RegistrationForm()
     return render(request, 'App/subpages/registration.html', {'form': form})
