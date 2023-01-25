@@ -6,7 +6,7 @@ from django.template.loader import render_to_string
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import *
 from .forms import *
 from .decorators import allowed_users
@@ -41,7 +41,25 @@ def homePage(request):
     return render(request, 'App/index.html', context)
 
 
+def is_client(user):
+    return user.is_authenticated and hasattr(user, 'Client')
+
+
+@user_passes_test(is_client)
+def complaint(request):
+    logged_user = request.user
+    tickets = Ticket.objects.filter(client=logged_user)
+    form_complaint = ComplaintForm(request.POST, tickets)
+    if form_complaint.is_valid():
+        form_complaint.save()
+        return redirect('home')
+    context = {
+        'form_complaint': form_complaint,
+    }
+    return render(request, 'App/index.html', context)
+
 # login
+
 
 def login(request):
     if request.method == 'POST':
@@ -345,7 +363,13 @@ def ticket_buy_gym(request):
 
 
 def ticket_buy_spa(request):
-    return render(request, 'App/subpages/client/ticket_buy_spa.html')
+    form = BuyTicketFormSPA(request.POST or None, user=request.user)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('homePage')
+    context = {'form': form}
+    return render(request, 'App/subpages/client/ticket_buy_spa.html', context)
 
 
 def ticket_buy_swimming_pool(request):

@@ -89,7 +89,7 @@ class Ticket(models.Model):
     client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.CharField(max_length=6, choices=PRICE_CHOICES)
     zone = models.CharField(max_length=45, choices=ZONE_CHOICES)
-    dateOfPurchase = models.DateTimeField(default=datetime.datetime.now(), editable=False)
+    dateOfPurchase = models.DateTimeField(default=datetime.datetime.now(), editable=True)
     dateOfEnd = models.DateTimeField(null=True, blank=True, editable=False)
 
     def save(self, *args, **kwargs):

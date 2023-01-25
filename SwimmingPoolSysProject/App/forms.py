@@ -165,3 +165,47 @@ class ComplaintForm(ModelForm):
         model = Complaint
         fields = '__all__'
 
+
+class BuyTicketFormSwimmingPool(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['zone'].choices = [("Pływalnia", "Pływalnia")]
+
+    class Meta:
+        model = Ticket
+        fields = '__all__'
+
+
+class BuyTicketFormGym(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['zone'].choices = [("Siłownia", "Siłownia")]
+
+    class Meta:
+        model = Ticket
+        fields = '__all__'
+
+
+class BuyTicketFormSPA(ModelForm):
+    class Meta:
+        model = Ticket
+        fields = ['client', 'price', 'zone', 'dateOfPurchase']
+        widgets = {
+            'price': forms.Select(attrs={'class': 'price'}),
+            'zone': forms.Select(attrs={'class': 'zone'}),
+            'dateOfPurchase': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'dateOfEnd': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+        if user is not None:
+            self.fields['client'].initial = Client.objects.get(user=user)
+
+        super().__init__(*args, **kwargs)
+        self.fields['zone'].choices = [("SPA", "SPA")]
+
+
