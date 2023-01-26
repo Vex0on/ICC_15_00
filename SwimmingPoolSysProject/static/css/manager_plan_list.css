@@ -34,41 +34,16 @@ form {
 }
 
 form > h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: 0.2rem;
     margin: 0;
     margin-top: 1rem;
 }
 
 form > h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: 0.2rem;
     margin: 0;
-}
-
-form > input, a > input {
-    width: 15rem;
-    margin: 0 auto;
-    height: 4.2rem;
-    font-size: 1.25rem;
-    background-color: rgb(10, 10, 10);
-    border-radius: 0.1rem;
-    border: solid 0.1rem #333;
-    color: #ccc;
-    letter-spacing: 0.1rem;
-}
-
-form > input:hover, a > input:hover {
-    cursor: pointer;
-    background-color: #aaa;
-    color: #111;
-    transition: 0.7s;
-}
-form > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 1rem;
 }
 
 form > div > label {
@@ -78,13 +53,23 @@ form > div > label {
     padding: 0.5rem 0;
 }
 
-form > div > input {
-    padding: 1rem;
+.date { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.date > input {
+    padding: 0.7rem;
     font-size: 1.25rem;
 }
+
+.date > input:hover {
+    cursor: pointer;
+}
+
 .list {
     width: 90%;
-    margin-top: 1rem;
     height: 20rem;
     overflow-x:auto;
     overflow-y:auto;
@@ -97,6 +82,7 @@ table {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    white-space: nowrap;
 }
 
 th {
@@ -111,12 +97,40 @@ td {
     padding: 8px;
 }
 
-input[type="radio"] {
-    margin-right: 8px;
+td > input {
+    width: 5rem;
+    background-color: #050505;
+    color: #aaa;
+    padding: 0.3rem 0.2rem;
 }
 
-input[type="radio"]:hover {
+td > input:hover {
     cursor: pointer;
+    background-color: #080808;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.form-buttons > input, a > input {
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: rgb(7, 7, 7);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+    color: #ccc;
+    letter-spacing: 0.1rem;
+}
+
+.form-buttons > input:hover, a > input:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
 }
 
 .mini-nav {

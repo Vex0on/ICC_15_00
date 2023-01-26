@@ -30,7 +30,7 @@ def homePage(request):
 
             send_mail('Formularz kontaktowy', 'wiadomosc', 'pocalunekneptuna@gmail.com', ['pocalunekneptuna@gmail.com'],
                       html_message=html)
-            messages.info(request, 'Successfully Sent The Message!')
+            messages.info(request, 'Wiadomość została wysłana!')
             return redirect('home')
     else:
         form = ContactForm()

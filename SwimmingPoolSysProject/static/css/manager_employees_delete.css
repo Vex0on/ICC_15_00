@@ -14,8 +14,11 @@ body {
 main {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     color: #ccc;
+    min-height: 100vh;
 }
 
 form {
@@ -23,19 +26,17 @@ form {
     display: flex;
     flex-direction: column;
     background-color: rgba(7, 7, 7, 0.65);
-    min-height: 90vh;
+    min-height: 50vh;
     margin-top: 1rem;
     border-radius: 0.2rem;
     padding: 1rem;
     align-items: center;
+    justify-content: center;
     position: relative;
 }
 
 form > h1 {
-    font-size: 3rem;
-    letter-spacing: 0.2rem;
-    margin: 0;
-    margin-top: 1rem;
+    justify-content: center;
 }
 
 .form-container {

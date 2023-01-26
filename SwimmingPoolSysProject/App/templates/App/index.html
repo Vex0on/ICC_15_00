@@ -62,9 +62,7 @@
         <img src="{% static 'img/offers-01.jpg' %}" alt="">
         <div>
             <h2>Basen</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque
-                tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi
-                tenetur vero?</p>
+            <p>Strefa basenowa to miejsce pełne relaksu i rozrywki. Wokół basenu znajdują się przestronne tarasy z leżakami i parasolami, dzięki czemu można cieszyć się słońcem i odpocząć po kąpieli. W strefie basenowej znajduje się także bar, gdzie można zamówić orzeźwiające napoje i przekąski. Całość jest otoczona pięknym ogrodem, który dodaje jeszcze więcej uroku temu już i tak wyjątkowemu miejscu.</p>
             <a href="{% url 'ticket_buy_swimming_pool' %}">
                 <input type="submit" value="Sprawdź">
             </a>
@@ -74,9 +72,8 @@
     <section class="offers" id="gym">
         <div>
             <h2>Siłownia</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque
-                tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi
-                tenetur vero?</p>
+            <p>Strefa siłowni to miejsce, gdzie można skupić się na swoim ciele i zdrowiu. Jest tam wiele nowoczesnych i profesjonalnych maszyn treningowych, które pozwalają na ćwiczenie różnych partii ciała. Są tam także przestronne maty do rozciągania i strefy cardio, gdzie można biegać, jeździć na rowerze czy bieżni. Wszystko to jest otoczone przestronnymi oknami, dzięki czemu można cieszyć się pięknym widokiem z zewnątrz.</p>
+            
             <a href="{% url 'ticket_buy_gym' %}">
                 <input type="submit" value="Sprawdź">
             </a>
@@ -88,9 +85,8 @@
         <img src="{% static '/img/offers-03.jpg' %}" alt="">
         <div>
             <h2>SPA</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil fugit officiis, ex eligendi itaque
-                tempora eius, temporibus maiores molestias aut consequatur doloribus nemo non nisi soluta commodi
-                tenetur vero?</p>
+            <p>Strefa siłowni to miejsce, gdzie można skupić się na swoim ciele i zdrowiu. Jest tam wiele nowoczesnych i profesjonalnych maszyn treningowych, które pozwalają na ćwiczenie różnych partii ciała. Są tam także przestronne maty do rozciągania i strefy cardio, gdzie można biegać, jeździć na rowerze czy bieżni. Wszystko to jest otoczone przestronnymi oknami, dzięki czemu można cieszyć się pięknym widokiem z zewnątrz.</p>
+            
             <a href="{% url 'ticket_buy_spa' %}">
                 <input type="submit" value="Sprawdź">
             </a>
@@ -101,10 +97,8 @@
         <img src="{% static '/img/aboutus-01.jpg' %}" alt="">
         <div>
             <h3>O nas</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt deserunt velit nihil repudiandae hic
-                inventore molestiae quas provident incidunt fuga animi at id, quae doloremque cupiditate saepe, fugiat
-                aut dolor. Nesciunt deserunt velit nihil repudiandae hic inventore molestiae quas provident incidunt
-                fuga animi at id, quae doloremque cupiditate saepe, fugiat aut dolor.</p>
+            <p>Nasza firma została założona ponad 40 lat temu przez założyciela, który marzył o stworzeniu miejsca, w którym ludzie mogliby odpocząć od codzienności i zadbać o swoje ciało i ducha. Od samego początku naszym celem było stworzenie miejsca, gdzie każdy mógłby znaleźć coś dla siebie, bez względu na wiek czy poziom zaawansowania. Nasza oferta rozwijała się na przestrzeni lat, a my stale inwestowaliśmy w nowoczesne i profesjonalne sprzęty oraz szkoliliśmy personel, aby zapewnić najwyższą jakość usług. </p>
+       
         </div>
     </section>
 
@@ -114,7 +108,7 @@
         <form action="." method="POST">
             {% csrf_token %}
             <h4>Skontaktuj się z nami</h4>
-            <label for="name">Imie i nazwisko</label>
+            <label for="name">Imię i Nazwisko</label>
             {{ form.name }}
             <label for="Email">Email</label>
             {{ form.email }}
@@ -124,7 +118,7 @@
         </form>
         <div class="contact-information">
             <h4>Informacje Kontaktowe</h4>
-            <p>Jesteśmy otwarci na wszelakie sugestie</p>
+            <p>Jesteśmy otwarci na wszelkie sugestie</p>
             <div>
                 <i class="fa-solid fa-location-pin"></i>
                 <p>
@@ -152,9 +146,7 @@
         <div class="complaint-container">
             <div class="complaint-information">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum optio deserunt minima soluta eius! Voluptas deserunt, odio nulla consequatur labore exercitationem et quibusdam quam corrupti, ducimus, quia ipsum rem id?
-                    Accusamus est, explicabo architecto reprehenderit, sint inventore eius officiis ea debitis, quo dolor commodi? Beatae illum dolorem ratione eveniet quo soluta voluptatum! Dolorum tempore officiis harum libero quae nemo maiores!
-                    Rerum necessitatibus perspiciatis dolor dignissimos, labore, sed officia ex commodi a consectetur similique! Incidunt quidem veritatis aliquam recusandae, possimus, reiciendis sapiente accusantium dolore illum voluptas fugit ad eum velit veniam!
+                    W naszej firmie dbamy o zadowolenie naszych klientów, dlatego też chcemy, aby każdy z Państwa miał pewność, że jego ewentualne reklamacje będą rozpatrywane szybko i sprawiedliwie. W razie jakichkolwiek problemów z prosimy o kontakt z naszym działem obsługi klienta, który chętnie pomoże Państwu rozwiązać każdy problem.W treści reklamacji prosimy o podanie swoich danych kontaktowych, opis problemu oraz ewentualnego załączenia zdjęć czy innych dokumentów potwierdzających reklamację. Reklamacje rozpatrujemy w ciągu 14 dni roboczych od daty ich otrzymania. W przypadku skomplikowanych reklamacji czas ten może ulec wydłużeniu, jednak zawsze poinformujemy Państwa o tym fakcie i będziemy informować o postępach rozpatrywania reklamacji. <br><br> Dziękujemy za zaufanie i zachęcamy do kontaktu w przypadku jakichkolwiek pytań czy wątpliwości.
                 </p>
             </div>
             <form method="POST" action="">

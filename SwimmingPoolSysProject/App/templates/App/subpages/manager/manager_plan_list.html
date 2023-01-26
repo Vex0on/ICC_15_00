@@ -26,7 +26,9 @@
                         <th>Imię</th>
                         <th>Nazwisko</th>
                         <th>Nr Telefonu</th>
-                        <th></th>
+                        <th>Szczegóły</th>
+                        <th>Usuń</th>
+                        <th>Edytuj</th>
                     </tr>
                     {% for shift in shifts %}
                     {% for worker in shift.worker.all %}
@@ -35,23 +37,25 @@
                         <td>{{worker.name}}</td>
                         <td>{{worker.surname}}</td>
                         <td>{{worker.phoneNumber}}</td>
-                        <td><input type="button" name="worker_id" value="szczegóły" onclick="location.href='{% url 'manager_plan_list_show' shift_id=shift.id %}'"></td>
-                        <td><input type="button" name="worker_id" value="usuń" onclick="location.href='{% url 'manager_plan_list_delete' shift_id=shift.id %}'"></td>
-                        <td><input type="button" name="worker_id" value="edytuj" onclick="location.href='{% url 'manager_plan_list_edit' shift_id=shift.id %}'"></td>
+                        <td><input type="button" name="worker_id" value="Szczegóły" onclick="location.href='{% url 'manager_plan_list_show' shift_id=shift.id %}'"></td>
+                        <td><input type="button" name="worker_id" value="Usuń" onclick="location.href='{% url 'manager_plan_list_delete' shift_id=shift.id %}'"></td>
+                        <td><input type="button" name="worker_id" value="Edytuj" onclick="location.href='{% url 'manager_plan_list_edit' shift_id=shift.id %}'"></td>
                     </tr>
                     {% endfor %}
                     {% endfor %}
                 </table>
             </div>
 
-            <div>
+            <div class="date">
                 <label for="calendar">Data</label>
                 <input type="date" name="calendar">
             </div>
-            <input type="submit" value="Wybierz">
-            <a href="{% url 'manager_plan' %}">
-                <input type="button" value="Wróć">
-            </a>
+            <div class="form-buttons">
+                <input type="submit" value="Wybierz">
+                <a href="{% url 'manager_plan' %}">
+                    <input type="button" value="Wróć">
+                </a>
+            </div>
         </form>
 
         <nav class="mini-nav">

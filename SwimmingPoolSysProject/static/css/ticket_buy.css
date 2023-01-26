@@ -28,11 +28,13 @@ form {
     border-radius: 0.2rem;
     padding: 1rem;
     align-items: center;
+    position: relative;
 }
 
 .container-form {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 }
 
 .container-form > h1 {
@@ -51,7 +53,8 @@ form {
     padding: 0.2rem 0;
     margin-top: 0.5rem;
     letter-spacing: 0.1rem;
-    margin-left: -0.2rem;
+    margin-left: -0.4rem;
+    font-size: 1.5rem;
 }
 
 .container-form > input { 
@@ -93,15 +96,17 @@ form {
 }
 
 form > button {
-    width: 10rem;
+    width: 13rem;
     margin: 1rem auto;
-    height: 3rem;
-    font-size: 1rem;
+    height: 4.5rem;
+    font-size: 1.5rem;
     background-color: rgb(7, 7, 7);
     border-radius: 0.1rem;
     border: solid 0.1rem #333;
     color: #ccc;
     letter-spacing: 0.1rem;
+    position: absolute;
+    bottom: 10%;
 }
 
 form > button:hover {

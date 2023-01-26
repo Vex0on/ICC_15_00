@@ -30,13 +30,21 @@ form {
     align-items: center;
     text-align: center;
     gap: 1.5rem;
+    justify-content: center;
+    position: relative;
 }
 
 form > h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     letter-spacing: 0.2rem;
     margin: 0;
     margin-top: 1rem;
+    position: absolute;
+    top: 7%;
+}
+
+form > p {
+    margin-top: 5rem;
 }
 
 form > a > input {

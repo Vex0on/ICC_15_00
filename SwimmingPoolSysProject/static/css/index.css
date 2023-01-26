@@ -99,7 +99,7 @@ body {
     height: 83vh;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -124,6 +124,9 @@ body {
 
 .offers > div > p {
     font-weight: 100;
+    text-align: justify;
+    width: 25.5rem;
+    line-height: 1.6rem;
 }
 
 .offers > div > a > input {
@@ -185,8 +188,9 @@ body {
 
 .aboutus > div > p {
     margin-top: 1.5rem;
-    width: 24rem;
-    height: 15rem;    
+    width: 26rem;
+    height: 15rem;
+    text-align: justify;  
 }
 
 .break {
@@ -299,12 +303,13 @@ input, textarea {
 
 .message{
     margin-top: 12px;
-    background-color: green;
+    background-color: #111;
     width: 100%;
-    color: black;
+    color: #ccc;
     text-align: center;
-    padding: 8px;
+    padding: 8px 0;
     font-size: 1.2rem;
+    letter-spacing: 0.1rem;
 }
 
 /* complaint */
@@ -329,7 +334,7 @@ input, textarea {
 }
 
 .complaint-information {
-    width: 27rem;
+    width: 28rem;
     padding: 1.5rem;
     text-align: justify;
 }
@@ -345,18 +350,20 @@ input, textarea {
     margin-left: -0.6rem;
 }
 
-.complaint-container > form > input, textarea {
+.complaint-container > form > input, .complaint-container > form > textarea {
     color: #333;
-    background-color: #999;
+    background-color: rgb(12, 12, 12);
+    border: 0.1rem solid #222;
+    color: #ccc;
 }
 
 .complaint-container > form > input[type="submit"] {
     width: 16rem;
     background-color: rgb(15, 15, 15);
-    border: rgb(78, 78, 78) solid 1px;
+    border: 0.1rem solid #222;
     color: #ccc;
     height: 2.5rem;
-    margin-top: 1rem;
+    margin-top: 1.6rem;
 }
 
 .complaint-container > form > input[type="submit"]:hover {
@@ -364,4 +371,18 @@ input, textarea {
     background-color: #ccc;
     cursor: pointer;
     transition: 0.5s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
 }

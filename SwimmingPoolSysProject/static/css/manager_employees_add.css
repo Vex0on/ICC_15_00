@@ -68,6 +68,8 @@ form > h1 {
     margin-top: 1rem;
     display: flex;
     gap: 1rem;
+    position: absolute;
+    bottom: 10%;
 }
 
 .form-buttons > input, a > input {
@@ -106,4 +108,15 @@ form > h1 {
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+select {
+    background-color: #111;
+    color: #ccc;
+}
+
+::-webkit-calendar-picker-indicator{
+    transform:scale(1.2);
+    cursor:pointer;
+    background-color: #ccc;
 }
