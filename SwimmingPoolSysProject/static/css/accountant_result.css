@@ -117,3 +117,20 @@ form > a > input:hover {
     padding: 0.6rem;
     color: #ccc;
 }
+
+p {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+p > label {
+    font-size: 1.5rem;
+    margin-left: -0.5rem;
+}
+
+p > input { 
+    padding: 0.8rem;
+    margin-top: 0.2rem;
+}
+

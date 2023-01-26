@@ -231,3 +231,7 @@ class BuyTicketFormSwimmingPool(ModelForm):
             except Client.DoesNotExist:
                 pass
         self.fields['zone'].choices = [("Pływalnia", "Pływalnia")]
+
+class TicketCheckForm(forms.Form):
+    date_field = forms.DateField(widget=forms.DateInput, label='Data (yyyy-mm-dd)')
+

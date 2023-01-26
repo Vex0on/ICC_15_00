@@ -148,12 +148,11 @@
                 </p>
             </div>
             <form method="POST" action="">
-                {% csrf_token %}
-                {{ form_complaint.client.as_hidden }}
+
                 <label for="ticket-id">Numer Identyfikacjny Biletu</label>
-                {{ form_complaint.ticket }}
+                <input type="text" name="ticke-id">
                 <label for="ticket-description">Opis reklamacji</label>
-                {{ form_complaint.description }}
+                <textarea name="ticket-description" id="" cols="30" rows="10"></textarea>
                 <input type="submit" value="Zgłoś">
             </form>
 
