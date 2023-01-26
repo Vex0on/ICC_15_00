@@ -355,7 +355,7 @@ def accountant_result(request):
 
 # Tickets
 
-
+@login_required(login_url='login')
 def ticket_buy_gym(request):
     form = BuyTicketFormGym(request.POST or None, user=request.user)
     if request.method == 'POST':
@@ -366,6 +366,7 @@ def ticket_buy_gym(request):
     return render(request, 'App/subpages/client/ticket_buy_gym.html', context)
 
 
+@login_required(login_url='login')
 def ticket_buy_spa(request):
     form = BuyTicketFormSPA(request.POST or None, user=request.user)
     if request.method == 'POST':
@@ -376,6 +377,7 @@ def ticket_buy_spa(request):
     return render(request, 'App/subpages/client/ticket_buy_spa.html', context)
 
 
+@login_required(login_url='login')
 def ticket_buy_swimming_pool(request):
     form = BuyTicketFormSwimmingPool(request.POST or None, user=request.user)
     if request.method == 'POST':
