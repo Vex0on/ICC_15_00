@@ -6,8 +6,10 @@ from django.template.loader import render_to_string
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
+from .decorators import allowed_users
 
 # Create your views here.
 
@@ -70,56 +72,158 @@ def logout(request):
 
 
 def registration(request):
-    return render(request, 'App/subpages/registration.html')
+    userForm = UserForm()
+    clientForm = ClientForm()
+    clientAddressForm = ClientAddressForm()
+    if request.method == 'POST':
+        userForm = UserForm(request.POST)
+        clientForm = ClientForm(request.POST)
+        clientAddressForm = ClientAddressForm(request.POST)
+        if userForm.is_valid() and clientForm.is_valid() and clientAddressForm.is_valid():
+            user = userForm.save()
+            client = clientForm.save(commit=False)
+            clientaddress = clientAddressForm.save(commit=False)
+            client.user = user
+            client.save()
+            clientaddress.client = client
+            clientaddress.save()
+            auth_login(request, user)
+            return redirect('home')
+        
+    return render(request, 'App/subpages/registration.html', {
+        'userForm': userForm,
+        'clientForm': clientForm,
+        'clientAddressForm': clientAddressForm
+        }
+    )
+
+    
 
 
 def remind_password(request):
     return render(request, 'App/subpages/remind_password.html')
+
 
 def regulations(request):
     return render(request, 'App/subpages/regulations.html')
 
 
 # Manager panel
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_panel(request):
     return render(request, 'App/subpages/manager/manager_panel.html')
 
 
 # Manager panel list
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_plan(request):
     return render(request, 'App/subpages/manager/manager_plan.html')
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
+def manager_panel_shift_add(request):
+    form = ShiftForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect('manager_panel_shift_add')
+    context = {
+        'form': form
+    }
+    return render(request, 'App/subpages/manager/manager_panel_shift_add.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_plan_list(request):
-    workers = Worker.objects.all()
-    context = {'workers': workers}
+    shifts = Shift.objects.all().order_by('-startTime')
+    context = {'shifts': shifts}
+
+    if request.method == "POST":
+        if request.POST.get('calendar'):
+            date = request.POST.get('calendar')
+            shifts = Shift.objects.filter(startTime__date=date)
+            context = {
+                'shifts': shifts,
+                'date': date
+            }
+            return render(request, 'App/subpages/manager/manager_plan_list.html', context)
+        return render(request, 'App/subpages/manager/manager_plan_list.html', context)
     return render(request, 'App/subpages/manager/manager_plan_list.html', context)
 
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
+def manager_plan_list_edit(request, shift_id):
+    shift = Shift.objects.get(pk=shift_id)
+    form = ShiftForm(instance=shift)
+
+    if request.method == 'POST':
+        form = ShiftForm(request.POST, instance=shift)
+        if form.is_valid():
+            form.save()
+            return redirect('manager_plan_list_edit', shift_id)
+
+    context = {'form': form}
+    return render(request, 'App/subpages/manager/manager_plan_list_edit.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
+def manager_plan_list_show(request, shift_id):
+    shift = get_object_or_404(Shift, pk=shift_id)
+    workers = Worker.objects.filter(shift=shift)
+    context = {
+        'shift': shift,
+        'workers': workers
+    }
+    return render(request, 'App/subpages/manager/manager_plan_list_show.html', context)
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
+def manager_plan_list_delete(request, shift_id):
+    shift = Shift.objects.get(pk=shift_id)
+    if request.method == 'POST':
+        shift.delete()
+        return redirect('manager_plan_list')
+    return render(request, 'App/subpages/manager/manager_plan_list_delete.html', {'shift': shift})
 
 # Manager plan employees
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees(request):
     workers = Worker.objects.all()
     context = {'workers': workers}
     return render(request, 'App/subpages/manager/manager_employees.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_add(request):
-    form = CreateWorkerForm(request.POST)
+    form = CreateWorkerForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
-            form.save()
+            worker = form.save()
+            request.session['worker_id'] = worker.id
             return redirect('manager_employees_add_worker_address')
     context = {'form': form}
     return render(request, 'App/subpages/manager/manager_employees_add.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_add_worker_address(request):
-    form = CreateWorkerAddressForm(request.POST)
+    worker_id = request.session.get('worker_id')
+    worker = Worker.objects.get(id=worker_id)
+    form = CreateWorkerAddressForm(request.POST or None)
+    form.fields['worker'].queryset = Worker.objects.filter(id=worker.id)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -128,6 +232,8 @@ def manager_employees_add_worker_address(request):
     return render(request, 'App/subpages/manager/manager_employees_add.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_delete(request, worker_id):
     worker = Worker.objects.get(pk=worker_id)
     if request.method == 'POST':
@@ -136,6 +242,8 @@ def manager_employees_delete(request, worker_id):
     return render(request, 'App/subpages/manager/manager_employees_delete.html', {'worker': worker})
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_show(request, worker_id):
     worker = get_object_or_404(Worker, pk=worker_id)
     worker_address = get_object_or_404(WorkerAddress, worker=worker)
@@ -144,6 +252,8 @@ def manager_employees_show(request, worker_id):
     return render(request, 'App/subpages/manager/manager_employees_show.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_edit(request, worker_id):
     worker = Worker.objects.get(pk=worker_id)
     form = CreateWorkerForm(instance=worker)
@@ -154,10 +264,12 @@ def manager_employees_edit(request, worker_id):
             form.save()
             return redirect('manager_employees_edit_worker_address', worker_id)
 
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'App/subpages/manager/manager_employees_edit.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['manager', 'admin'])
 def manager_employees_edit_worker_address(request, worker_id):
     worker = Worker.objects.get(pk=worker_id)
     worker_address = WorkerAddress.objects.get(worker=worker)
@@ -175,17 +287,22 @@ def manager_employees_edit_worker_address(request, worker_id):
 
 # receptionist panel
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['receptionist', 'admin'])
 def receptionist_panel(request):
     return render(request, 'App/subpages/receptionist/receptionist_panel.html')
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['receptionist', 'admin'])
 def receptionist_tickets(request):
     tickets = Ticket.objects.all()
     context = {'tickets': tickets}
     return render(request, 'App/subpages/receptionist/receptionist_tickets.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['receptionist', 'admin'])
 def receptionist_tickets_add(request):
     form = CreateTicketsForm(request.POST)
     if request.method == 'POST':
@@ -198,18 +315,24 @@ def receptionist_tickets_add(request):
 
 # accountant panel
 
-
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['accountant', 'admin'])
 def accountant_panel(request):
     return render(request, 'App/subpages/accountant/accountant_panel.html')
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['accountant', 'admin'])
 def accountant_accountancy(request):
     tickets = Ticket.objects.all()
-    tickets_sum = round(sum([float(price.split("zł")[0]) for price in [ticket.price for ticket in tickets]]), 2)
+    tickets_sum = round(sum([float(price.split("zł")[0])
+                        for price in [ticket.price for ticket in tickets]]), 2)
     context = {'tickets': tickets, 'tickets_sum': tickets_sum}
     return render(request, 'App/subpages/accountant/accountant_accountancy.html', context)
 
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['accountant', 'admin'])
 def accountant_result(request):
     return render(request, 'App/subpages/accountant/accountant_result.html')
 

@@ -9,8 +9,16 @@ urlpatterns = [
     path('remind_password/', views.remind_password, name='remind_password'),
     path('regulations/', views.regulations, name='regulations'),
     path('manager_panel/', views.manager_panel, name='manager_panel'),
+         
+    path('manager_panel/plan/add_shift/', views.manager_panel_shift_add, name='manager_panel_shift_add'),
+
     path('manager_panel/plan/', views.manager_plan, name='manager_plan'),
     path('manager_panel/plan/list/', views.manager_plan_list, name='manager_plan_list'),
+         
+    path('manager_panel/plan/list/show/<int:shift_id>', views.manager_plan_list_show, name='manager_plan_list_show'),
+    path('manager_panel/plan/list/delete/<int:shift_id>', views.manager_plan_list_delete, name='manager_plan_list_delete'),
+    path('manager_panel/plan/list/edit/<int:shift_id>', views.manager_plan_list_edit, name='manager_plan_list_edit'),
+
     path('manager_panel/employees/', views.manager_employees, name='manager_employees'),
     path('manager_panel/employees/add/', views.manager_employees_add, name='manager_employees_add'),
     path('manager_panel/employees/add/workerAddress', views.manager_employees_add_worker_address, name='manager_employees_add_worker_address'),

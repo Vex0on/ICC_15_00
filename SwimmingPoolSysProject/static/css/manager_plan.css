@@ -28,8 +28,10 @@ form {
     border-radius: 0.2rem;
     padding: 1rem;
     align-items: center;
+    justify-content: center;
     text-align: center;
     gap: 1.5rem;
+    position: relative;
 }
 
 form > h1 {
@@ -37,25 +39,12 @@ form > h1 {
     letter-spacing: 0.2rem;
     margin: 0;
     margin-top: 1rem;
+    position: absolute;
+    top: 4%;
 }
 
-form > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 1rem;
-}
-
-form > div > label {
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
-    margin-left: -0.5rem;
-    padding: 0.5rem 0;
-}
-
-form > div > input {
-    padding: 1rem;
-    font-size: 1.25rem;
+form > p {
+    margin-top: 5rem;
 }
 
 form > a > input {

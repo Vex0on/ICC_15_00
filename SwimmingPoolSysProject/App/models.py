@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 import datetime
 
@@ -47,6 +48,7 @@ class Shift(models.Model):
 
 
 class Client(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=45)
     surname = models.CharField(max_length=45)
     phoneNumber = models.CharField(max_length=9, unique=True)
@@ -84,7 +86,7 @@ class Ticket(models.Model):
     )
 
     worker = models.ForeignKey(Worker, on_delete=models.SET_NULL, null=True)
-    client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True)
+    client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.CharField(max_length=6, choices=PRICE_CHOICES)
     zone = models.CharField(max_length=45, choices=ZONE_CHOICES)
     dateOfPurchase = models.DateTimeField(default=datetime.datetime.now(), editable=False)
@@ -96,7 +98,7 @@ class Ticket(models.Model):
         super(Ticket, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.zone}'
+        return f'{self.id}'
 
 
 class Complaint(models.Model):
