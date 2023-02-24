@@ -17,13 +17,14 @@ body {
 }
 
 .to-top {
-    right: 7rem;
+    left: 90%;
     bottom: 4rem;
     position: fixed;
     color: white;
     font-size: 3rem;
     opacity: 0;
     transition: 0.2s;
+    z-index: 2;
 }
 
 .to-bottom {
@@ -44,8 +45,25 @@ body {
     opacity: 0;
 }
 
+/* homepage */
 
-.home-page {
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    padding-right: 3rem;
+    position: absolute;
+    right: 0;
+    top: 1.5rem;
+    cursor: pointer;
+    z-index: 3;
+    color: #ccc;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+  }
+
+.homepage {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -55,7 +73,18 @@ body {
     background-attachment: fixed;
 }
 
-.home-page > nav > ul {
+.homepage__header {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    color: rgb(184, 179, 179);
+    font-weight: 400;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+}
+
+.nav__list {
     display: flex;
     list-style: none;
     justify-content: flex-end;
@@ -66,24 +95,14 @@ body {
     font-size: 1.1rem;
 }
 
-.home-page > nav > ul > li > a {
+.nav__link {
     text-decoration: none;
     color: #ccc;
 }
 
-.home-page > nav > ul > li > a:hover {
+.nav__link:hover {
     color: #aaa;
     border-bottom: 1px solid #555;
-}
-
-.home-page > h1 {
-    position: absolute;
-    top: 45%;
-    left: 36%;
-    color: rgb(184, 179, 179);
-    font-weight: 400;
-    font-size: 2.5rem;
-    letter-spacing: 0.15rem;
 }
 
 
@@ -95,41 +114,44 @@ body {
 /* Offers*/
 
 .offers {
-    width:70%;
-    height: 83vh;
+    width:80%;
     display: flex;
     justify-content: center;
     gap: 3rem;
     align-items: center;
+    padding: 2rem;
 }
 
-.offers > img {
+.offers__img {
     width: 25rem;
     height: 30rem;
     opacity: 0.8;
 }
 
-.offers > div {
+.offers__container {
     text-align: center;
     width: 40%;
     color: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.offers > div > h2 {
+.offers__header {
     font-size: 2rem;
     letter-spacing: 0.2rem;
     padding: 1rem;
     font-weight: 100;
 }
 
-.offers > div > p {
+.offers__text {
     font-weight: 100;
     text-align: justify;
-    width: 25.5rem;
+    max-width: 25.5rem;
     line-height: 1.6rem;
 }
 
-.offers > div > a > input {
+.offers__submit {
     background-color: rgb(15, 15, 15);
     border: #ccc solid 1px;
     color: #ccc;
@@ -138,7 +160,7 @@ body {
     margin-top: 2rem;
 }
 
-.offers > div > a > input:hover {
+.offers__submit:hover {
     color:rgb(15, 15, 15);
     background-color: #ccc;
     cursor: pointer;
@@ -163,13 +185,13 @@ body {
     background-attachment: fixed;
 }
 
-.aboutus > img {
+.aboutus__img {
     width: 22rem;
     height: 22rem;
     border-radius: 50%;
 }
 
-.aboutus > div {
+.aboutus__container {
     width: 35rem;
     color: #ccc;
     height: 26rem;
@@ -181,12 +203,12 @@ body {
     line-height: 1.6rem;
 }
 
-.aboutus > div > h3 {
+.aboutus__header {
     letter-spacing: 0.1rem;
     font-size: 2rem;
 }
 
-.aboutus > div > p {
+.aboutus__text {
     margin-top: 1.5rem;
     width: 26rem;
     height: 15rem;
@@ -201,9 +223,9 @@ body {
 /* contact */
 
 .contact {
-    height: 70vh;
     width: 100%;
     padding-top: 4rem;
+    padding-bottom: 4rem;
     background: linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.95)),url("../img/contact-01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -214,31 +236,31 @@ body {
     gap: 6rem;
 }
 
-.contact > form {
+.contact__form {
     display: flex;
     flex-direction: column;
     color: #ccc;
 }
 
-.contact > form > h4 {
+.contact__header {
     font-weight: 300;
     font-size: 2rem;
     padding-bottom: 2rem;
 }
 
-.contact > form > label {
+.contact__label {
     font-weight: 100;
     margin-top: 1rem;
 }
 
-.contact > form > input[type="text"], input[type="email"] {
+.contact__form > input[type="text"], input[type="email"] {
     background: none;
     border-bottom: 0.01rem solid rgb(78, 78, 78);
     width: 14rem;
     margin-top: 0.5rem;
 }
 
-.contact > form > textarea {
+.contact__form > textarea {
     background: none;
     width: 14rem;
     border-bottom: 0.01rem solid rgb(78, 78, 78);
@@ -246,7 +268,7 @@ body {
     color: #ccc;
 }
 
-.contact > form > input[type="submit"] {
+.contact__submit {
     width: 14rem;
     background-color: rgb(15, 15, 15);
     border: rgb(78, 78, 78) solid 1px;
@@ -255,42 +277,42 @@ body {
     margin-top: 1rem;
 }
 
-.contact > form > input[type="submit"]:hover {
+.contact__submit:hover {
     color:rgb(15, 15, 15);
     background-color: #ccc;
     cursor: pointer;
     transition: 0.5s;
 }
 
-.contact-information {
+.contact__information {
     color: #ccc;
     width: 25rem;
     margin-left: 1rem;
 }
 
-.contact-information > h4 {
+.contact__header__information {
     font-weight: 300;
     font-size: 2rem;
 }
 
-.contact-information > p {
+.contact__text {
     font-weight: 100;
     margin-top: 1rem;
 }
 
-.contact-information > div {
+.contact__container {
     display: flex;
     margin-top: 3rem;
     font-weight: 100;
 }
 
-.contact-information > div > p {
+.contact__text__information {
     margin-left: 0.7rem;
     font-size: 1rem;
     padding-top: 0.5rem;
 }
 
-.contact-information .fa-solid {
+.contact__information .fa-solid {
     font-size: 2rem;
     color: #aaa;
 }
@@ -378,11 +400,112 @@ input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-::-webkit-scrollbar {
-    width: 12px;
-    background-color: #F5F5F5;
-}
-::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
-}
+
+/* Media */
+
+@media (max-width: 900px) {
+    .nav {
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      transition: 0.7s;
+    }
+
+    .nav__active {
+      background-color: #aaa;
+    }
+
+    .nav__list {
+      flex-direction: column;
+      padding-bottom: 0.5rem;
+      padding: 0;
+      position: absolute;
+      top: -500px;
+      transition: 0.7s;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .nav__list__active {
+      background-color: #0f0f0fc7;
+      top: 0;
+      padding-top: 5rem;
+    }
+
+    .nav__item {
+      margin-right: 0;
+      padding: 0.7rem 0;
+      text-align: center;
+    }
+
+    .hamburger {
+      display: block;
+    }
+
+    /* offers */
+
+    .offers {
+        flex-direction: column;
+    }
+
+    .offers__img {
+        width: 19rem;
+        padding: 0;
+    }
+
+    #gym {
+        flex-direction: column-reverse;
+    }
+
+    .offers__text {
+        width: 19rem;
+    }
+
+    .offers__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* aboutus */
+
+    .aboutus {
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    .aboutus__img {
+        width: 19rem;
+    }
+
+    .aboutus__container {
+        width: 19rem;
+    }
+
+    .aboutus__text {
+        width: 19rem;
+    }
+
+    /* contact */
+
+    .contact {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact__form {
+        align-items: center;
+    }
+
+    .contact__information {
+        width: 19rem;
+    }
+
+    .contact__header {
+        text-align: center;
+    }
+
+    .contact__header__information {
+        text-align: center;
+    }
+ }
