@@ -11,3 +11,13 @@ window.addEventListener("scroll", () => {
         toBottom.classList.remove("to-bottom-active");
     } 
 })
+
+
+const hamburger = document.querySelector(".hamburger");
+const navBar = document.querySelector(".nav__list");
+const nav = document.querySelector(".nav");
+
+hamburger.addEventListener("click", () => {
+    navBar.classList.toggle("nav__list__active");
+    nav.classList.toggle("nav__active");
+})
