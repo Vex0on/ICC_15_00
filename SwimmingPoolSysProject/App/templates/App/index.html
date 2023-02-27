@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="{% static '/css/index.css' %}">
 </head>
+
 <body>
     <a href="#"><i class="to-top fa-solid fa-arrow-up"></i></a>
     <a href="#swimming-pool"><i class="to-bottom fa-solid fa-arrow-down"></i></a>
@@ -136,28 +139,32 @@
             </div>
         </div>
     </section>
+
     {% if request.user.is_authenticated %}
     <section class="complaint" id="complaint">
-        <h5>Zgłoś reklamację</h5>
-        <div class="complaint-container">
-            <div class="complaint-information">
-                <p>
+        <h2 class="complaint__header">Zgłoś reklamację</h2>
+        <div class="complaint__container">
+            <div class="complaint__information">
+                <p class="complaint__text">
                     W naszej firmie dbamy o zadowolenie naszych klientów, dlatego też chcemy, aby każdy z Państwa miał pewność, że jego ewentualne reklamacje będą rozpatrywane szybko i sprawiedliwie. W razie jakichkolwiek problemów z prosimy o kontakt z naszym działem obsługi klienta, który chętnie pomoże Państwu rozwiązać każdy problem.W treści reklamacji prosimy o podanie swoich danych kontaktowych, opis problemu oraz ewentualnego załączenia zdjęć czy innych dokumentów potwierdzających reklamację. Reklamacje rozpatrujemy w ciągu 14 dni roboczych od daty ich otrzymania. W przypadku skomplikowanych reklamacji czas ten może ulec wydłużeniu, jednak zawsze poinformujemy Państwa o tym fakcie i będziemy informować o postępach rozpatrywania reklamacji. <br><br> Dziękujemy za zaufanie i zachęcamy do kontaktu w przypadku jakichkolwiek pytań czy wątpliwości.
                 </p>
             </div>
-            <form method="POST" action="">
+            <form class="complaint__form" method="POST" action="">
                 {% csrf_token %}
                 {{ form_complaint.client.as_hidden }}
-                <label for="ticket-id">Numer Identyfikacjny Biletu</label>
+                <label class="complaint__label" for="ticket-id">Numer Identyfikacjny Biletu</label>
                 {{ form_complaint.ticket }}
-                <label for="ticket-description">Opis reklamacji</label>
+                <label class="complaint__label" for="ticket-description">Opis reklamacji</label>
                 {{ form_complaint.description }}
-                <input type="submit" value="Zgłoś">
+                <input class="complaint__submit" type="submit" value="Zgłoś">
             </form>
-        </div>
 
+        </div>
+        
     </section>
     {% endif %}
+
     <script src="{% static '/js/index.js' %}"></script>
 </body>
+
 </html>

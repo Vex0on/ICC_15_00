@@ -14,26 +14,26 @@
 <body>
 
     <main>
-        <form action="" class="login" method="POST">
+        <form class="form" action=""  method="POST">
             {% csrf_token %}
-            <h1>Logowanie</h1>
+            <h1 class="form__header">Logowanie</h1>
 
-            <label for="email">E-mail</label>
-            <input type="email" name="email">
+            <label class="form__label" for="email">E-mail</label>
+            <input class="form__input" type="email" name="email">
 
-            <label for="password">Hasło</label>
-            <input type="password" name="password">
+            <label class="form__label" for="password">Hasło</label>
+            <input class="form__input" type="password" name="password">
             {% if messages %}
             {% for message in messages %}
             <br>
             <p class="error_message">{{ message }}</p>
             {% endfor %}
             {% endif %}
-            <button type="submit">Zaloguj</button>
+            <button class="form__submit" type="submit">Zaloguj</button>
 
-            <div class="remind-register-container">
-                <a href="{% url 'remind_password' %}">Przypomnij hasło</a>
-                <a href="{% url 'registration' %}">Zarejestruj się</a>
+            <div class="form__container__reminder">
+                <a class="form__link" href="{% url 'remind_password' %}">Przypomnij hasło</a>
+                <a class="form__link" href="{% url 'registration' %}">Zarejestruj się</a>
             </div>
         </form>
 

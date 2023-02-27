@@ -244,7 +244,7 @@ body {
 
 .contact__header {
     font-weight: 300;
-    font-size: 2rem;
+    font-size: 2rem; 
     padding-bottom: 2rem;
 }
 
@@ -258,7 +258,7 @@ body {
     border-bottom: 0.01rem solid rgb(78, 78, 78);
     width: 14rem;
     margin-top: 0.5rem;
-}
+} 
 
 .contact__form > textarea {
     background: none;
@@ -317,7 +317,7 @@ body {
     color: #aaa;
 }
 
-input, textarea {
+input, textarea { 
     outline: none;
     color: #ccc;
     padding: 0.5rem;
@@ -345,28 +345,28 @@ input, textarea {
     padding: 2rem;
 }
 
-.complaint > h5 {
+.complaint__hedaer {
     font-size: 2rem;
 }
 
-.complaint-container {
+.complaint__container {
     display: flex;
     margin-top: 1rem;
     gap: 7rem;
 }
 
-.complaint-information {
+.complaint__information {
     width: 28rem;
     padding: 1.5rem;
     text-align: justify;
 }
 
-.complaint-container > form {
+.complaint__form {
     display: flex;
     flex-direction: column;
 }
 
-.complaint-container > form > label {
+.complaint__label {
     padding: 0.3rem;
     margin-top: 0.5rem;
     margin-left: -0.6rem;
@@ -410,11 +410,11 @@ input:-webkit-autofill:focus {
       position: relative;
       transition: 0.7s;
     }
-
+  
     .nav__active {
       background-color: #aaa;
     }
-
+  
     .nav__list {
       flex-direction: column;
       padding-bottom: 0.5rem;
@@ -425,19 +425,19 @@ input:-webkit-autofill:focus {
       width: 100%;
       z-index: 1;
     }
-
+  
     .nav__list__active {
       background-color: #0f0f0fc7;
       top: 0;
       padding-top: 5rem;
     }
-
+  
     .nav__item {
       margin-right: 0;
       padding: 0.7rem 0;
       text-align: center;
     }
-
+    
     .hamburger {
       display: block;
     }
@@ -473,7 +473,7 @@ input:-webkit-autofill:focus {
         flex-direction: column;
         margin-top: 2rem;
     }
-
+    
     .aboutus__img {
         width: 19rem;
     }
