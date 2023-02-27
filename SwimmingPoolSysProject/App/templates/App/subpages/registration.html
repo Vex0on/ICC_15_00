@@ -12,65 +12,63 @@
 </head>
 
 <body>
-    <main>
-        <form action="" class="registration" method="POST">
-            {% csrf_token %}
-            <h1>Dane rejestracyjne</h1>
-            <label for="first-name">Email</label>
-            {{ userForm.username }}
+    <form class="form" action="" method="POST">
+        {% csrf_token %}
+        <h1 class="form__header">Dane rejestracyjne</h1>
+        <label class="form__label" for="first-name">Email</label>
+        {{ userForm.username }}
 
-            <label for="pesel">Powtórz email</label>
-            {{ clientForm.email }}
+        <label class="form__label" for="pesel">Powtórz email</label>
+        {{ clientForm.email }}
 
-            <label for="password">Hasło</label>
-            {{ userForm.password1 }}
+        <label class="form__label" for="password">Hasło</label>
+        {{ userForm.password1 }}
 
-            <label for="repeat-password">Powtórz hasło</label>
-            {{ userForm.password2 }}
+        <label class="form__label" for="repeat-password">Powtórz hasło</label>
+        {{ userForm.password2 }}
 
-            <label for="first-name">Imię</label>
-            {{ clientForm.name }}
+        <label class="form__label" for="first-name">Imię</label>
+        {{ clientForm.name }}
 
-            <label for="last-name">Nazwisko</label>
-            {{ clientForm.surname }}
+        <label class="form__label" for="last-name">Nazwisko</label>
+        {{ clientForm.surname }}
 
-            <label for="phone-number">Numer telefonu</label>
-            {{ clientForm.phoneNumber }}
+        <label class="form__label" for="phone-number">Numer telefonu</label>
+        {{ clientForm.phoneNumber }}
 
-            <label for="pesel">Pesel</label>
-            {{ clientForm.pesel }}
+        <label class="form__label" for="pesel">Pesel</label>
+        {{ clientForm.pesel }}
 
-            <h2>Adres zamieszkania</h2>
-            <label for="place">Ulica</label>
-            {{ clientAddressForm.street }}
+        <h2 class="form__header__secondary">Adres zamieszkania</h2>
+        <label class="form__label" for="place">Ulica</label>
+        {{ clientAddressForm.street }}
 
-            <label for="place">Numer domu</label>
-            {{ clientAddressForm.houseNumber }}
+        <label class="form__label" for="place">Numer domu</label>
+        {{ clientAddressForm.houseNumber }}
 
-            <label for="place">Numer mieszkania</label>
-            {{ clientAddressForm.flatNumber }}
+        <label class="form__label" for="place">Numer mieszkania</label>
+        {{ clientAddressForm.flatNumber }}
 
-            <label for="postcode">Kod pocztowy</label>
-            <!-- <input type="text" pattern="[0-9]{5}" name="postcode"> -->
-            {{ clientAddressForm.postcode }}
+        <label class="form__label" for="postcode">Kod pocztowy</label>
+        <!-- <input type="text" pattern="[0-9]{5}" name="postcode"> -->
+        {{ clientAddressForm.postcode }}
 
-            <label for="address">Miasto</label>
-            {{ clientAddressForm.placeName }}
+        <label class="form__label" for="address">Miasto</label>
+        {{ clientAddressForm.placeName }}
 
-            <div class="regulations-box">
-                <input type="checkbox" name="regulations">
-                <label for="regulations">Zapoznałem się z <a href="{% url 'regulations' %}">regulaminem.</a></label>
-            </div>
+        <div class="regulations">
+            <input class="regulations__input" type="checkbox" name="regulations">
+            <label class="regulations__label" for="regulations">Zapoznałem się z <a class="regulations__link" href="{% url 'regulations' %}">regulaminem.</a></label>
+        </div>
 
-            <button type="submit" name="register">Zarejestruj</button>
+        <button class="form__submit" type="submit" name="register">Zarejestruj</button>
 
-            <span>Masz już konto? <a href="{% url 'login' %}">Zaloguj się.</a></span>
-        </form>
+        <span class="form__span" >Masz już konto? <a class="form__link" href="{% url 'login' %}">Zaloguj się.</a></span>
+    </form>
 
-        <nav class="mini-nav">
-            <a href="{% url 'home' %}">Strona Główna</a>
-        </nav>
-    </main>
-    
+    <nav class="mini-nav">
+        <a href="{% url 'home' %}">Strona Główna</a>
+    </nav>
+
 </body>
 </html>

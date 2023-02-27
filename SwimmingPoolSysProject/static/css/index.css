@@ -345,28 +345,28 @@ input, textarea {
     padding: 2rem;
 }
 
-.complaint > h5 {
+.complaint__hedaer {
     font-size: 2rem;
 }
 
-.complaint-container {
+.complaint__container {
     display: flex;
     margin-top: 1rem;
     gap: 7rem;
 }
 
-.complaint-information {
+.complaint__information {
     width: 28rem;
     padding: 1.5rem;
     text-align: justify;
 }
 
-.complaint-container > form {
+.complaint__form {
     display: flex;
     flex-direction: column;
 }
 
-.complaint-container > form > label {
+.complaint__label {
     padding: 0.3rem;
     margin-top: 0.5rem;
     margin-left: -0.6rem;

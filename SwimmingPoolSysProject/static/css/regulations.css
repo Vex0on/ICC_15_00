@@ -19,33 +19,35 @@ body {
     justify-content: center;
 }
 
-main {
+.regulations {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    padding-bottom: 5rem;
 }
 
-h1 {
+.regulations__header {
     text-align: center;
     padding: 20px 0;
   }
 
-.regulations {
+.regulations__container {
     width: 50%;
 }
 
-.regulations > p {
+.regulations__point {
     margin: 10px 0;
     padding: 0 20px;
     line-height: 1.5;
     font-size: 0.9rem;
 }
 
-main > a {
+.regulations__link{
     padding: 1rem;
 }
 
-main > a > input {
+.regulations__submit {
     width: 10rem;
     height: 3rem;
     font-size: 1rem;
@@ -56,7 +58,7 @@ main > a > input {
     letter-spacing: 0.1rem;
 }
 
-main > a > input:hover {
+.regulations__link:hover {
     cursor: pointer;
     background-color: #aaa;
     color: #111;
@@ -74,4 +76,20 @@ main > a > input:hover {
     text-decoration: none;
     border: 0.1rem solid #999;
     padding: 0.6rem;
+}
+
+@media (max-width: 940px) {
+    .regulations__container {
+        width: 90%;
+    }
+}
+
+@media (max-width:1110px) {
+    .mini-nav {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        top: 95%;
+    }
 }

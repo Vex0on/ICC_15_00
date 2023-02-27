@@ -19,30 +19,30 @@ body {
     justify-content: center;
 }
 
-.login {
+.form {
     display: flex;
     flex-direction: column;
 }
 
-.login > h1 {
+.form__header {
     text-align: center;
     padding: 1rem;
     letter-spacing: 0.1rem;
 }
 
-.login > input {
+.form__input {
     background: none;
     padding: 0.7rem;
     border-bottom: 0.1rem solid #888;
     outline: none;
 }
 
-.login > label {
+.form__label {
     margin-top: 1rem;
     margin-left: -0.3rem;
 }
 
-.login > button {
+.form__submit {
     width: 10rem;
     margin: 2rem auto;
     margin-bottom: 1rem;
@@ -53,31 +53,27 @@ body {
     border: solid 0.1rem #333;
 }
 
-.login > button:hover {
+.form__submit:hover {
     cursor: pointer;
     background-color: #aaa;
     color: #111;
     transition: 0.7s;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-    transition: background-color 600000s 0s, color 600000s 0s;
-}
-
-.remind-register-container > a{ 
+.form__link{ 
     text-decoration: none;
 }
 
-.remind-register-container > a:nth-child(2) {
+.form__link:nth-child(2) {
     margin-left: 2rem;
 }
 
-.remind-register-container > a:hover {
+.form__link:hover {
     color: #bbb;
 }
 
 .mini-nav {
+    width: 19rem;
     position: fixed;
     top: 88%;
     left: 82%;
@@ -88,4 +84,17 @@ input:-webkit-autofill:focus {
     text-decoration: none;
     border: 0.1rem solid #999;
     padding: 0.6rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+@media (max-width: 1109px) {
+    .mini-nav {
+        text-align: center;
+        left: 0;
+        width: 100%;
+    }
 }
