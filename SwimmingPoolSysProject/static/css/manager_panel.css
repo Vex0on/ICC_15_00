@@ -1,58 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
 
 body {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover!important;
-    background: linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.86)),url("../img/ticket_buy-01.jpg");
+    font-family: 'Montserrat', sans-serif;
+
     margin: 0;
     padding: 0;
+
     border: 0;
-    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(rgba( 0, 0, 0, 0.86) , rgba( 0, 0, 0, 0.86) ) , url( "../img/ticket_buy-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover!important;
 }
 
 ::-webkit-scrollbar {
     width: 12px;
+
     background-color: #F5F5F5;
 }
+
 ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #555;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
 }
 
 /* panel */
 
 .panel {
-    width: 100%;
+    position: relative;
+
     display: flex;
     justify-content: center;
+
+    width: 100%;
+    min-height: 100vh;
+
     color: #ccc;
-    position: relative;
 }
 
 .panel__form {
-    width: 32.125rem;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    background-color: rgba(7, 7, 7, 0.65);
+    justify-content: center;
+
+    width: 32.125rem;
     min-height: 90vh;
     margin-top: 1rem;
-    border-radius: 0.2rem;
     padding: 1rem;
-    align-items: center;
+
     text-align: center;
+
+    border-radius: 0.2rem;
+    background-color: rgba(7, 7, 7, 0.65);
+
     gap: 2rem;
-    justify-content: center;
 }
 
 .panel__link {
-    color: #ccc;
     text-decoration: none;
+
+    color: #ccc;
 }
 
 .panel__container {
-    border: 0.1rem solid #ccc;
     padding: 3rem 2rem;
+
+    border: 0.1rem solid #ccc;
 }
 
 .panel__link:first-child > .panel__container {
@@ -61,17 +75,20 @@ body {
 
 .panel__container:hover {
     cursor: pointer;
+
     border: 0.1rem solid #888;
 }
 
-.panel__icon{
+.panel__icon {
     font-size: 7rem;
 }
 
 .panel__title {
     font-size: 3rem;
+
     margin: 0;
     margin-top: 1rem;
+
     letter-spacing: 0.2rem;
 }
 
@@ -83,12 +100,14 @@ body {
 
 .mini-nav-panel > a {
     font-size: 1.5rem;
-    text-decoration: none;
-    border: 0.1rem solid #999;
-    padding: 0.6rem;
-    color: #ccc;
-}
 
+    padding: 0.6rem;
+
+    text-decoration: none;
+
+    color: #ccc;
+    border: 0.1rem solid #999;
+}
 
 @media(max-width: 1000px) {
     .panel__form {
@@ -98,25 +117,42 @@ body {
 }
 
 @media(max-width: 1150px) {
+    .panel {
+        height: 50rem;
+    }
+
+    .panel__form {
+        justify-content: unset;
+        padding-top: 2rem;
+    }
+
     .mini-nav {
-        width: 100%;
-        left: 0;
-        text-align: center;
         position: absolute;
         top: 87%;
+        left: 0;
+
+        width: 100%;
+
+        text-align: center;
     }
+
     .mini-nav-panel {
-        width: 100%;
-        left: 0;
-        text-align: center;
         position: absolute;
-        top: 105%;
-    }
-    .mini-nav-list {
-        width: 100%;
+        top: 87%;
         left: 0;
+
+        width: 100%;
+
         text-align: center;
+    }
+
+    .mini-nav-list {
         position: absolute;
         top: 115%;
+        left: 0;
+
+        width: 100%;
+
+        text-align: center;
     }
 }

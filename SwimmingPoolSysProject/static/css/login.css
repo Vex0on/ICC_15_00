@@ -1,22 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
 
 * {
-    border: 0;
-    padding: 0;
     font-family: 'Montserrat', sans-serif;
+
     margin: 0;
+    padding: 0;
+
     color: #ccc;
+    border: 0;
 }
 
 body {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover!important;
-    background: linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.86)),url("../img/registration-01.jpg");
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    min-height: 100vh;
+
+    background: linear-gradient(rgba( 0, 0, 0, 0.86) , rgba( 0, 0, 0, 0.86) ) , url( "../img/registration-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover!important;
 }
 
 .form {
@@ -25,16 +29,18 @@ body {
 }
 
 .form__header {
-    text-align: center;
     padding: 1rem;
+
+    text-align: center;
     letter-spacing: 0.1rem;
 }
 
 .form__input {
-    background: none;
     padding: 0.7rem;
+
     border-bottom: 0.1rem solid #888;
     outline: none;
+    background: none;
 }
 
 .form__label {
@@ -43,24 +49,27 @@ body {
 }
 
 .form__submit {
+    font-size: 1rem;
+
     width: 10rem;
+    height: 3rem;
     margin: 2rem auto;
     margin-bottom: 1rem;
-    height: 3rem;
-    font-size: 1rem;
-    background-color: rgb(7, 7, 7);
-    border-radius: 0.1rem;
+
     border: solid 0.1rem #333;
+    border-radius: 0.1rem;
+    background-color: rgb(7, 7, 7);
 }
 
 .form__submit:hover {
     cursor: pointer;
-    background-color: #aaa;
-    color: #111;
     transition: 0.7s;
+
+    color: #111;
+    background-color: #aaa;
 }
 
-.form__link{ 
+.form__link {
     text-decoration: none;
 }
 
@@ -73,17 +82,21 @@ body {
 }
 
 .mini-nav {
-    width: 19rem;
     position: fixed;
     top: 88%;
     left: 82%;
+
+    width: 19rem;
 }
 
 .mini-nav > a {
     font-size: 1.5rem;
-    text-decoration: none;
-    border: 0.1rem solid #999;
+
     padding: 0.6rem;
+
+    text-decoration: none;
+
+    border: 0.1rem solid #999;
 }
 
 input:-webkit-autofill,
@@ -91,10 +104,12 @@ input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-@media (max-width: 1109px) {
+@media(max-width: 1109px) {
     .mini-nav {
-        text-align: center;
         left: 0;
+
         width: 100%;
+
+        text-align: center;
     }
 }

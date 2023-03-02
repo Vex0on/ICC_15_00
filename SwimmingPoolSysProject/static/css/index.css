@@ -1,40 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
 
 * {
-    border: 0;
-    padding: 0;
     font-family: 'Montserrat', sans-serif;
+
     margin: 0;
+    padding: 0;
+
+    border: 0;
+
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: rgb(7, 7, 7);
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+
+    background-color: rgb(7, 7, 7);
 }
 
 .to-top {
-    left: 90%;
-    bottom: 4rem;
-    position: fixed;
-    color: white;
     font-size: 3rem;
-    opacity: 0;
-    transition: 0.2s;
+
+    position: fixed;
     z-index: 2;
+    bottom: 4rem;
+    left: 90%;
+
+    transition: 0.2s;
+
+    opacity: 0;
+    color: white;
 }
 
 .to-bottom {
-    position: absolute;
-    color: #ccc;
     font-size: 3rem;
+
+    position: absolute;
     top: 85%;
     left: 90%;
-    opacity: 1;
+
     transition: 0.2s;
+
+    opacity: 1;
+    color: #ccc;
 }
 
 .to-top-active {
@@ -48,55 +58,71 @@ body {
 /* homepage */
 
 .hamburger {
-    display: none;
     font-size: 2rem;
-    padding-right: 3rem;
+
     position: absolute;
-    right: 0;
-    top: 1.5rem;
-    cursor: pointer;
     z-index: 3;
+    top: 1.5rem;
+    right: 0;
+
+    display: none;
+
+    padding-right: 3rem;
+
+    cursor: pointer;
+
     color: #ccc;
 }
 
 .hamburger:hover {
     cursor: pointer;
-  }
+}
 
 .homepage {
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
     width: 100%;
-    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url("../img/basen.jpg");
-    background-position: center;
+    min-height: 100vh;
+
+    background: linear-gradient(rgba( 0, 0, 0, 0.9) , rgba( 0, 0, 0, 0.9) ) , url( "../img/basen.jpg");
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
 .homepage__header {
+    font-size: 2.5rem;
+    font-weight: 400;
+
     position: absolute;
     top: 45%;
+
     width: 100%;
+
     text-align: center;
-    color: rgb(184, 179, 179);
-    font-weight: 400;
-    font-size: 2.5rem;
     letter-spacing: 0.15rem;
+
+    color: rgb(184, 179, 179);
 }
 
 .nav__list {
+    font-size: 1.1rem;
+
     display: flex;
-    list-style: none;
     justify-content: flex-end;
-    gap: 2rem;
+
     margin-right: 3rem;
     padding: 1rem;
+
+    list-style: none;
+
     letter-spacing: 0.1rem;
-    font-size: 1.1rem;
+
+    gap: 2rem;
 }
 
 .nav__link {
     text-decoration: none;
+
     color: #ccc;
 }
 
@@ -105,113 +131,136 @@ body {
     border-bottom: 1px solid #555;
 }
 
-
 /* hidden */
+
 .hidden {
     display: none;
 }
 
-/* Offers*/
+/* Offers */
 
 .offers {
-    width:80%;
     display: flex;
-    justify-content: center;
-    gap: 3rem;
     align-items: center;
+    justify-content: center;
+
+    width: 80%;
     padding: 2rem;
+
+    gap: 3rem;
 }
 
 .offers__img {
     width: 25rem;
     height: 30rem;
+
     opacity: 0.8;
 }
 
 .offers__container {
-    text-align: center;
-    width: 40%;
-    color: #ccc;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+
+    width: 40%;
+
+    text-align: center;
+
+    color: #ccc;
 }
 
 .offers__header {
     font-size: 2rem;
-    letter-spacing: 0.2rem;
-    padding: 1rem;
     font-weight: 100;
+
+    padding: 1rem;
+
+    letter-spacing: 0.2rem;
 }
 
 .offers__text {
     font-weight: 100;
-    text-align: justify;
-    max-width: 25.5rem;
     line-height: 1.6rem;
+
+    max-width: 25.5rem;
+
+    text-align: justify;
 }
 
 .offers__submit {
-    background-color: rgb(15, 15, 15);
-    border: #ccc solid 1px;
-    color: #ccc;
     width: 10rem;
     height: 2.5rem;
     margin-top: 2rem;
+
+    color: #ccc;
+    border: #ccc solid 1px;
+    background-color: rgb(15, 15, 15);
 }
 
 .offers__submit:hover {
-    color:rgb(15, 15, 15);
-    background-color: #ccc;
     cursor: pointer;
     transition: 0.5s;
+
+    color: rgb(15, 15, 15);
+    background-color: #ccc;
 }
 
 /* aboutus */
 
 .aboutus {
-    height: 70vh;
-    width: 100%;
     display: flex;
-    padding: 2rem 0;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 70vh;
+    padding: 2rem 0;
+
     text-align: center;
-    gap: 4rem;
-    background: linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.95)),url("../img/spa.jpg");
+
+    background: linear-gradient(rgba( 0, 0, 0, 0.95) , rgba( 0, 0, 0, 0.95) ) , url( "../img/spa.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    gap: 4rem;
 }
 
 .aboutus__img {
     width: 22rem;
     height: 22rem;
+
     border-radius: 50%;
 }
 
 .aboutus__container {
-    width: 35rem;
-    color: #ccc;
-    height: 26rem;
+    line-height: 1.6rem;
+
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
+
+    width: 35rem;
+    height: 26rem;
+
     text-align: justify;
-    align-items: center;
-    line-height: 1.6rem;
+
+    color: #ccc;
 }
 
 .aboutus__header {
-    letter-spacing: 0.1rem;
     font-size: 2rem;
+
+    letter-spacing: 0.1rem;
 }
 
 .aboutus__text {
-    margin-top: 1.5rem;
     width: 26rem;
     height: 15rem;
+    margin-top: 1.5rem;
+
     text-align: justify;
 }
 
@@ -223,126 +272,150 @@ body {
 /* contact */
 
 .contact {
+    display: flex;
+    justify-content: center;
+
     width: 100%;
     padding-top: 4rem;
     padding-bottom: 4rem;
-    background: linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.95)),url("../img/contact-01.jpg");
+
+    background: linear-gradient(rgba( 0, 0, 0, 0.95) , rgba( 0, 0, 0, 0.95) ) , url( "../img/contact-01.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     background-attachment: fixed;
-    display: flex;
-    justify-content: center;
+    background-position: center;
+    background-size: cover;
+
     gap: 6rem;
 }
 
 .contact__form {
     display: flex;
     flex-direction: column;
+
     color: #ccc;
 }
 
 .contact__header {
+    font-size: 2rem;
     font-weight: 300;
-    font-size: 2rem; 
+
     padding-bottom: 2rem;
 }
 
 .contact__label {
     font-weight: 100;
+
     margin-top: 1rem;
 }
 
-.contact__form > input[type="text"], input[type="email"] {
-    background: none;
-    border-bottom: 0.01rem solid rgb(78, 78, 78);
+.contact__form > input[type="text"],
+input[type="email"] {
     width: 14rem;
     margin-top: 0.5rem;
-} 
+
+    border-bottom: 0.01rem solid rgb(78, 78, 78);
+    background: none;
+}
 
 .contact__form > textarea {
-    background: none;
     width: 14rem;
-    border-bottom: 0.01rem solid rgb(78, 78, 78);
     padding: 0.5rem;
+
     color: #ccc;
+    border-bottom: 0.01rem solid rgb(78, 78, 78);
+    background: none;
 }
 
 .contact__submit {
     width: 14rem;
-    background-color: rgb(15, 15, 15);
-    border: rgb(78, 78, 78) solid 1px;
-    color: #ccc;
     height: 2.5rem;
     margin-top: 1rem;
+
+    color: #ccc;
+    border: rgb(78, 78, 78) solid 1px;
+    background-color: rgb(15, 15, 15);
 }
 
 .contact__submit:hover {
-    color:rgb(15, 15, 15);
-    background-color: #ccc;
     cursor: pointer;
     transition: 0.5s;
+
+    color: rgb(15, 15, 15);
+    background-color: #ccc;
 }
 
 .contact__information {
-    color: #ccc;
     width: 25rem;
     margin-left: 1rem;
+
+    color: #ccc;
 }
 
 .contact__header__information {
-    font-weight: 300;
     font-size: 2rem;
+    font-weight: 300;
 }
 
 .contact__text {
     font-weight: 100;
+
     margin-top: 1rem;
 }
 
 .contact__container {
-    display: flex;
-    margin-top: 3rem;
     font-weight: 100;
+
+    display: flex;
+
+    margin-top: 3rem;
 }
 
 .contact__text__information {
-    margin-left: 0.7rem;
     font-size: 1rem;
+
+    margin-left: 0.7rem;
     padding-top: 0.5rem;
 }
 
 .contact__information .fa-solid {
     font-size: 2rem;
+
     color: #aaa;
 }
 
-input, textarea { 
-    outline: none;
-    color: #ccc;
+input,
+textarea {
     padding: 0.5rem;
+
+    color: #ccc;
+    outline: none;
 }
 
-.message{
-    margin-top: 12px;
-    background-color: #111;
-    width: 100%;
-    color: #ccc;
-    text-align: center;
-    padding: 8px 0;
+.message {
     font-size: 1.2rem;
+
+    width: 100%;
+    margin-top: 12px;
+    padding: 8px 0;
+
+    text-align: center;
     letter-spacing: 0.1rem;
+
+    color: #ccc;
+    background-color: #111;
 }
 
 /* complaint */
 
 .complaint {
     display: flex;
-    flex-direction: column;
-    color: #ccc;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
     padding: 2rem;
+
+    color: #ccc;
 }
 
 .complaint__hedaer {
@@ -351,13 +424,16 @@ input, textarea {
 
 .complaint__container {
     display: flex;
+
     margin-top: 1rem;
+
     gap: 7rem;
 }
 
 .complaint__information {
     width: 28rem;
     padding: 1.5rem;
+
     text-align: justify;
 }
 
@@ -367,32 +443,35 @@ input, textarea {
 }
 
 .complaint__label {
-    padding: 0.3rem;
     margin-top: 0.5rem;
     margin-left: -0.6rem;
+    padding: 0.3rem;
 }
 
-.complaint__form > input, .complaint__form > textarea {
+.complaint__form > input,
+.complaint__form > textarea {
     color: #333;
-    background-color: rgb(12, 12, 12);
-    border: 0.1rem solid #222;
     color: #ccc;
+    border: 0.1rem solid #222;
+    background-color: rgb(12, 12, 12);
 }
 
 .complaint__submit {
     width: 16rem;
-    background-color: rgb(15, 15, 15);
-    border: 0.1rem solid #222;
-    color: #ccc;
     height: 2.5rem;
     margin-top: 1.6rem;
+
+    color: #ccc;
+    border: 0.1rem solid #222;
+    background-color: rgb(15, 15, 15);
 }
 
 .complaint__submit:hover {
-    color:rgb(15, 15, 15);
-    background-color: #ccc;
     cursor: pointer;
     transition: 0.5s;
+
+    color: rgb(15, 15, 15);
+    background-color: #ccc;
 }
 
 input:-webkit-autofill,
@@ -400,46 +479,53 @@ input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-
 /* Media */
 
-@media (max-width: 900px) {
+@media(max-width: 900px) {
     .nav {
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      transition: 0.7s;
+        position: relative;
+
+        align-items: center;
+        flex-direction: column;
+
+        transition: 0.7s;
     }
-  
+
     .nav__active {
-      background-color: #aaa;
+        background-color: #aaa;
     }
-  
+
     .nav__list {
-      flex-direction: column;
-      padding-bottom: 0.5rem;
-      padding: 0;
-      position: absolute;
-      top: -500px;
-      transition: 0.7s;
-      width: 100%;
-      z-index: 1;
+        position: absolute;
+        z-index: 1;
+        top: -500px;
+
+        flex-direction: column;
+
+        width: 100%;
+        padding: 0;
+        padding-bottom: 0.5rem;
+
+        transition: 0.7s;
     }
-  
+
     .nav__list__active {
-      background-color: #0f0f0fc7;
-      top: 0;
-      padding-top: 5rem;
+        top: 0;
+
+        padding-top: 5rem;
+
+        background-color: #0f0f0fc7;
     }
-  
+
     .nav__item {
-      margin-right: 0;
-      padding: 0.7rem 0;
-      text-align: center;
+        margin-right: 0;
+        padding: 0.7rem 0;
+
+        text-align: center;
     }
-    
+
     .hamburger {
-      display: block;
+        display: block;
     }
 
     /* offers */
@@ -463,17 +549,18 @@ input:-webkit-autofill:focus {
 
     .offers__container {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        flex-direction: column;
     }
 
     /* aboutus */
 
     .aboutus {
         flex-direction: column;
+
         margin-top: 2rem;
     }
-    
+
     .aboutus__img {
         width: 19rem;
     }
@@ -489,8 +576,8 @@ input:-webkit-autofill:focus {
     /* contact */
 
     .contact {
-        flex-direction: column;
         align-items: center;
+        flex-direction: column;
     }
 
     .contact__form {
@@ -522,4 +609,4 @@ input:-webkit-autofill:focus {
     .complaint__form {
         align-items: center;
     }
- }
+}

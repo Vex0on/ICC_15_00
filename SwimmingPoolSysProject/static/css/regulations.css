@@ -1,68 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
 
 * {
-    border: 0;
-    padding: 0;
     font-family: 'Montserrat', sans-serif;
+
     margin: 0;
+    padding: 0;
+
     color: #ccc;
+    border: 0;
 }
 
 body {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover!important;
-    background: linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.86)),url("../img/registration-01.jpg");
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    min-height: 100vh;
+
+    background: linear-gradient(rgba( 0, 0, 0, 0.86) , rgba( 0, 0, 0, 0.86) ) , url( "../img/registration-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover!important;
 }
 
 .regulations {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     position: relative;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
     padding-bottom: 5rem;
 }
 
 .regulations__header {
-    text-align: center;
     padding: 20px 0;
-  }
+
+    text-align: center;
+}
 
 .regulations__container {
     width: 50%;
 }
 
 .regulations__point {
+    font-size: 0.9rem;
+    line-height: 1.5;
+
     margin: 10px 0;
     padding: 0 20px;
-    line-height: 1.5;
-    font-size: 0.9rem;
 }
 
-.regulations__link{
+.regulations__link {
     padding: 1rem;
 }
 
 .regulations__submit {
+    font-size: 1rem;
+
     width: 10rem;
     height: 3rem;
-    font-size: 1rem;
-    background-color: rgb(7, 7, 7);
-    border-radius: 0.1rem;
-    border: solid 0.1rem #333;
-    color: #ccc;
+
     letter-spacing: 0.1rem;
+
+    color: #ccc;
+    border: solid 0.1rem #333;
+    border-radius: 0.1rem;
+    background-color: rgb(7, 7, 7);
 }
 
 .regulations__link:hover {
     cursor: pointer;
-    background-color: #aaa;
-    color: #111;
     transition: 0.7s;
+
+    color: #111;
+    background-color: #aaa;
 }
 
 .mini-nav {
@@ -73,23 +85,28 @@ body {
 
 .mini-nav > a {
     font-size: 1.5rem;
-    text-decoration: none;
-    border: 0.1rem solid #999;
+
     padding: 0.6rem;
+
+    text-decoration: none;
+
+    border: 0.1rem solid #999;
 }
 
-@media (max-width: 940px) {
+@media(max-width: 940px) {
     .regulations__container {
         width: 90%;
     }
 }
 
-@media (max-width:1110px) {
+@media(max-width: 1110px) {
     .mini-nav {
         position: absolute;
-        left: 0;
-        width: 100%;
-        text-align: center;
         top: 95%;
+        left: 0;
+
+        width: 100%;
+
+        text-align: center;
     }
 }

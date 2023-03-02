@@ -1,34 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
 
 body {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover!important;
-    background: linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.86)),url("../img/ticket_buy-01.jpg");
+    font-family: 'Montserrat', sans-serif;
+
     margin: 0;
     padding: 0;
+
     border: 0;
-    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(rgba( 0, 0, 0, 0.86) , rgba( 0, 0, 0, 0.86) ) , url( "../img/ticket_buy-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover!important;
 }
 
 .ticket {
-    width: 100%;
     display: flex;
     justify-content: center;
+
+    width: 100%;
+
     color: #ccc;
 }
 
 .ticket__form {
-    width: 31.125rem;
+    position: relative;
+
     display: flex;
+    align-items: center;
     flex-direction: column;
-    background-color: rgba(7, 7, 7, 0.65);
+
+    width: 31.125rem;
     min-height: 90vh;
     margin-top: 1rem;
-    border-radius: 0.2rem;
     padding: 1rem;
-    align-items: center;
-    position: relative;
+
+    border-radius: 0.2rem;
+    background-color: rgba(7, 7, 7, 0.65);
 }
 
 .ticket__container {
@@ -42,35 +49,41 @@ body {
 }
 
 .ticket__header__secondary {
-    letter-spacing: 0.1rem;
     font-size: 1.25rem;
-    padding: 0.3rem;
+
     margin-left: -0.5rem;
+    padding: 0.3rem;
+
+    letter-spacing: 0.1rem;
 }
 
 .ticket__label {
-    padding: 0.2rem 0;
     margin-top: 0.5rem;
-    letter-spacing: 0.1rem;
     margin-left: -0.2rem;
+    padding: 0.2rem 0;
+
+    letter-spacing: 0.1rem;
 }
 
-.ticket__input { 
-    background: none;
-    padding: 0.7rem;
-    outline: none;
+.ticket__input {
     width: 22rem;
+    padding: 0.7rem;
+
+    color: #ccc;
     border: none;
     border-bottom: 0.1rem solid #777;
-    color: #ccc;
+    outline: none;
+    background: none;
 }
 
 .ticket__select {
-    margin-top: 0.5rem;
-    background: none;
-    padding: 0.5rem;
     font-family: 'Montserrat', sans-serif;
+
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+
     color: #ccc;
+    background: none;
 }
 
 .ticket__select:hover {
@@ -78,9 +91,10 @@ body {
 }
 
 .ticket__option {
-    background-color: black;
     letter-spacing: 0.1rem;
+
     color: #ccc;
+    background-color: black;
 }
 
 .ticket__option:hover {
@@ -88,22 +102,26 @@ body {
 }
 
 .ticket__submit {
-    width: 10rem;
-    margin: 1rem auto;
-    height: 3rem;
     font-size: 1rem;
-    background-color: rgb(7, 7, 7);
-    border-radius: 0.1rem;
-    border: solid 0.1rem #333;
-    color: #ccc;
+
+    width: 10rem;
+    height: 3rem;
+    margin: 1rem auto;
+
     letter-spacing: 0.1rem;
+
+    color: #ccc;
+    border: solid 0.1rem #333;
+    border-radius: 0.1rem;
+    background-color: rgb(7, 7, 7);
 }
 
 .ticket__submit:hover {
     cursor: pointer;
-    background-color: #aaa;
-    color: #111;
     transition: 0.7s;
+
+    color: #111;
+    background-color: #aaa;
 }
 
 .mini-nav {
@@ -114,10 +132,13 @@ body {
 
 .mini-nav > a {
     font-size: 1.5rem;
-    text-decoration: none;
-    border: 0.1rem solid #999;
+
     padding: 0.6rem;
+
+    text-decoration: none;
+
     color: #ccc;
+    border: 0.1rem solid #999;
 }
 
 input:-webkit-autofill,
@@ -125,18 +146,21 @@ input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-::-webkit-calendar-picker-indicator{
-    transform:scale(1.2);
-    cursor:pointer;
+::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    transform: scale(1.2);
+
     background-color: #ccc;
 }
 
-@media (max-width: 1150px) {
+@media(max-width: 1150px) {
     .mini-nav {
-        width: 100%;
-        left: 0;
-        text-align: center;
         position: absolute;
         top: 155%;
+        left: 0;
+
+        width: 100%;
+
+        text-align: center;
     }
 }
