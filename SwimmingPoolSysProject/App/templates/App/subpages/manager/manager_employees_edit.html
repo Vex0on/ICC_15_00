@@ -9,40 +9,30 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/manager_employees_add.css' %}">
+    <link rel="stylesheet" href="{% static '/css/manager_employees.css' %}">
 </head>
 
-<style>
-.form-buttons {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-    position: absolute;
-    bottom: 10%;
-}
-</style>
-
 <body>
-    <main>
-        <form method="POST" action="">
+    <section class="edit">
+        <form class="edit__form" method="POST" action="">
             {% csrf_token %}
-            <h1>Edytuj pracownika</h1>
+            <h1 class="edit__header" >Edytuj pracownika</h1>
 
-            <div class="form-container">
+            <div class="edit__container">
                 {{ form }}
             </div>
 
-            <div class="form-buttons">
-                <a href="{% url 'manager_employees' %}">
-                    <input type="button" value="Wróć">
+            <div class="edit__buttons">
+                <a class="edit__link" href="{% url 'manager_employees' %}">
+                    <input class="edit__input" type="button" value="Wróć">
                 </a>
-                <input type="submit" name="register">
+                <input class="edit__submit" type="submit" name="register">
             </div>
         </form>
 
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

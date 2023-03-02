@@ -9,56 +9,67 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/manager_employees_show.css' %}">
+    <link rel="stylesheet" href="{% static '/css/manager_employees.css' %}">
 </head>
 <body>
-    <main>
-        <form action="">
-            <h1>Dane Pracownika</h1>
-            <table>
-                <tr>
-                    <td>ID</td><td>{{ worker.id }}</td>
+    <section class="show">
+        <form class="show__form" action="">
+            <h1 class="show__header">Dane Pracownika</h1>
+            <table class="show__table">
+                <tr class="show__tr">
+                    <td class="show__td">ID</td>
+                    <td class="show__td">{{ worker.id }}</td>
                 </tr>
-                <tr>
-                    <td>Imię</td><td>{{ worker.name }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Imię</td>
+                    <td class="show__td">{{ worker.name }}</td>
                 </tr>
-                <tr>
-                    <td>Nazwisko</td><td>{{ worker.surname }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Nazwisko</td>
+                    <td class="show__td">{{ worker.surname }}</td>
                 </tr>
-                <tr>
-                    <td>Numer Telefonu</td><td>{{ worker.phoneNumber }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Numer Telefonu</td>
+                    <td class="show__td">{{ worker.phoneNumber }}</td>
                 </tr>
-                <tr>
-                    <td>E-mail</td><td>{{ worker.email }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">E-mail</td>
+                    <td class="show__td">{{ worker.email }}</td>
                 </tr>
-                <tr>
-                    <td>Pesel</td><td>{{ worker.pesel }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Pesel</td>
+                    <td class="show__td">{{ worker.pesel }}</td>
                 </tr>
-                <tr>
-                    <td>Ulica</td><td>{{ workerAddress.street }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Ulica</td>
+                    <td class="show__td">{{ workerAddress.street }}</td>
                 </tr>
-                <tr>
-                    <td>Numer Domu</td><td>{{ workerAddress.houseNumber }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Numer Domu</td>
+                    <td class="show__td">{{ workerAddress.houseNumber }}</td>
                 </tr>
-                <tr>
-                    <td>Numer Mieszkania</td><td>{{ workerAddress.flatNumber }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Numer Mieszkania</td>
+                    <td class="show__td">{{ workerAddress.flatNumber }}</td>
                 </tr>
-                <tr>
-                    <td>Kod Pocztowy</td><td>{{ workerAddress.postcode }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Kod Pocztowy</td>
+                    <td class="show__td">{{ workerAddress.postcode }}</td>
                 </tr>
-                <tr>
-                    <td>Miejscowość</td><td>{{ workerAddress.placeName }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Miejscowość</td>
+                    <td class="show__td">{{ workerAddress.placeName }}</td>
                 </tr>
             </table>
             
-            <a href="{% url 'manager_employees' %}">
-                <input type="button" value="Wróć">
+            <a class="show__link" href="{% url 'manager_employees' %}">
+                <input class="show__input" type="button" value="Wróć">
             </a>
         </form>
 
-        <nav class="mini-nav">
+        <nav class="mini-nav mini-nav-show">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

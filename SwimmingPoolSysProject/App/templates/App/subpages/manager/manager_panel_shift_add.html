@@ -9,29 +9,29 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/manager_employees_add.css' %}">
+    <link rel="stylesheet" href="{% static '/css/manager_plan.css' %}">
 </head>
 <body>
-    <main>
-        <form method="POST" action="">
+    <section class="add">
+        <form class="add__form" method="POST" action="">
             {% csrf_token %}
-            <h1>Dodaj Zmiane</h1>
+            <h1 class="add__header">Dodaj Zmiane</h1>
 
-            <div class="form-container">
+            <div class="add__container">
                 {{ form }}
             </div>
 
-            <div class="form-buttons">
-                <a href="{% url 'manager_plan' %}">
-                    <input type="button" value="Wróć">
+            <div class="add__buttons">
+                <a class="add__link" href="{% url 'manager_plan' %}">
+                    <input class="add__input" type="button" value="Wróć">
                 </a>
-                <input type="submit" name="register">
+                <input class="add__submit" type="submit" name="register">
             </div>
         </form>
 
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>
