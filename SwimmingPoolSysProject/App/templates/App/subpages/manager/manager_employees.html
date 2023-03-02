@@ -8,13 +8,13 @@
     <title>Pocałunek Neptuna</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="{% static '/css/manager_employees.css' %}">
 </head>
 <body>
     <section class="workers">
         <form class="workers__form" action="">
             <h1 class="workers__header">Lista pracowników</h1>
+            
             <div class="workers__list">
                 <table class="workers__table">
                     <tr class="workers__tr">
@@ -45,8 +45,8 @@
                             class="workers__input__td"
                             type="button" 
                             name="worker_id"
-                             value="Usuń" 
-                             onclick="location.href='{% url 'manager_employees_delete' worker_id=worker.id %}'">
+                            value="Usuń" 
+                            onclick="location.href='{% url 'manager_employees_delete' worker_id=worker.id %}'">
                             </td>
                         <td class="workers__td">
                             <input 
@@ -70,7 +70,6 @@
                     <input class="workers__input__link" type="button" value="Wróć">
                 </a>
             </div>
-
         </form>
 
         <nav class="mini-nav">

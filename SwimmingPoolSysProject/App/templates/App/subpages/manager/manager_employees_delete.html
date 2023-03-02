@@ -13,7 +13,9 @@
     <section class="delete">
         <form class="delete__form" method="POST" action="">
             {% csrf_token %}
-            <p class="delete__text">Czy na pewno chcesz usunac {{worker}}</p>
+            <p class="delete__text">
+                Czy na pewno chcesz usunac {{worker}}
+            </p>
 
             <div class="delete__buttons">
                 <a class="delete__link" href="{% url 'manager_employees' %}">

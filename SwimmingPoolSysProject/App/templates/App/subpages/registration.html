@@ -15,6 +15,7 @@
     <form class="form" action="" method="POST">
         {% csrf_token %}
         <h1 class="form__header">Dane rejestracyjne</h1>
+
         <label class="form__label" for="first-name">Email</label>
         {{ userForm.username }}
 
@@ -58,17 +59,22 @@
 
         <div class="regulations">
             <input class="regulations__input" type="checkbox" name="regulations">
-            <label class="regulations__label" for="regulations">Zapoznałem się z <a class="regulations__link" href="{% url 'regulations' %}">regulaminem.</a></label>
+            <label class="regulations__label" for="regulations">Zapoznałem się z 
+                <a class="regulations__link" href="{% url 'regulations' %}">regulaminem.</a>
+            </label>
         </div>
 
         <button class="form__submit" type="submit" name="register">Zarejestruj</button>
 
-        <span class="form__span" >Masz już konto? <a class="form__link" href="{% url 'login' %}">Zaloguj się.</a></span>
+        <span class="form__span" >Masz już konto? 
+            <a class="form__link" href="{% url 'login' %}">
+                Zaloguj się.
+            </a>
+        </span>
     </form>
 
     <nav class="mini-nav">
         <a href="{% url 'home' %}">Strona Główna</a>
     </nav>
-
 </body>
 </html>
