@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <main>
         <form class="form" action=""  method="POST">
             {% csrf_token %}
@@ -26,7 +25,9 @@
             {% if messages %}
             {% for message in messages %}
             <br>
-            <p class="error_message">{{ message }}</p>
+            <p class="error_message">
+                {{ message }}
+            </p>
             {% endfor %}
             {% endif %}
             <button class="form__submit" type="submit">Zaloguj</button>
@@ -41,6 +42,5 @@
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
     </main>
-    
 </body>
 </html>

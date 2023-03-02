@@ -12,41 +12,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="{% static '/css/index.css' %}">
 </head>
 
 <body>
-    <a href="#"><i class="to-top fa-solid fa-arrow-up"></i></a>
-    <a href="#swimming-pool"><i class="to-bottom fa-solid fa-arrow-down"></i></a>
+    <a href="#">
+        <i class="to-top fa-solid fa-arrow-up"></i>
+    </a>
+    <a href="#swimming-pool">
+        <i class="to-bottom fa-solid fa-arrow-down"></i>
+    </a>
 
     <section class="homepage">
         <nav class="nav">
             <i class="fa-solid fa-bars hamburger"></i>
+            
             <ul class="nav__list">
-                <li class="nav__item"> <a class="nav__link" href="#swimming-pool"> Basen</a></li>
-                <li class="nav__item"> <a class="nav__link" href="#gym">Siłownia</a> </li>
-                <li class="nav__item"> <a class="nav__link" href="#spa"> SPA</a></li>
-                <li class="nav__item"> <a class="nav__link" href="#aboutus"> O nas</a></li>
-                <li class="nav__item"> <a class="nav__link" href="#contact"> Kontakt</a></li>
+                <li class="nav__item"> 
+                    <a class="nav__link" href="#swimming-pool"> Basen</a>
+                </li>
+                <li class="nav__item"> 
+                    <a class="nav__link" href="#gym">Siłownia</a> 
+                </li>
+                <li class="nav__item"> 
+                    <a class="nav__link" href="#spa"> SPA</a>
+                </li>
+                <li class="nav__item"> 
+                    <a class="nav__link" href="#aboutus"> O nas</a>
+                </li>
+                <li class="nav__item"> 
+                    <a class="nav__link" href="#contact"> Kontakt</a>
+                </li>
                 {% if request.user.is_authenticated %}
-                <li class="nav__item"> <a class="nav__link" href="{% url 'logout' %}">Wyloguj</a></li>
+                <li class="nav__item"> 
+                    <a class="nav__link" href="{% url 'logout' %}">Wyloguj</a>
+                </li>
                 {% else %}
-                <li class="nav__item"> <a class="nav__link" href="{% url 'login' %}">Zaloguj się</a></li>
+                <li class="nav__item"> 
+                    <a class="nav__link" href="{% url 'login' %}">Zaloguj się</a>
+                </li>
                 {% endif %}
                 {% for group in request.user.groups.all %}
                     {% if group.name == 'manager' %}
-                        <li class="nav__item"> <a class="nav__link" href="{% url 'manager_panel' %}">Panel</a></li>
+                        <li class="nav__item"> 
+                            <a class="nav__link" href="{% url 'manager_panel' %}">Panel</a>
+                        </li>
                     {% endif %}
                 {% endfor %}
                 {% for group in request.user.groups.all %}
                     {% if group.name == 'accountant' %}
-                        <li class="nav__item"> <a class="nav__link" href="{% url 'accountant_panel' %}">Panel</a></li>
+                        <li class="nav__item"> 
+                            <a class="nav__link" href="{% url 'accountant_panel' %}">Panel</a>
+                        </li>
                     {% endif %}
                 {% endfor %}
                 {% for group in request.user.groups.all %}
                     {% if group.name == 'receptionist' %}
-                        <li class="nav__item"> <a class="nav__link" href="{% url 'receptionist_panel' %}">Panel</a></li>
+                        <li class="nav__item"> 
+                            <a class="nav__link" href="{% url 'receptionist_panel' %}">Panel</a>
+                        </li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -63,9 +87,14 @@
 
     <section class="offers" id="swimming-pool">
         <img class="offers__img" src="{% static 'img/offers-01.jpg' %}" alt="">
+
         <div class="offers__container">
             <h2 class="offers__header">Basen</h2>
-            <p class="offers__text">Strefa basenowa to miejsce pełne relaksu i rozrywki. Wokół basenu znajdują się przestronne tarasy z leżakami i parasolami, dzięki czemu można cieszyć się słońcem i odpocząć po kąpieli. W strefie basenowej znajduje się także bar, gdzie można zamówić orzeźwiające napoje i przekąski. Całość jest otoczona pięknym ogrodem, który dodaje jeszcze więcej uroku temu już i tak wyjątkowemu miejscu.</p>
+
+            <p class="offers__text">
+                Strefa basenowa to miejsce pełne relaksu i rozrywki. Wokół basenu znajdują się przestronne tarasy z leżakami i parasolami, dzięki czemu można cieszyć się słońcem i odpocząć po kąpieli. W strefie basenowej znajduje się także bar, gdzie można zamówić orzeźwiające napoje i przekąski. Całość jest otoczona pięknym ogrodem, który dodaje jeszcze więcej uroku temu już i tak wyjątkowemu miejscu.
+            </p>
+
             <a class="offers__link" href="{% url 'ticket_buy_swimming_pool' %}">
                 <input class="offers__submit" type="submit" value="Sprawdź">
             </a>
@@ -75,19 +104,29 @@
     <section class="offers" id="gym">
         <div class="offers__container">
             <h2 class="offers__header">Siłownia</h2>
-            <p class="offers__text">Strefa siłowni to miejsce, gdzie można skupić się na swoim ciele i zdrowiu. Jest tam wiele nowoczesnych i profesjonalnych maszyn treningowych, które pozwalają na ćwiczenie różnych partii ciała. Są tam także przestronne maty do rozciągania i strefy cardio, gdzie można biegać, jeździć na rowerze czy bieżni. Wszystko to jest otoczone przestronnymi oknami, dzięki czemu można cieszyć się pięknym widokiem z zewnątrz.</p>
+
+            <p class="offers__text">
+                Strefa siłowni to miejsce, gdzie można skupić się na swoim ciele i zdrowiu. Jest tam wiele nowoczesnych i profesjonalnych maszyn treningowych, które pozwalają na ćwiczenie różnych partii ciała. Są tam także przestronne maty do rozciągania i strefy cardio, gdzie można biegać, jeździć na rowerze czy bieżni. Wszystko to jest otoczone przestronnymi oknami, dzięki czemu można cieszyć się pięknym widokiem z zewnątrz.
+            </p>
+
             <a class="offers__link" href="{% url 'ticket_buy_gym' %}">
                 <input class="offers__submit" type="submit" value="Sprawdź">
             </a>
         </div>
+
         <img class="offers__img" src="{% static '/img/offers-02.jpg' %}" alt="">
     </section>
 
     <section class="offers" id="spa">
         <img class="offers__img" src="{% static '/img/offers-03.jpg' %}" alt="">
+
         <div class="offers__container">
             <h2 class="offers__header">SPA</h2>
-            <p class="offers__text">Strefa siłowni to miejsce, gdzie można skupić się na swoim ciele i zdrowiu. Jest tam wiele nowoczesnych i profesjonalnych maszyn treningowych, które pozwalają na ćwiczenie różnych partii ciała. Są tam także przestronne maty do rozciągania i strefy cardio, gdzie można biegać, jeździć na rowerze czy bieżni. Wszystko to jest otoczone przestronnymi oknami, dzięki czemu można cieszyć się pięknym widokiem z zewnątrz.</p>
+
+            <p class="offers__text">
+                Strefa siłowni to miejsce, gdzie można skupić się na swoim ciele i zdrowiu. Jest tam wiele nowoczesnych i profesjonalnych maszyn treningowych, które pozwalają na ćwiczenie różnych partii ciała. Są tam także przestronne maty do rozciągania i strefy cardio, gdzie można biegać, jeździć na rowerze czy bieżni. Wszystko to jest otoczone przestronnymi oknami, dzięki czemu można cieszyć się pięknym widokiem z zewnątrz.
+            </p>
+
             <a class="offers__link" href="{% url 'ticket_buy_spa' %}">
                 <input class="offers__submit" type="submit" value="Sprawdź">
             </a>
@@ -96,9 +135,13 @@
 
     <section class="aboutus" id="aboutus">
         <img class="aboutus__img" src="{% static '/img/aboutus-01.jpg' %}" alt="">
+
         <div class="aboutus__container">
             <h2 class="aboutus__header">O nas</h2>
-            <p class="aboutus__text">Nasza firma została założona ponad 40 lat temu przez założyciela, który marzył o stworzeniu miejsca, w którym ludzie mogliby odpocząć od codzienności i zadbać o swoje ciało i ducha. Od samego początku naszym celem było stworzenie miejsca, gdzie każdy mógłby znaleźć coś dla siebie, bez względu na wiek czy poziom zaawansowania. Nasza oferta rozwijała się na przestrzeni lat, a my stale inwestowaliśmy w nowoczesne i profesjonalne sprzęty oraz szkoliliśmy personel, aby zapewnić najwyższą jakość usług. </p>
+
+            <p class="aboutus__text">
+                Nasza firma została założona ponad 40 lat temu przez założyciela, który marzył o stworzeniu miejsca, w którym ludzie mogliby odpocząć od codzienności i zadbać o swoje ciało i ducha. Od samego początku naszym celem było stworzenie miejsca, gdzie każdy mógłby znaleźć coś dla siebie, bez względu na wiek czy poziom zaawansowania. Nasza oferta rozwijała się na przestrzeni lat, a my stale inwestowaliśmy w nowoczesne i profesjonalne sprzęty oraz szkoliliśmy personel, aby zapewnić najwyższą jakość usług. 
+            </p>
         </div>
     </section>
 
@@ -108,6 +151,7 @@
         <form class="contact__form" action="." method="POST">
             {% csrf_token %}
             <h2 class="contact__header">Skontaktuj się z nami</h2>
+
             <label class="contact__label" for="name">Imie i nazwisko</label>
             {{ form.name }}
             <label class="contact__label" for="Email">Email</label>
@@ -116,23 +160,33 @@
             {{ form.message }}
             <input class="contact__submit" type="submit" value="Wyślij">
         </form>
+
         <div class="contact__information">
             <h2 class="contact__header__information" >Informacje Kontaktowe</h2>
-            <p class="contact__text">Jesteśmy otwarci na wszelkie sugestie</p>
+
+            <p class="contact__text">
+                Jesteśmy otwarci na wszelkie sugestie
+            </p>
+
             <div class="contact__container">
                 <i class="contact__icon fa-solid fa-location-pin"></i>
+
                 <p class="contact__text__information">
                     Adres: Olsztyn 10-230, Nowogrodzka 66b
                 </p>
             </div>
+
             <div class="contact__container">
                 <i class="contact__icon fa-solid fa-phone"></i>
+
                 <p class="contact__text__information">
                     Telefon: +48 560 304 430
                 </p>
             </div>
+
             <div class="contact__container">
                 <i class="contact__icon fa-solid fa-paper-plane"></i>
+
                 <p class="contact__text__information">
                     Email: PocalunekNeptuna@site.com
                 </p>
@@ -143,12 +197,14 @@
     {% if request.user.is_authenticated %}
     <section class="complaint" id="complaint">
         <h2 class="complaint__header">Zgłoś reklamację</h2>
+
         <div class="complaint__container">
             <div class="complaint__information">
                 <p class="complaint__text">
                     W naszej firmie dbamy o zadowolenie naszych klientów, dlatego też chcemy, aby każdy z Państwa miał pewność, że jego ewentualne reklamacje będą rozpatrywane szybko i sprawiedliwie. W razie jakichkolwiek problemów z prosimy o kontakt z naszym działem obsługi klienta, który chętnie pomoże Państwu rozwiązać każdy problem.W treści reklamacji prosimy o podanie swoich danych kontaktowych, opis problemu oraz ewentualnego załączenia zdjęć czy innych dokumentów potwierdzających reklamację. Reklamacje rozpatrujemy w ciągu 14 dni roboczych od daty ich otrzymania. W przypadku skomplikowanych reklamacji czas ten może ulec wydłużeniu, jednak zawsze poinformujemy Państwa o tym fakcie i będziemy informować o postępach rozpatrywania reklamacji. <br><br> Dziękujemy za zaufanie i zachęcamy do kontaktu w przypadku jakichkolwiek pytań czy wątpliwości.
                 </p>
             </div>
+
             <form class="complaint__form" method="POST" action="">
                 {% csrf_token %}
                 {{ form_complaint.client.as_hidden }}
@@ -158,13 +214,10 @@
                 {{ form_complaint.description }}
                 <input class="complaint__submit" type="submit" value="Zgłoś">
             </form>
-
         </div>
         
     </section>
     {% endif %}
-
     <script src="{% static '/js/index.js' %}"></script>
 </body>
-
 </html>
