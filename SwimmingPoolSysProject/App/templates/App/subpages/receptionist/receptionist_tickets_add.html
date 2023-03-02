@@ -9,39 +9,39 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/receptionist_tickets_add.css' %}">
+    <link rel="stylesheet" href="{% static '/css/receptionist_panel.css' %}">
 </head>
 <body>
-    <main>
-        <form method="POST" action="">
+    <section class="add">
+        <form class="add__form" method="POST" action="">
             {% csrf_token %}
-            <h1>Dodaj Bilet</h1>
+            <h1 class="add__header">Dodaj Bilet</h1>
 
-            <div class="form-container">
-                <label for="price">Cena</label>
+            <div class="add__container">
+                <label class="add__label" for="price">Cena</label>
                 {{ form.price }}
 
-                <label for="zone">Strefa</label>
+                <label class="add__label" for="zone">Strefa</label>
                 {{ form.zone }}
 
-                <label for="worker">Pracownik</label>
+                <label class="add__label" for="worker">Pracownik</label>
                 {{ form.worker }}
 
-                <label for="client">Klient</label>
+                <label class="add__label" for="client">Klient</label>
                 {{ form.client }}
             </div>
 
-            <div class="form-buttons">
-                <a href="{% url 'receptionist_panel' %}">
-                    <input type="button" value="Wróć">
+            <div class="add__buttons">
+                <a class="add__link" href="{% url 'receptionist_panel' %}">
+                    <input class="add__input" type="button" value="Wróć">
                 </a>
-                <input type="submit" name="add" value="Dodaj">
+                <input class="add__submit" type="submit" name="add" value="Dodaj">
             </div>
         </form>
 
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

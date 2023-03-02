@@ -9,32 +9,39 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/receptionist_tickets.css' %}">
+    <link rel="stylesheet" href="{% static '/css/receptionist_panel.css' %}">
 </head>
 <body>
-    <main>
-        <form action="">
-            <h1>Lista Biletów</h1>
+    <section class="tickets">
+        <form class="tickets__form" action="">
+            <h1 class="tickets__header" >Lista Biletów</h1>
 
-            <div class="list">
-                <table>
-                    <tr>
-                        <th>Id</th> <th>Cena</th> <th>Strefa</th> <th>Data Zakupu</th> <th>Data Konca</th> <th>Klient</th> <th>Pracownik</th>
+            <div class="tickets__list">
+                <table class="tickets__table">
+                    <tr class="tickets__tr">
+                        <th class="tickets__th">Id</th> 
+                        <th class="tickets__th">Cena</th>
+                        <th class="tickets__th">Strefa</th>
+                        <th class="tickets__th">Data Zakupu</th>
+                        <th class="tickets__th">Klient</th>
+                        <th class="tickets__th">Pracownik</th>
                     </tr>
                     {% for ticket in tickets %}
-                    <tr>
-                        <td>{{ ticket.id }}</td> <td>{{ ticket.price }}zł</td> <td>{{ ticket.zone }}</td>
-                        <td> {{ ticket.dateOfPurchase|date:'Y-m-d | H:i' }}</td>
-                        <td> {{ ticket.dateOfEnd|date:'Y-m-d | H:i' }}</td>
-                        <td> {{ ticket.client }}</td> <td> {{ ticket.worker }}</td>
+                    <tr class="tickets__tr">
+                        <td class="tickets__td">{{ ticket.id }}</td>
+                        <td class="tickets__td">{{ ticket.price }}zł</td>
+                        <td class="tickets__td">{{ ticket.zone }}</td>
+                        <td class="tickets__td"> {{ ticket.dateOfPurchase|date:'Y-m-d | H:i' }}</td>
+                        <td class="tickets__td"> {{ ticket.client }}</td>
+                        <td class="tickets__td"> {{ ticket.worker }}</td>
                     </tr>
                     {% endfor %}
                 </table>
             </div>
 
-            <div class="buttons">
-                <a href="{% url 'receptionist_panel' %}">
-                    <input type="button" value="Wróć">
+            <div class="tickets__buttons">
+                <a class="tickets__link" href="{% url 'receptionist_panel' %}">
+                    <input class="tickets__input" type="button" value="Wróć">
                 </a>
             </div>
 
@@ -43,6 +50,6 @@
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>
