@@ -9,28 +9,28 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/accountant_result.css' %}">
+    <link rel="stylesheet" href="{% static '/css/accountant_panel.css' %}">
 </head>
 <body>
-    <main>
-        <form action="">
-            <h1>Bilans</h1>
-            <div>
-                <label for="calendar">Data</label>
-                <input type="month" name="calendar">
+    <section class="result">
+        <form class="result__form" action="">
+            <h1 class="result__header" >Bilans</h1>
+            <div class="result__container">
+                <label class="result__label" for="calendar">Data</label>
+                <input class="result__calendar" type="month" name="calendar">
             </div>
 
-            <div class="form-buttons">
-                <a href="{% url 'accountant_panel' %}">
-                    <input type="button" value="Wróć">
+            <div class="result__buttons">
+                <a class="result__link" href="{% url 'accountant_panel' %}">
+                    <input class="result__input" type="button" value="Wróć">
                 </a>
-                <input type="submit" name="calculate" value="Oblicz">
+                <input class="result__submit" type="submit" name="calculate" value="Oblicz">
             </div>
         </form>
 
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="{% static '/css/accountant_panel.css' %}">
 </head>
 <body>
-    <main>
-        <form action="">
-            <a href="{% url 'accountant_accountancy' %}">
-                <div>
-                    <i class="fa-regular fa-pen-to-square"></i>
-                    <p>Rachunkowość</p>
+    <section class="panel" >
+        <form class="panel__form" action="">
+            <a class="panel__link" href="{% url 'accountant_accountancy' %}">
+                <div class="panel__container">
+                    <i class="panel__icon fa-regular fa-pen-to-square"></i>
+                    <p class="panel__title" >Rachunkowość</p>
                 </div>
             </a>
 
-            <a href="{% url 'accountant_result' %}">
-                <div>
-                    <i class="fa-solid fa-repeat"></i>
-                    <p>Bilans</p>
+            <a class="panel__link" href="{% url 'accountant_result' %}">
+                <div class="panel__container" >
+                    <i class="panel__icon fa-solid fa-repeat"></i>
+                    <p class="panel__title" >Bilans</p>
                 </div>
             </a>
         </form>
@@ -32,6 +32,6 @@
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

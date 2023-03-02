@@ -206,7 +206,7 @@ input[type="radio"]:hover {
 }
 
 .add__form {
-    width: 40%;
+    width: 39.125rem;
     display: flex;
     flex-direction: column;
     background-color: rgba(7, 7, 7, 0.65);
