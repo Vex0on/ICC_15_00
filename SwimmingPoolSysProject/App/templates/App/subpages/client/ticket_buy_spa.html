@@ -13,15 +13,15 @@
 </head>
 <body>
     <main>
-        <form method="POST" action="">
+        <form class="ticket__form" method="POST" action="">
             {% csrf_token %}
-            <h1>Kup Bilet - SPA</h1>
+            <h1 class="ticket__header">Kup Bilet - SPA</h1>
             <div class="container-form">
 
                 {{ form.client }}
-                <label for="ticket-type">Rodzaj biletu</label>
+                <label class="ticket__label" for="ticket-type">Rodzaj biletu</label>
                 {{ form.price }}
-                <label for="visit-date">Strefa</label>
+                <label class="ticket__label" for="visit-date">Strefa</label>
                 {{ form.zone }}
             </div>
             <button type="submit" name="register">Kup Bilet</button>
@@ -30,6 +30,6 @@
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>
