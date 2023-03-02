@@ -9,32 +9,36 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/accountant_accountancy.css' %}">
+    <link rel="stylesheet" href="{% static '/css/accountant_panel.css' %}">
 </head>
 <body>
-    <main>
-        <form action="">
-            <h1>Rachunkowość</h1>
+    <section class="accountancy">
+        <form class="accountancy__form" action="">
+            <h1 class="accountancy__header" >Rachunkowość</h1>
 
-            <div class="list">
-                <table>
-                    <tr>
-                        <th>ID</th> <th>Cena</th> <th>Data Zakupu</th>
+            <div class="accountancy__list">
+                <table class="accountancy__table">
+                    <tr class="accountancy__tr">
+                        <th class="accountancy__th">ID</th>
+                        <th class="accountancy__th">Cena</th>
+                        <th class="accountancy__th">Data Zakupu</th>
                     </tr>
                     {% for ticket in tickets %}
-                    <tr>
-                        <td>{{ ticket.id }}</td> <td>{{ ticket.price }}zł</td> <td>{{ ticket.dateOfPurchase|date:'Y-m-d | H:i' }}</td>
+                    <tr class="accountancy__tr">
+                        <td class="accountancy__td">{{ ticket.id }}</td>
+                        <td class="accountancy__td">{{ ticket.price }}zł</td>
+                        <td class="accountancy__td">{{ ticket.dateOfPurchase|date:'Y-m-d | H:i' }}</td>
                     </tr>
                     {% endfor %}
                 </table>
             </div>
-            <p>Suma cen biletów: {{ tickets_sum }}zł</p>
+            <p class="accountancy__result" >Suma cen biletów: {{ tickets_sum }}zł</p>
 
 
 
-            <div class="buttons">
-                <a href="{% url 'accountant_panel' %}">
-                    <input type="button" value="Wróć">
+            <div class="accountancy__buttons">
+                <a class="accountancy__link" href="{% url 'accountant_panel' %}">
+                    <input class="accountancy__input" type="button" value="Wróć">
                 </a>
             </div>
 
@@ -43,6 +47,6 @@
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>
