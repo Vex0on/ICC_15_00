@@ -89,6 +89,11 @@ form > h1 {
     transition: 0.7s;
 }
 
+select {
+    background-color: #111;
+    color: #ccc;
+}
+
 .mini-nav {
     position: fixed;
     top: 88%;
@@ -108,7 +113,3 @@ input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-select {
-    background-color: #111;
-    color: #ccc;
-}

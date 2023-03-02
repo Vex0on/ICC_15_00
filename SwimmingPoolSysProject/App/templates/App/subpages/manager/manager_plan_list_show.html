@@ -9,25 +9,28 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/manager_employees_show.css' %}">
+    <link rel="stylesheet" href="{% static '/css/manager_panel.css' %}">
 </head>
 <body>
-    <main>
-        <form action="">
-            <h1>Szczegóły Zmiany</h1>
-            <table>
-                <tr>
-                    <td>Zmiana</td><td>{{ shift.description }}</td>
+    <section class="show">
+        <form class="show__form" action="">
+            <h1 class="show__header">Szczegóły Zmiany</h1>
+            <table class="show__table">
+                <tr class="show__tr">
+                    <td class="show__td">Zmiana</td>
+                    <td class="show__td">{{ shift.description }}</td>
                 </tr>
-                <tr>
-                    <td>Początek zmiany</td><td>{{ shift.startTime|date:'Y-m-d | H:i' }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Początek zmiany</td>
+                    <td class="show__td">{{ shift.startTime|date:'Y-m-d | H:i' }}</td>
                 </tr>
-                <tr>
-                    <td>Koniec zmiany</td><td>{{ shift.endTime|date:'Y-m-d | H:i' }}</td>
+                <tr class="show__tr">
+                    <td class="show__td">Koniec zmiany</td>
+                    <td class="show__td">{{ shift.endTime|date:'Y-m-d | H:i' }}</td>
                 </tr>
-                <tr>
-                    <td>Pracownicy</td>
-                    <td>
+                <tr class="show__tr">
+                    <td class="show__td">Pracownicy</td>
+                    <td class="show__td">
                         {% for worker in workers %}
                         {{ worker.name }} {{ worker.surname }}
                         <br>
@@ -36,14 +39,14 @@
                 </tr>
             </table>
             
-            <a href="{% url 'manager_plan_list' %}">
-                <input type="button" value="Wróć">
+            <a class="show__link" href="{% url 'manager_plan_list' %}">
+                <input class="show__input" type="button" value="Wróć">
             </a>
         </form>
 
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

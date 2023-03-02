@@ -12,26 +12,26 @@
     <link rel="stylesheet" href="{% static '/css/manager_panel.css' %}">
 </head>
 <body>
-    <main>
-        <form action="">
-            <a href="{% url 'manager_plan' %}">
-                <div>
-                    <i class="fa-regular fa-calendar"></i>
-                    <p>Grafik</p>
+    <section class="panel">
+        <form class="panel__form" action="">
+            <a class="panel__link" href="{% url 'manager_plan' %}">
+                <div class="panel__container">
+                    <i class="panel__icon fa-regular fa-calendar"></i>
+                    <p class="panel__title">Grafik</p>
                 </div>
             </a>
 
-            <a href="{% url 'manager_employees' %}">
-                <div>
-                    <i class="fa-solid fa-people-group"></i>
-                    <p>Pracownicy</p>
+            <a class="panel__link" href="{% url 'manager_employees' %}">
+                <div class="panel__container">
+                    <i class="panel__icon fa-solid fa-people-group"></i>
+                    <p class="panel__title">Pracownicy</p>
                 </div>
             </a>
         </form>
 
-        <nav class="mini-nav">
+        <nav class="mini-nav-panel">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

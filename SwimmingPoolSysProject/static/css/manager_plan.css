@@ -11,14 +11,14 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-main {
+.plan {
     width: 100%;
     display: flex;
     justify-content: center;
     color: #ccc;
 }
 
-form {
+.plan__form {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ form {
     position: relative;
 }
 
-form > h1 {
+.plan__header {
     font-size: 3rem;
     letter-spacing: 0.2rem;
     margin: 0;
@@ -43,11 +43,11 @@ form > h1 {
     top: 4%;
 }
 
-form > p {
+.plan__form > p {
     margin-top: 5rem;
 }
 
-form > a > input {
+.plan__button {
     width: 15rem;
     margin: 0.5rem auto;
     height: 4.2rem;
@@ -59,7 +59,7 @@ form > a > input {
     letter-spacing: 0.1rem;
 }
 
-form > a > input:hover {
+.plan__button:hover {
     cursor: pointer;
     background-color: #aaa;
     color: #111;
