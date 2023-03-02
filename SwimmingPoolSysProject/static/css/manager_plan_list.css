@@ -11,14 +11,14 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-main {
+.list {
     width: 100%;
     display: flex;
     justify-content: center;
     color: #ccc;
 }
 
-form {
+.list__form{
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -33,42 +33,42 @@ form {
     position: relative;
 }
 
-form > h1 {
+.list__header {
     font-size: 2.5rem;
     letter-spacing: 0.2rem;
     margin: 0;
     margin-top: 1rem;
 }
 
-form > h2{
+.list__header__secondary{
     font-size: 1.5rem;
     letter-spacing: 0.2rem;
     margin: 0;
 }
 
-form > div > label {
+.list__label {
     font-size: 2rem;
     letter-spacing: 0.1rem;
     margin-left: -0.5rem;
     padding: 0.5rem 0;
 }
 
-.date { 
+.list__date { 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.date > input {
+.list__input__date {
     padding: 0.7rem;
     font-size: 1.25rem;
 }
 
-.date > input:hover {
+.list__input__date:hover {
     cursor: pointer;
 }
 
-.list {
+.list__list {
     width: 90%;
     height: 20rem;
     overflow-x:auto;
@@ -76,46 +76,45 @@ form > div > label {
     border: 0.1rem solid #333;
 }
 
-table {
+.list__table {
     border-collapse: collapse;
     border: 1px solid black;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    white-space: nowrap;
 }
 
-th {
+.list__th {
     background-color: #050505;
     font-weight: bold;
     padding: 8px;
     border: 1px solid #333;
 }
 
-td {
+.list__td {
     border: 1px solid #333;
     padding: 8px;
 }
 
-td > input {
+.list__input__td {
     width: 5rem;
     background-color: #050505;
     color: #aaa;
     padding: 0.3rem 0.2rem;
 }
 
-td > input:hover {
+.list__input__td:hover {
     cursor: pointer;
     background-color: #080808;
 }
 
-.form-buttons {
+.list__buttons {
     display: flex;
     gap: 1rem;
     padding-bottom: 1rem;
 }
 
-.form-buttons > input, a > input {
+.list__input__buttons, .list__input__link {
     width: 10rem;
     height: 3rem;
     font-size: 1rem;
@@ -126,7 +125,7 @@ td > input:hover {
     letter-spacing: 0.1rem;
 }
 
-.form-buttons > input:hover, a > input:hover {
+.list__input__buttons:hover, .list__input__link:hover {
     cursor: pointer;
     background-color: #aaa;
     color: #111;

@@ -9,58 +9,80 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{% static '/css/manager_plan_list.css' %}">
+    <link rel="stylesheet" href="{% static '/css/manager_panel.css' %}">
 </head>
 <body>
-    <main>
-        <form action="" method="POST">
+    <section class="list">
+        <form class="list__form" action="" method="POST">
             {% csrf_token %}
 
-            <h1>Lista zmian</h1>
-            <h2>{{ date }}</h2>
+            <h1 class="list__header">Lista zmian</h1>
+            <h2 class="list__header__secondary">{{ date }}</h2>
 
-            <div class="list">
-                <table>
-                    <tr>
-                        <th>Zmiana</th>
-                        <th>Imię</th>
-                        <th>Nazwisko</th>
-                        <th>Nr Telefonu</th>
-                        <th>Szczegóły</th>
-                        <th>Usuń</th>
-                        <th>Edytuj</th>
+            <div class="list__list">
+                <table class="list__table">
+                    <tr class="list__tr">
+                        <th class="list__th">Zmiana</th>
+                        <th class="list__th">Imię</th>
+                        <th class="list__th">Nazwisko</th>
+                        <th class="list__th">Nr Telefonu</th>
+                        <th class="list__th">Szczegóły</th>
+                        <th class="list__th">Usuń</th>
+                        <th class="list__th">Edytuj</th>
                     </tr>
                     {% for shift in shifts %}
                     {% for worker in shift.worker.all %}
-                    <tr>
-                        <td>{{shift.description}}</td>
-                        <td>{{worker.name}}</td>
-                        <td>{{worker.surname}}</td>
-                        <td>{{worker.phoneNumber}}</td>
-                        <td><input type="button" name="worker_id" value="Szczegóły" onclick="location.href='{% url 'manager_plan_list_show' shift_id=shift.id %}'"></td>
-                        <td><input type="button" name="worker_id" value="Usuń" onclick="location.href='{% url 'manager_plan_list_delete' shift_id=shift.id %}'"></td>
-                        <td><input type="button" name="worker_id" value="Edytuj" onclick="location.href='{% url 'manager_plan_list_edit' shift_id=shift.id %}'"></td>
+                    <tr class="list__tr">
+                        <td class="list__td">{{shift.description}}</td>
+                        <td class="list__td">{{worker.name}}</td>
+                        <td class="list__td">{{worker.surname}}</td>
+                        <td class="list__td">{{worker.phoneNumber}}</td>
+                        <td class="list__td">
+                            <input 
+                            class="list__input__td"
+                            type="button" 
+                            name="worker_id" 
+                            value="Szczegóły" 
+                            onclick="location.href='{% url 'manager_plan_list_show' shift_id=shift.id %}'">
+                        </td>
+                        <td class="list__td">
+                            <input 
+                            class="list__input__td"
+                            type="button" 
+                            name="worker_id" 
+                            value="Usuń" 
+                            onclick="location.href='{% url 'manager_plan_list_delete' shift_id=shift.id %}'">
+                        </td>
+                        <td class="list__td">
+                            <input
+                            class="list__input__td" 
+                            type="button" 
+                            name="worker_id" 
+                            value="Edytuj" 
+                            onclick="location.href='{% url 'manager_plan_list_edit' shift_id=shift.id %}'">
+                        </td>
                     </tr>
                     {% endfor %}
                     {% endfor %}
                 </table>
             </div>
 
-            <div class="date">
-                <label for="calendar">Data</label>
-                <input type="date" name="calendar">
+            <div class="list__date">
+                <label class="list__label" for="calendar">Data</label>
+                <input class="list__input__date" type="date" name="calendar">
             </div>
-            <div class="form-buttons">
-                <input type="submit" value="Wybierz">
-                <a href="{% url 'manager_plan' %}">
-                    <input type="button" value="Wróć">
+
+            <div class="list__buttons">
+                <input class="list__input__buttons" type="submit" value="Wybierz">
+                <a class="list__link" href="{% url 'manager_plan' %}">
+                    <input class="list__input__link" type="button" value="Wróć">
                 </a>
             </div>
         </form>
 
-        <nav class="mini-nav">
+        <nav class="mini-nav-list">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

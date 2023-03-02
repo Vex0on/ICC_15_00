@@ -11,15 +11,27 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-main {
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+/* panel */
+
+.panel {
     width: 100%;
     display: flex;
     justify-content: center;
     color: #ccc;
+    position: relative;
 }
 
-form {
-    width: 40%;
+.panel__form {
+    width: 32.125rem;
     display: flex;
     flex-direction: column;
     background-color: rgba(7, 7, 7, 0.65);
@@ -33,35 +45,107 @@ form {
     justify-content: center;
 }
 
-form > a {
+.panel__link {
     color: #ccc;
     text-decoration: none;
 }
 
-form > a > div {
+.panel__container {
     border: 0.1rem solid #ccc;
     padding: 3rem 2rem;
 }
 
-form > a:first-child > div {
+.panel__link:first-child > .panel__container {
     padding: 3rem 6.4rem;
 }
 
-form > a > div:hover {
+.panel__container:hover {
     cursor: pointer;
     border: 0.1rem solid #888;
 }
 
-form > a > div > i {
+.panel__icon{
     font-size: 7rem;
 }
 
-form > a > div > p {
+.panel__title {
     font-size: 3rem;
     margin: 0;
     margin-top: 1rem;
     letter-spacing: 0.2rem;
 }
+
+.mini-nav-panel {
+    position: fixed;
+    top: 88%;
+    left: 82%;
+}
+
+.mini-nav-panel > a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 0.1rem solid #999;
+    padding: 0.6rem;
+    color: #ccc;
+}
+
+/* plan */
+
+.plan {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+}
+
+.plan__form {
+    width: 38.125rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(7, 7, 7, 0.65);
+    min-height: 90vh;
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.plan__header {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    margin-top: 1rem;
+    position: absolute;
+    top: 4%;
+}
+
+.plan__form > p {
+    margin-top: 5rem;
+}
+
+.plan__button {
+    width: 15rem;
+    margin: 0.5rem auto;
+    height: 4.2rem;
+    font-size: 1.25rem;
+    background-color: rgb(10, 10, 10);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+    color: #ccc;
+    letter-spacing: 0.1rem;
+}
+
+.plan__button:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
+}
+
 
 .mini-nav {
     position: fixed;
@@ -77,4 +161,375 @@ form > a > div > p {
     color: #ccc;
 }
 
+/* list */
 
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+}
+
+.list__form{
+    width: 38.125rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(7, 7, 7, 0.65);
+    min-height: 90vh;
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.list__header {
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.list__header__secondary{
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+.list__label {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    margin-left: -0.5rem;
+    padding: 0.5rem 0;
+}
+
+.list__date { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.list__input__date {
+    padding: 0.7rem;
+    font-size: 1.25rem;
+}
+
+.list__input__date:hover {
+    cursor: pointer;
+}
+
+.list__list {
+    width: 90%;
+    height: 20rem;
+    overflow-x:auto;
+    overflow-y:auto;
+    border: 0.1rem solid #333;
+}
+
+.list__table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list__th {
+    background-color: #050505;
+    font-weight: bold;
+    padding: 8px;
+    border: 1px solid #333;
+}
+
+.list__td {
+    border: 1px solid #333;
+    padding: 8px;
+}
+
+.list__input__td {
+    width: 5rem;
+    background-color: #050505;
+    color: #aaa;
+    padding: 0.3rem 0.2rem;
+}
+
+.list__input__td:hover {
+    cursor: pointer;
+    background-color: #080808;
+}
+
+.list__buttons {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.list__input__buttons, .list__input__link {
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: rgb(7, 7, 7);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+    color: #ccc;
+    letter-spacing: 0.1rem;
+}
+
+.list__input__buttons:hover, .list__input__link:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
+}
+
+.mini-nav-list{
+    position: fixed;
+    top: 88%;
+    left: 82%;
+}
+
+.mini-nav-list > a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 0.1rem solid #999;
+    padding: 0.6rem;
+    color: #ccc;
+}
+
+/* show */
+
+.show {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+}
+
+.show__form {
+    width: 38.125rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(7, 7, 7, 0.65);
+    min-height: 90vh;
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.show__header {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.show__table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.show__th {
+    background-color: #050505;
+    font-weight: bold;
+    padding: 8px;
+    border: 1px solid #333;
+}
+
+.show__td {
+    border: 1px solid #333;
+    padding: 8px;
+}
+
+.show__input {
+    width: 15rem;
+    margin: 0.5rem auto;
+    height: 4.2rem;
+    font-size: 1.25rem;
+    background-color: rgb(10, 10, 10);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+    color: #ccc;
+    letter-spacing: 0.1rem;
+}
+
+.show__input:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
+}
+
+
+/* delete */
+
+.delete {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    min-height: 100vh;
+}
+
+.delete__form {
+    width: 31.125rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(7, 7, 7, 0.65);
+    min-height: 50vh;
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+
+.delete__buttons {
+    margin-top: 3.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.delete__input {
+    width: 10rem;
+    margin: 1rem auto;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: rgb(7, 7, 7);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+    color: #ccc;
+    letter-spacing: 0.1rem;
+}
+
+.delete__input:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
+}
+
+/* edit */
+
+.edit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+}
+
+.edit__form {
+    width: 31.125rem;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(7, 7, 7, 0.65);
+    min-height: 90vh;
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    align-items: center;
+    position: relative;
+}
+
+.edit__header {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.edit__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit__container > label {
+    padding: 0.2rem 0;
+    margin-top: 0.5rem;
+    letter-spacing: 0.1rem;
+    margin-left: -0.2rem;
+}
+
+.edit__container > input {
+    background: none;
+    padding: 0.7rem;
+    outline: none;
+    width: 22rem;
+    border: none;
+    border-bottom: 0.1rem solid #777;
+    color: #ccc;
+}
+
+.edit__buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.edit__buttons > input, .edit__link > input {
+    width: 10rem;
+    margin: 1rem auto;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: rgb(7, 7, 7);
+    border-radius: 0.1rem;
+    border: solid 0.1rem #333;
+    color: #ccc;
+    letter-spacing: 0.1rem;
+}
+
+.edit__buttons > input:hover, .edit__link > input:hover {
+    cursor: pointer;
+    background-color: #aaa;
+    color: #111;
+    transition: 0.7s;
+}
+
+select {
+    background-color: #111;
+    color: #ccc;
+}
+
+@media(max-width: 1000px) {
+    .panel__form {
+        width: 22rem;
+        min-height: 0;
+    }
+}
+
+@media(max-width: 1150px) {
+    .mini-nav {
+        width: 100%;
+        left: 0;
+        text-align: center;
+        position: absolute;
+        top: 87%;
+    }
+    .mini-nav-panel {
+        width: 100%;
+        left: 0;
+        text-align: center;
+        position: absolute;
+        top: 105%;
+    }
+    .mini-nav-list {
+        width: 100%;
+        left: 0;
+        text-align: center;
+        position: absolute;
+        top: 115%;
+    }
+}

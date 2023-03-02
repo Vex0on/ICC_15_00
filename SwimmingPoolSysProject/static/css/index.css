@@ -372,14 +372,14 @@ input, textarea {
     margin-left: -0.6rem;
 }
 
-.complaint-container > form > input, .complaint-container > form > textarea {
+.complaint__form > input, .complaint__form > textarea {
     color: #333;
     background-color: rgb(12, 12, 12);
     border: 0.1rem solid #222;
     color: #ccc;
 }
 
-.complaint-container > form > input[type="submit"] {
+.complaint__submit {
     width: 16rem;
     background-color: rgb(15, 15, 15);
     border: 0.1rem solid #222;
@@ -388,7 +388,7 @@ input, textarea {
     margin-top: 1.6rem;
 }
 
-.complaint-container > form > input[type="submit"]:hover {
+.complaint__submit:hover {
     color:rgb(15, 15, 15);
     background-color: #ccc;
     cursor: pointer;
@@ -507,5 +507,19 @@ input:-webkit-autofill:focus {
 
     .contact__header__information {
         text-align: center;
+    }
+
+    /* complaint */
+
+    .complaint__container {
+        flex-direction: column;
+    }
+
+    .complaint__information {
+        width: 20rem;
+    }
+
+    .complaint__form {
+        align-items: center;
     }
  }
