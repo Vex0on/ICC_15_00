@@ -12,33 +12,62 @@
     <link rel="stylesheet" href="{% static '/css/manager_employees.css' %}">
 </head>
 <body>
-    <main>
-        <form action="">
-            <h1>Lista pracowników</h1>
-            <div class="list">
-                <table>
-                    <tr>
-                        <th>ID</th><th>Imię</th><th>Nazwisko</th><th>Telefon</th><th>Szczegóły</th><th>Usuń</th><th>Edytuj</th>
+    <section class="workers">
+        <form class="workers__form" action="">
+            <h1 class="workers__header">Lista pracowników</h1>
+            <div class="workers__list">
+                <table class="workers__table">
+                    <tr class="workers__tr">
+                        <th class="workers__th">ID</th>
+                        <th class="workers__th">Imię</th>
+                        <th class="workers__th">Nazwisko</th>
+                        <th class="workers__th">Telefon</th>
+                        <th class="workers__th">Szczegóły</th>
+                        <th class="workers__th">Usuń</th>
+                        <th class="workers__th">Edytuj</th>
                     </tr>
                     {% for worker in workers %}
-                    <tr>
-                        <td>{{worker.id}}</td><td>{{worker.name}}</td><td>{{worker.surname}}</td><td>{{worker.phoneNumber}}</td>
-                        <td><input type="button" name="worker_id" value="Szczegóły" onclick="location.href='{% url 'manager_employees_show' worker_id=worker.id %}'"></td>
-                        <td><input type="button" name="worker_id" value="Usuń" onclick="location.href='{% url 'manager_employees_delete' worker_id=worker.id %}'"></td>
-                        <td><input type="button" name="worker_id" value="Edytuj" onclick="location.href='{% url 'manager_employees_edit' worker_id=worker.id %}'"></td>
+                    <tr class="workers__tr">
+                        <td class="workers__td">{{worker.id}}</td>
+                        <td class="workers__td">{{worker.name}}</td>
+                        <td class="workers__td">{{worker.surname}}</td>
+                        <td class="workers__td">{{worker.phoneNumber}}</td>
+                        <td class="workers__td">
+                            <input 
+                            class="workers__input__td"
+                            type="button" 
+                            name="worker_id" 
+                            value="Szczegóły" 
+                            onclick="location.href='{% url 'manager_employees_show' worker_id=worker.id %}'">
+                        </td>
+                        <td class="workers__td">
+                            <input 
+                            class="workers__input__td"
+                            type="button" 
+                            name="worker_id"
+                             value="Usuń" 
+                             onclick="location.href='{% url 'manager_employees_delete' worker_id=worker.id %}'">
+                            </td>
+                        <td class="workers__td">
+                            <input 
+                            class="workers__input__td"
+                            type="button" 
+                            name="worker_id" 
+                            value="Edytuj" 
+                            onclick="location.href='{% url 'manager_employees_edit' worker_id=worker.id %}'">
+                        </td>
                     </tr>
                     {% endfor %}
                 </table>
             </div>
 
-            <div class="buttons">
-
-                <a href="{% url 'manager_employees_add' %}">
-                    <input type="button" value="Dodaj" >
+            <div class="workers__buttons">
+                <a class="workers__link" href="{% url 'manager_employees_add' %}">
+                    <input class="workers__input__link" type="button" value="Dodaj" >
                 </a>
 
-                <a href="{% url 'manager_panel' %}">
-                    <input type="button" value="Wróć">
+                <a class="workers__link" href="{% url 'manager_panel' %}">
+                    <input class="workers__input__link" type="button" value="Wróć">
                 </a>
             </div>
 
@@ -47,6 +76,6 @@
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>

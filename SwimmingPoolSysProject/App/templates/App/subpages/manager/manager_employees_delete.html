@@ -7,26 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pocałunek Neptuna</title>
 
-    <link rel="stylesheet" href="{% static '/css/manager_employees_delete.css' %}">
+    <link rel="stylesheet" href="{% static '/css/manager_employees.css' %}">
 </head>
 <body>
-    <main>
-        <form method="POST" action="">
+    <section class="delete">
+        <form class="delete__form" method="POST" action="">
             {% csrf_token %}
-            <p>Czy na pewno chcesz usunac {{worker}}</p>
+            <p class="delete__text">Czy na pewno chcesz usunac {{worker}}</p>
 
-            <div class="form-buttons">
-                <a href="{% url 'manager_employees' %}">
-                    <input type="button" value="Wróć">
+            <div class="delete__buttons">
+                <a class="delete__link" href="{% url 'manager_employees' %}">
+                    <input class="delete__input" type="button" value="Wróć">
                 </a>
                 <a href="{{request.META.HTTP_REFERER}}"></a>
-                <input type="submit" value="Potwierdź">
+                <input class="delete__submit" type="submit" value="Potwierdź">
             </div>
         </form>
 
         <nav class="mini-nav">
             <a href="{% url 'home' %}">Strona Główna</a>
         </nav>
-    </main>
+    </section>
 </body>
 </html>
