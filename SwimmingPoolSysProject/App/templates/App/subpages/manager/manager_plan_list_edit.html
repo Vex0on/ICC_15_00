@@ -1,36 +1,33 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pocałunek Neptuna</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static '/css/manager_plan.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static '/css/manager_plan.css' %}" />
+  </head>
+  <body>
     <section class="edit">
-        <form class="edit__form" method="POST" action="">
-            {% csrf_token %}
-            <h1 class="edit__header">Edytuj zmiane</h1>
+      <form class="edit__form" method="POST" action="">
+        {% csrf_token %}
+        <h1 class="edit__header">Edytuj zmiane</h1>
 
-            <div class="edit__container">
-                {{ form }}
-            </div>
+        <div class="edit__container">{{ form }}</div>
 
-            <div class="edit__buttons">
-                <a class="edit__link" href="{% url 'manager_plan_list' %}">
-                    <input class="edit__input" type="button" value="Wróć">
-                </a>
-                <input class="edit__submit" type="submit" name="register">
-            </div>
-        </form>
+        <div class="edit__buttons">
+          <a class="edit__link" href="{% url 'manager_plan_list' %}">
+            <input class="edit__input" type="button" value="Wróć" />
+          </a>
+          <input class="edit__submit" type="submit" name="register" />
+        </div>
+      </form>
 
-        <nav class="mini-nav">
-            <a href="{% url 'home' %}">Strona Główna</a>
-        </nav>
+      <nav class="mini-nav">
+        <a href="{% url 'home' %}">Strona Główna</a>
+      </nav>
     </section>
-</body>
+  </body>
 </html>

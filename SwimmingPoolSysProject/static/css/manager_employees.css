@@ -31,6 +31,7 @@ body {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
     color: #ccc;
 }
@@ -155,13 +156,12 @@ body {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
     color: #ccc;
 }
 
 .show__form {
-    position: relative;
-
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -334,6 +334,7 @@ body {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
     color: #ccc;
 }
@@ -435,6 +436,7 @@ select {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
     color: #ccc;
 }
@@ -529,7 +531,7 @@ select {
 @media(max-width: 1150px) {
     .mini-nav {
         position: absolute;
-        top: 93%;
+        top: 95%;
         left: 0;
 
         width: 100%;
@@ -539,5 +541,9 @@ select {
 
     .mini-nav-show {
         top: 112%;
+    }
+
+    .show__form {
+        min-height: 115vh;
     }
 }

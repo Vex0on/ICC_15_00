@@ -43,6 +43,7 @@ input:-webkit-autofill:focus {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
     color: #ccc;
 }
@@ -127,6 +128,7 @@ input:-webkit-autofill:focus {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
     color: #ccc;
 }
@@ -247,6 +249,7 @@ input[type="radio"]:hover {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
     color: #ccc;
 }
@@ -363,11 +366,23 @@ input[type="radio"]:hover {
 @media(max-width: 1150px) {
     .mini-nav {
         position: absolute;
-        top: 100%;
+        top: 103%;
         left: 0;
 
         width: 100%;
 
         text-align: center;
+    }
+
+    .panel {
+        min-height: 110vh;
+    }
+
+    .tickets {
+        min-height: 108vh;
+    }
+
+    .add {
+        min-height: 110vh;
     }
 }

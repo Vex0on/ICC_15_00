@@ -1,34 +1,33 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pocałunek Neptuna</title>
 
-    <link rel="stylesheet" href="{% static '/css/manager_employees.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static '/css/manager_employees.css' %}" />
+  </head>
+  <body>
     <section class="delete">
-        <form class="delete__form" method="POST" action="">
-            {% csrf_token %}
-            <p class="delete__text">
-                Czy na pewno chcesz usunac {{worker}}
-            </p>
+      <form class="delete__form" method="POST" action="">
+        {% csrf_token %}
+        <p class="delete__text">Czy na pewno chcesz usunac {{worker}}</p>
 
-            <div class="delete__buttons">
-                <a class="delete__link" href="{% url 'manager_employees' %}">
-                    <input class="delete__input" type="button" value="Wróć">
-                </a>
-                <a href="{{request.META.HTTP_REFERER}}"></a>
-                <input class="delete__submit" type="submit" value="Potwierdź">
-            </div>
-        </form>
+        <div class="delete__buttons">
+          <a class="delete__link" href="{% url 'manager_employees' %}">
+            <input class="delete__input" type="button" value="Wróć" />
+          </a>
+          
+          <a href="{{request.META.HTTP_REFERER}}"></a>
+          <input class="delete__submit" type="submit" value="Potwierdź" />
+        </div>
+      </form>
 
-        <nav class="mini-nav">
-            <a href="{% url 'home' %}">Strona Główna</a>
-        </nav>
+      <nav class="mini-nav">
+        <a href="{% url 'home' %}">Strona Główna</a>
+      </nav>
     </section>
-</body>
+  </body>
 </html>

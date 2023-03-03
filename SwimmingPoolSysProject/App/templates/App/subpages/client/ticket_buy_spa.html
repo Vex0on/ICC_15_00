@@ -1,69 +1,87 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pocałunek Neptuna</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static '/css/ticket_buy.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static '/css/ticket_buy.css' %}" />
+  </head>
+  <body>
     <section class="ticket">
-        <form class="ticket__form" action="">
-            <h1 class="ticket__header">Kup Bilet - SPA</h1>
+      <form class="ticket__form" action="">
+        <h1 class="ticket__header">Kup Bilet - SPA</h1>
 
-            <div class="ticket__container">
-                <h2 class="ticket__header__secondary">Dane Personalne</h2>
+        <div class="ticket__container">
+          <h2 class="ticket__header__secondary">Dane Personalne</h2>
 
-                <label class="ticket__label" for="first-name">Imię</label>
-                <input class="ticket__input" type="text" name="first-name">
+          <label class="ticket__label" for="first-name">Imię</label>
+          <input class="ticket__input" type="text" name="first-name" />
 
-                <label class="ticket__label" for="last-name">Nazwisko</label>
-                <input class="ticket__input" type="text" name="last-name">
+          <label class="ticket__label" for="last-name">Nazwisko</label>
+          <input class="ticket__input" type="text" name="last-name" />
 
-                <label class="ticket__label" for="email">E-mail</label>
-                <input class="ticket__input" type="email" name="email">
+          <label class="ticket__label" for="email">E-mail</label>
+          <input class="ticket__input" type="email" name="email" />
 
-                <label class="ticket__label" for="pesel">Pesel</label>
-                <input class="ticket__input" type="text" name="pesel">
+          <label class="ticket__label" for="pesel">Pesel</label>
+          <input class="ticket__input" type="text" name="pesel" />
 
-                <label class="ticket__label" for="phone-number">Numer telefonu</label>
-                <input class="ticket__input" type="tel" name="phone-number">
+          <label class="ticket__label" for="phone-number">Numer telefonu</label>
+          <input class="ticket__input" type="tel" name="phone-number" />
 
-                <h2 class="ticket__header__secondary">Adres zamieszkania</h2>
+          <h2 class="ticket__header__secondary">Adres zamieszkania</h2>
 
-                <label class="ticket__label" for="place">Miejscowość</label>
-                <input class="ticket__input" type="text" name="place">
+          <label class="ticket__label" for="place">Miejscowość</label>
+          <input class="ticket__input" type="text" name="place" />
 
-                <label class="ticket__label" for="postcode">Kod pocztowy</label>
-                <input class="ticket__input" type="text" pattern="[0-9]{5}" name="postcode">
+          <label class="ticket__label" for="postcode">Kod pocztowy</label>
+          <input
+            class="ticket__input"
+            type="text"
+            pattern="[0-9]{5}"
+            name="postcode"
+          />
 
-                <label class="ticket__label" for="address">Adres zamieszkania</label>
-                <input class="ticket__input" type="text" name="address">
+          <label class="ticket__label" for="address">Adres zamieszkania</label>
+          <input class="ticket__input" type="text" name="address" />
 
-                <h2 class="ticket__header__secondary">Bilet</h2> 
-                
-                <label class="ticket__label" for="ticket-type">Rodzaj biletu</label>
-                <select class="ticket__select" name="ticket-type">
-                    <option class="ticket__option" value="">Wybierz bilet</option>
-                    <option class="ticket__option" value="swimming-pool-option-2">45zł/h Normalny</option>
-                    <option class="ticket__option" value="swimming-pool-option-1">35zł/h Ulgowy</option>
-                    <option class="ticket__option" value="swimming-pool-option-3">30zł/h Grupowy</option>
-                </select>
+          <h2 class="ticket__header__secondary">Bilet</h2>
 
-                <label class="ticket__label" for="visit-date">Data i godzina wizyty:</label>
-                <input class="ticket__input" type="datetime-local" name="visit-date">
-            </div>
-            
-            <button class="ticket__submit" type="submit" name="register">Kup Bilet</button>
-        </form>
+          <label class="ticket__label" for="ticket-type">Rodzaj biletu</label>
+          <select class="ticket__select" name="ticket-type">
+            <option class="ticket__option" value="">Wybierz bilet</option>
+            <option class="ticket__option" value="swimming-pool-option-2">
+              45zł/h Normalny
+            </option>
+            <option class="ticket__option" value="swimming-pool-option-1">
+              35zł/h Ulgowy
+            </option>
+            <option class="ticket__option" value="swimming-pool-option-3">
+              30zł/h Grupowy
+            </option>
+          </select>
 
-        <nav class="mini-nav">
-            <a href="{% url 'home' %}">Strona Główna</a>
-        </nav>
+          <label class="ticket__label" for="visit-date"
+            >Data i godzina wizyty:</label
+          >
+          <input
+            class="ticket__input"
+            type="datetime-local"
+            name="visit-date"
+          />
+        </div>
+
+        <button class="ticket__submit" type="submit" name="register">
+          Kup Bilet
+        </button>
+      </form>
+
+      <nav class="mini-nav">
+        <a href="{% url 'home' %}">Strona Główna</a>
+      </nav>
     </section>
-</body>
+  </body>
 </html>

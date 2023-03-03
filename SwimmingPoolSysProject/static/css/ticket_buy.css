@@ -163,4 +163,8 @@ input:-webkit-autofill:focus {
 
         text-align: center;
     }
+
+    .ticket {
+        padding-bottom: 4rem;
+    }
 }

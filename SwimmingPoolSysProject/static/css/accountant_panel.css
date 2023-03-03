@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
 
+:root {
+    --font-color: #ccc;
+    --background-color: rgba( 0, 0, 0, 0.86);
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
 
@@ -20,8 +25,9 @@ body {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color);
 }
 
 .panel__form {
@@ -30,7 +36,7 @@ body {
     flex-direction: column;
     justify-content: center;
 
-    width: 40%;
+    width: 31.125rem;
     min-height: 90vh;
     margin-top: 1rem;
     padding: 1rem;
@@ -46,7 +52,7 @@ body {
 .panel__link {
     text-decoration: none;
 
-    color: #ccc;
+    color: var(--font-color);
 }
 
 .panel__container {
@@ -54,7 +60,7 @@ body {
 
     padding: 2.9rem 7rem;
 
-    border: 0.1rem solid #ccc;
+    border: 0.1rem solid  var(--font-color);
 }
 
 .panel__link:first-child > .panel__container {
@@ -87,8 +93,9 @@ body {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color);
 }
 
 .accountancy__form {
@@ -184,7 +191,7 @@ input[type="radio"]:hover {
 
     letter-spacing: 0.1rem;
 
-    color: #ccc;
+    color: var(--font-color);
     border: solid 0.1rem #333;
     border-radius: 0.1rem;
     background-color: rgb(10, 10, 10);
@@ -213,7 +220,7 @@ input[type="radio"]:hover {
 
     text-decoration: none;
 
-    color: #ccc;
+    color: var(--font-color);
     border: 0.1rem solid #999;
 }
 
@@ -224,8 +231,9 @@ input[type="radio"]:hover {
     justify-content: center;
 
     width: 100%;
+    min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color);
 }
 
 .result__form {
@@ -299,7 +307,7 @@ input[type="radio"]:hover {
 
     letter-spacing: 0.1rem;
 
-    color: #ccc;
+    color: var(--font-color);
     border: solid 0.1rem #333;
     border-radius: 0.1rem;
     background-color: rgb(7, 7, 7);
@@ -317,11 +325,23 @@ input[type="radio"]:hover {
 @media(max-width: 1150px) {
     .mini-nav {
         position: absolute;
-        top: 100%;
+        top: 102%;
         left: 0;
 
         width: 100%;
 
         text-align: center;
+    }
+
+    .panel {
+        min-height: 110vh;
+    }
+
+    .accountancy {
+        min-height: 110vh;
+    }
+    
+    .result {
+        min-height: 110vh;
     }
 }

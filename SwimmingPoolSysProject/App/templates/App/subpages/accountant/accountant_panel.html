@@ -1,36 +1,42 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pocałunek Neptuna</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static '/css/accountant_panel.css' %}">
-</head>
-<body>
-    <section class="panel" >
-        <form class="panel__form" action="">
-            <a class="panel__link" href="{% url 'accountant_accountancy' %}">
-                <div class="panel__container">
-                    <i class="panel__icon fa-regular fa-pen-to-square"></i>
-                    <p class="panel__title" >Rachunkowość</p>
-                </div>
-            </a>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static '/css/accountant_panel.css' %}" />
+  </head>
+  <body>
+    <section class="panel">
+      <form class="panel__form" action="">
+        <a class="panel__link" href="{% url 'accountant_accountancy' %}">
+          <div class="panel__container">
+            <i class="panel__icon fa-regular fa-pen-to-square"></i>
+            <p class="panel__title">Rachunkowość</p>
+          </div>
+        </a>
 
-            <a class="panel__link" href="{% url 'accountant_result' %}">
-                <div class="panel__container" >
-                    <i class="panel__icon fa-solid fa-repeat"></i>
-                    <p class="panel__title" >Bilans</p>
-                </div>
-            </a>
-        </form>
+        <a class="panel__link" href="{% url 'accountant_result' %}">
+          <div class="panel__container">
+            <i class="panel__icon fa-solid fa-repeat"></i>
+            <p class="panel__title">Bilans</p>
+          </div>
+        </a>
+      </form>
 
-        <nav class="mini-nav">
-            <a href="{% url 'home' %}">Strona Główna</a>
-        </nav>
+      <nav class="mini-nav">
+        <a href="{% url 'home' %}">Strona Główna</a>
+      </nav>
     </section>
-</body>
+  </body>
 </html>
