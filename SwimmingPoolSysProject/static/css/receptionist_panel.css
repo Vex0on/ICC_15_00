@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
+@import './variables.css';
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -7,7 +8,7 @@ body {
     padding: 0;
 
     border: 0;
-    background: linear-gradient(rgba( 0, 0, 0, 0.86) , rgba( 0, 0, 0, 0.86) ) , url( "../img/ticket_buy-01.jpg");
+    background: linear-gradient(var(--background-color-primary) , var(--background-color-primary) ) , url( "../img/ticket_buy-01.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover!important;
@@ -28,7 +29,7 @@ body {
     cursor: pointer;
     transform: scale(1.2);
 
-    background-color: #ccc;
+    background-color: var(--font-color-primary);
 }
 
 input:-webkit-autofill,
@@ -45,7 +46,7 @@ input:-webkit-autofill:focus {
     width: 100%;
     min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .panel__form {
@@ -70,7 +71,7 @@ input:-webkit-autofill:focus {
 .panel__link {
     text-decoration: none;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .panel__container {
@@ -78,7 +79,7 @@ input:-webkit-autofill:focus {
 
     padding: 3.5rem 2rem;
 
-    border: 0.1rem solid #ccc;
+    border: 0.1rem solid var(--font-color-primary);
 }
 
 .panel__link:first-child > .panel__container {
@@ -117,7 +118,7 @@ input:-webkit-autofill:focus {
 
     text-decoration: none;
 
-    color: #ccc;
+    color: var(--font-color-primary);
     border: 0.1rem solid #999;
 }
 
@@ -130,7 +131,7 @@ input:-webkit-autofill:focus {
     width: 100%;
     min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .tickets__form {
@@ -170,7 +171,7 @@ input:-webkit-autofill:focus {
     height: 20rem;
     margin-top: 1rem;
 
-    border: 0.1rem solid #333;
+    border: 0.1rem solid var(--border-color-primary);
 }
 
 .tickets__table {
@@ -180,7 +181,7 @@ input:-webkit-autofill:focus {
 
     border-collapse: collapse;
 
-    border: 1px solid black;
+    border: 1px solid #000;
 }
 
 .tickets__th {
@@ -188,14 +189,14 @@ input:-webkit-autofill:focus {
 
     padding: 8px;
 
-    border: 1px solid #333;
+    border: 1px solid var(--border-color-primary);
     background-color: #050505;
 }
 
 .tickets__td {
     padding: 8px;
 
-    border: 1px solid #333;
+    border: 1px solid var(--border-color-primary);
 }
 
 input[type="radio"] {
@@ -226,8 +227,8 @@ input[type="radio"]:hover {
 
     letter-spacing: 0.1rem;
 
-    color: #ccc;
-    border: solid 0.1rem #333;
+    color: var(--font-color-primary);
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(10, 10, 10);
     transform: translateX(
@@ -251,7 +252,7 @@ input[type="radio"]:hover {
     width: 100%;
     min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .add__form {
@@ -298,7 +299,7 @@ input[type="radio"]:hover {
     width: 22rem;
     padding: 0.7rem;
 
-    color: #ccc;
+    color: var(--font-color-primary);
     border: none;
     border-bottom: 0.1rem solid #777;
     outline: none;
@@ -313,7 +314,7 @@ input[type="radio"]:hover {
     margin-top: 0.3rem;
     padding: 0.7rem;
 
-    color: #ccc;
+    color: var(--font-color-primary);
     border: none;
     border-bottom: 0.1rem solid #777;
     outline: none;
@@ -348,8 +349,8 @@ input[type="radio"]:hover {
 
     letter-spacing: 0.1rem;
 
-    color: #ccc;
-    border: solid 0.1rem #333;
+    color: var(--font-color-primary);
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(7, 7, 7);
 }

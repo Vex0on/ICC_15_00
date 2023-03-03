@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
-
-:root {
-    --font-color: #ccc;
-    --background-color: rgba( 0, 0, 0, 0.86);
-}
+@import './variables.css';
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -12,7 +8,7 @@ body {
     padding: 0;
 
     border: 0;
-    background: linear-gradient(rgba( 0, 0, 0, 0.86) , rgba( 0, 0, 0, 0.86) ) , url( "../img/ticket_buy-01.jpg");
+    background: linear-gradient(var(--background-color-primary) , var(--background-color-primary) ) , url( "../img/ticket_buy-01.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover!important;
@@ -27,7 +23,7 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    color: var(--font-color);
+    color: var(--font-color-primary);
 }
 
 .panel__form {
@@ -44,7 +40,7 @@ body {
     text-align: center;
 
     border-radius: 0.2rem;
-    background-color: rgba(7, 7, 7, 0.65);
+    background-color: var(--background-color-secondary);
 
     gap: 2rem;
 }
@@ -52,7 +48,7 @@ body {
 .panel__link {
     text-decoration: none;
 
-    color: var(--font-color);
+    color: var(--font-color-primary);
 }
 
 .panel__container {
@@ -60,7 +56,7 @@ body {
 
     padding: 2.9rem 7rem;
 
-    border: 0.1rem solid  var(--font-color);
+    border: 0.1rem solid  var(--font-color-primary);
 }
 
 .panel__link:first-child > .panel__container {
@@ -95,7 +91,7 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    color: var(--font-color);
+    color: var(--font-color-primary);
 }
 
 .accountancy__form {
@@ -113,7 +109,7 @@ body {
     text-align: center;
 
     border-radius: 0.2rem;
-    background-color: rgba(7, 7, 7, 0.65);
+    background-color: var(--background-color-secondary);
 
     gap: 2rem;
 }
@@ -135,7 +131,7 @@ body {
     height: 20rem;
     margin-top: 1rem;
 
-    border: 0.1rem solid #333;
+    border: 0.1rem solid var(--border-color-primary);
 }
 
 .accountancy__table {
@@ -153,14 +149,14 @@ body {
 
     padding: 8px;
 
-    border: 1px solid #333;
+    border: 1px solid var(--border-color-primary);
     background-color: #050505;
 }
 
 .accountancy__td {
     padding: 8px;
 
-    border: 1px solid #333;
+    border: 1px solid var(--border-color-primary);
 }
 
 input[type="radio"] {
@@ -191,8 +187,8 @@ input[type="radio"]:hover {
 
     letter-spacing: 0.1rem;
 
-    color: var(--font-color);
-    border: solid 0.1rem #333;
+    color: var(--font-color-primary);
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(10, 10, 10);
     transform: translateX(
@@ -220,7 +216,7 @@ input[type="radio"]:hover {
 
     text-decoration: none;
 
-    color: var(--font-color);
+    color: var(--font-color-primary);
     border: 0.1rem solid #999;
 }
 
@@ -233,7 +229,7 @@ input[type="radio"]:hover {
     width: 100%;
     min-height: 100vh;
 
-    color: var(--font-color);
+    color: var(--font-color-primary);
 }
 
 .result__form {
@@ -249,7 +245,7 @@ input[type="radio"]:hover {
     text-align: center;
 
     border-radius: 0.2rem;
-    background-color: rgba(7, 7, 7, 0.65);
+    background-color: var(--background-color-secondary);
 
     gap: 1.5rem;
 }
@@ -307,8 +303,8 @@ input[type="radio"]:hover {
 
     letter-spacing: 0.1rem;
 
-    color: var(--font-color);
-    border: solid 0.1rem #333;
+    color: var(--font-color-primary);
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(7, 7, 7);
 }

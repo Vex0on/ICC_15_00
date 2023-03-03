@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,400&display=swap');
+@import './variables.css';
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -7,7 +8,7 @@ body {
     padding: 0;
 
     border: 0;
-    background: linear-gradient(rgba( 0, 0, 0, 0.86) , rgba( 0, 0, 0, 0.86) ) , url( "../img/ticket_buy-01.jpg");
+    background: linear-gradient(var(--background-color-primary) , var(--background-color-primary) ) , url( "../img/ticket_buy-01.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover!important;
@@ -33,7 +34,7 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .workers__form {
@@ -73,7 +74,7 @@ body {
     height: 20rem;
     margin-top: 1rem;
 
-    border: 0.1rem solid #333;
+    border: 0.1rem solid var(--border-color-primary);
 }
 
 .workers__table {
@@ -91,14 +92,14 @@ body {
 
     padding: 8px;
 
-    border: 1px solid #333;
+    border: 1px solid var(--border-color-primary);
     background-color: #050505;
 }
 
 .workers__td {
     padding: 8px;
 
-    border: 1px solid #333;
+    border: 1px solid var(--border-color-primary);
 }
 
 .workers__input__td {
@@ -135,8 +136,8 @@ body {
 
     letter-spacing: 0.1rem;
 
-    color: #ccc;
-    border: solid 0.1rem #333;
+    color: var(--font-color-primary);
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(10, 10, 10);
 }
@@ -158,7 +159,7 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .show__form {
@@ -206,14 +207,14 @@ body {
 
     padding: 8px;
 
-    border: 1px solid #333;
+    border: 1px solid var(--border-color-primary);
     background-color: #050505;
 }
 
 .show__td {
     padding: 8px;
 
-    border: 1px solid #333;
+    border: 1px solid var(--border-color-primary);
 }
 
 .show__link input {
@@ -226,7 +227,7 @@ body {
     letter-spacing: 0.1rem;
 
     color: #ccc;
-    border: solid 0.1rem #333;
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(10, 10, 10);
 }
@@ -252,7 +253,7 @@ body {
 
     text-decoration: none;
 
-    color: #ccc;
+    color: var(--font-color-primary);
     border: 0.1rem solid #999;
 }
 
@@ -267,7 +268,7 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .delete__form {
@@ -312,8 +313,8 @@ body {
 
     letter-spacing: 0.1rem;
 
-    color: #ccc;
-    border: solid 0.1rem #333;
+    color: var(--font-color-primary);
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(7, 7, 7);
 }
@@ -336,7 +337,7 @@ body {
     width: 100%;
     min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .edit__form {
@@ -381,7 +382,7 @@ body {
     width: 22rem;
     padding: 0.7rem;
 
-    color: #ccc;
+    color: var(--font-color-primary);
     border: none;
     border-bottom: 0.1rem solid #777;
     outline: none;
@@ -409,8 +410,8 @@ body {
 
     letter-spacing: 0.1rem;
 
-    color: #ccc;
-    border: solid 0.1rem #333;
+    color: var(--font-color-primary);
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(7, 7, 7);
 }
@@ -425,7 +426,7 @@ body {
 }
 
 select {
-    color: #ccc;
+    color: var(--font-color-primary);
     background-color: #111;
 }
 
@@ -438,7 +439,7 @@ select {
     width: 100%;
     min-height: 100vh;
 
-    color: #ccc;
+    color: var(--font-color-primary);
 }
 
 .add__form {
@@ -483,7 +484,7 @@ select {
     width: 22rem;
     padding: 0.7rem;
 
-    color: #ccc;
+    color: var(--font-color-primary);
     border: none;
     border-bottom: 0.1rem solid #777;
     outline: none;
@@ -508,8 +509,8 @@ select {
 
     letter-spacing: 0.1rem;
 
-    color: #ccc;
-    border: solid 0.1rem #333;
+    color: var(--font-color-primary);
+    border: solid 0.1rem var(--border-color-primary);
     border-radius: 0.1rem;
     background-color: rgb(7, 7, 7);
 }
@@ -524,7 +525,7 @@ select {
 }
 
 select {
-    color: #ccc;
+    color: var(--font-color-primary);
     background-color: #111;
 }
 
