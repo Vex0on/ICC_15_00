@@ -6,6 +6,8 @@ body {
 
     margin: 0;
     padding: 0;
+    
+    min-height: 100vh;
 
     border: 0;
     background: linear-gradient(var(--background-color-primary) , var(--background-color-primary) ) , url( "../img/ticket_buy-01.jpg");
@@ -34,7 +36,6 @@ body {
     justify-content: center;
 
     width: 100%;
-    min-height: 100vh;
 
     color: var(--font-color-primary);
 }
