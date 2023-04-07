@@ -1,5 +1,6 @@
 from datetime import timedelta
 from django import forms
+from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from .models import *
@@ -86,7 +87,6 @@ class CreateWorkerAddressForm(ModelForm):
 
 
 class CreateTicketsForm(ModelForm):
-
     class Meta:
         model = Ticket
         fields = ['price', 'zone', 'worker', 'client']
@@ -232,6 +232,13 @@ class BuyTicketFormSwimmingPool(ModelForm):
                 pass
         self.fields['zone'].choices = [("Pływalnia", "Pływalnia")]
 
+
 class TicketCheckForm(forms.Form):
     date_field = forms.DateField(widget=forms.DateInput, label='Data (yyyy-mm-dd)')
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        date_regex = r'^\d{4}-\d{2}-\d{2}$'
+        self.fields['date_field'].validators.append(
+            RegexValidator(date_regex, 'Wprowadź datę w formacie yyyy-mm-dd')
+        )

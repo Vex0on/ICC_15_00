@@ -355,13 +355,14 @@ def accountant_accountancy(request):
 def accountant_result(request):
     form = TicketCheckForm(request.POST or None)
     tickets_sum = 0
+    tickets = []
     if request.method == 'POST':
         if form.is_valid():
             date = form.cleaned_data.get('date_field')
             tickets = Ticket.objects.filter(dateOfPurchase__date=date)
-        for ticket in tickets:
-            tickets_sum += float(ticket.price.split("zł")[0])
-        tickets_sum = round(tickets_sum, 2)
+            for ticket in tickets:
+                tickets_sum += float(ticket.price.split("zł")[0])
+            tickets_sum = round(tickets_sum, 2)
     context = {'form': form, 'tickets_sum': tickets_sum}
     return render(request, 'App/subpages/accountant/accountant_result.html', context)
 
