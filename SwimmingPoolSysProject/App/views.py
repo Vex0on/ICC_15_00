@@ -29,7 +29,7 @@ def homePage(request):
                 'message': message
             })
 
-            send_mail('Formularz kontaktowy', 'wiadomosc', 'pocalunekneptuna@gmail.com', ['pocalunekneptuna@gmail.com'],
+            send_mail('Formularz kontaktowy', 'wiadomosc', 'jaceksosphp@gmail.com', ['jaceksosphp@gmail.com'],
                       html_message=html)
             messages.info(request, 'Udało Ci się wysłać wiadomość!')
             return redirect('home')

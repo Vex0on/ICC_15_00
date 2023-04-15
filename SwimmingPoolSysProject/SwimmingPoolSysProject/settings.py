@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -129,8 +130,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'pocalunekneptuna@gmail.com'
-EMAIL_HOST_PASSWORD = 'dcpuylgtncxdteri'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+load_dotenv()
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_USE_TLS = False
