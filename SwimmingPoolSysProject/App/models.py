@@ -80,14 +80,14 @@ class Ticket(models.Model):
     )
 
     PRICE_CHOICES = (
-        ('19.99', '19.99zł'),
-        ('25', '25zł'),
-        ('33', '33zł')
+        ('19.99', '19.99zł - ulgowy'),
+        ('25', '25zł - normalny'),
+        ('33', '33zł - grupowy')
     )
 
     worker = models.ForeignKey(Worker, on_delete=models.SET_NULL, null=True)
     client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
-    price = models.CharField(max_length=6, choices=PRICE_CHOICES)
+    price = models.CharField(max_length=6, choices=PRICE_CHOICES, default=PRICE_CHOICES[1])
     zone = models.CharField(max_length=45, choices=ZONE_CHOICES)
     dateOfPurchase = models.DateTimeField(default=datetime.datetime.now(), editable=True)
     dateOfEnd = models.DateTimeField(null=True, blank=True, editable=False)
