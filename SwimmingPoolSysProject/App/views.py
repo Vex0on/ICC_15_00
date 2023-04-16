@@ -363,8 +363,9 @@ def accountant_result(request):
             for ticket in tickets:
                 tickets_sum += float(ticket.price.split("zł")[0])
             tickets_sum = round(tickets_sum, 2)
-    context = {'form': form, 'tickets_sum': tickets_sum}
+    context = {'form': form, 'tickets_sum': tickets_sum, 'tickets': tickets}
     return render(request, 'App/subpages/accountant/accountant_result.html', context)
+
 
 
 # Tickets

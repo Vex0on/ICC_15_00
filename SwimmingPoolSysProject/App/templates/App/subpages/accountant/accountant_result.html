@@ -13,19 +13,24 @@
 </head>
 <body>
     <section class="result">
-        <form class="result__form" action="">
-            <h1 class="result__header" >Bilans</h1>
+        <form class="result__form" method="POST" action="">
+            {% csrf_token %}
+            <h1 class="result__header">Bilans</h1>
             <div class="result__container">
-                <label class="result__label" for="calendar">Data</label>
-                <input class="result__calendar" type="month" name="calendar">
+                <label class="result__label" for="{{ form.date_field.id_for_label }}">Data</label>
+                {{ form.date_field }}
             </div>
-
             <div class="result__buttons">
                 <a class="result__link" href="{% url 'accountant_panel' %}">
                     <input class="result__input" type="button" value="Wróć">
                 </a>
                 <input class="result__submit" type="submit" name="calculate" value="Oblicz">
             </div>
+            {% if request.method == 'POST' and form.is_valid %}
+                <div class="result__value">
+                    <h2>Wartość: {{ tickets_sum }} zł</h2>
+                </div>
+            {% endif %}
         </form>
 
         <nav class="mini-nav">

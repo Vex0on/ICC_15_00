@@ -234,11 +234,12 @@ class BuyTicketFormSwimmingPool(ModelForm):
 
 
 class TicketCheckForm(forms.Form):
-    date_field = forms.DateField(widget=forms.DateInput, label='Data (yyyy-mm-dd)')
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        date_regex = r'^\d{4}-\d{2}-\d{2}$'
-        self.fields['date_field'].validators.append(
-            RegexValidator(date_regex, 'Wprowadź datę w formacie yyyy-mm-dd')
-        )
+    date_field = forms.DateField(
+        widget=forms.DateInput(
+            attrs={
+                'type': 'date',
+                'input_format': '%Y-%m-%d'
+            }
+        ),
+        label='Data'
+    )
