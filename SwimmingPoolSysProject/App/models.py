@@ -36,7 +36,7 @@ class Shift(models.Model):
     worker = models.ManyToManyField(Worker)
     startTime = models.DateTimeField()
     endTime = models.DateTimeField(null=True, blank=True, editable=False)
-    description = models.CharField(max_length=12, choices=SHIFTS_CHOICES)
+    description = models.CharField(max_length=12, choices=SHIFTS_CHOICES, default=SHIFTS_CHOICES[0])
 
     def save(self, *args, **kwargs):
         if not self.pk:
