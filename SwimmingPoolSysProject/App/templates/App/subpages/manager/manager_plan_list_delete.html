@@ -13,10 +13,15 @@
     <section class="delete">
         <form class="delete__form" method="POST" action="">
             {% csrf_token %}
-            <p class="delete__text">Czy na pewno chcesz usunac {{shift}}</p>
+            <p class="delete__text">
+                <h3>Czy na pewno chcesz usunąć:</h3>
+                Zmiana: {{shift.description}} <br>
+                Z dnia: {{shift.startTime|date:"d-m-Y"}} <br>
+                Godzina: {{shift.startTime|date:"H:i"}}
+            </p>
 
             <div class="delete__buttons">
-                <a class="delete__link" href="{% url 'manager_plan' %}">
+                <a class="delete__link" href="{% url 'manager_plan_list' %}">
                     <input class="delete__input" type="button" value="Wróć">
                 </a>
                 <a href="{{request.META.HTTP_REFERER}}"></a>

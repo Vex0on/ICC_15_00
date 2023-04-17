@@ -1,52 +1,67 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pocałunek Neptuna</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-    <link rel="stylesheet" href="{% static '/css/manager_plan.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static '/css/manager_plan.css' %}" />
+  </head>
+  <body>
     <section class="show">
-        <form class="show__form" action="">
-            <h1 class="show__header">Szczegóły Zmiany</h1>
-            <table class="show__table">
-                <tr class="show__tr">
-                    <td class="show__td">Zmiana</td>
-                    <td class="show__td">{{ shift.description }}</td>
-                </tr>
-                <tr class="show__tr">
-                    <td class="show__td">Początek zmiany</td>
-                    <td class="show__td">{{ shift.startTime|date:'Y-m-d | H:i' }}</td>
-                </tr>
-                <tr class="show__tr">
-                    <td class="show__td">Koniec zmiany</td>
-                    <td class="show__td">{{ shift.endTime|date:'Y-m-d | H:i' }}</td>
-                </tr>
-                <tr class="show__tr">
-                    <td class="show__td">Pracownicy</td>
-                    <td class="show__td">
-                        {% for worker in workers %}
-                        {{ worker.name }} {{ worker.surname }}
-                        <br>
-                        {% endfor %}
-                    </td>
-                </tr>
-            </table>
-            
-            <a class="show__link" href="{% url 'manager_plan_list' %}">
-                <input class="show__input" type="button" value="Wróć">
-            </a>
-        </form>
+      <form class="show__form" action="">
+        <h1 class="show__header">Szczegóły Zmiany</h1>
 
-        <nav class="mini-nav">
-            <a href="{% url 'home' %}">Strona Główna</a>
-        </nav>
+        <table class="show__table">
+          <tr class="show__tr">
+            <th class="show__th">Zmiana</th>
+            <td class="show__td">{{ shift.description }}</td>
+          </tr>
+          <tr class="show__tr">
+            <th class="show__th">Początek zmiany</th>
+            <td class="show__td">{{ shift.startTime|date:'Y-m-d | H:i' }}</td>
+          </tr>
+          <tr class="show__tr">
+            <th class="show__td">Koniec zmiany</th>
+            <td class="show__td">{{ shift.endTime|date:'Y-m-d | H:i' }}</td>
+          </tr>
+        </table>
+
+        <table class="show__table">
+          <th class="show__th">Imię</th>
+          <th class="show__th">Nazwisko</th>
+          <th class="show__th">Nr.tel</th>
+          <tr class="show__tr">
+            {% for worker in workers %}
+            <td class="show__td">{{ worker.name }}</td>
+            <td class="show__td">{{ worker.surname }}</td>
+            <td class="show__td">
+              {{worker.phoneNumber|slice:"0:3"}}
+              {{worker.phoneNumber|slice:"3:6"}}
+              {{worker.phoneNumber|slice:"6:10"}}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+
+        <a class="show__link" href="{% url 'manager_plan_list' %}">
+          <input class="show__input" type="button" value="Wróć" />
+        </a>
+      </form>
+
+      <nav class="mini-nav">
+        <a href="{% url 'home' %}">Strona Główna</a>
+      </nav>
     </section>
-</body>
+  </body>
 </html>

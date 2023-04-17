@@ -19,20 +19,20 @@
             <div class="accountancy__list">
                 <table class="accountancy__table">
                     <tr class="accountancy__tr">
-                        <th class="accountancy__th">ID</th>
                         <th class="accountancy__th">Cena</th>
                         <th class="accountancy__th">Data Zakupu</th>
                     </tr>
                     {% for ticket in tickets %}
                     <tr class="accountancy__tr">
-                        <td class="accountancy__td">{{ ticket.id }}</td>
-                        <td class="accountancy__td">{{ ticket.price }}zł</td>
+                        <td class="accountancy__td">{{ ticket.price }} zł</td>
                         <td class="accountancy__td">{{ ticket.dateOfPurchase|date:'Y-m-d | H:i' }}</td>
                     </tr>
                     {% endfor %}
                 </table>
             </div>
-            <p class="accountancy__result" >Suma cen biletów: {{ tickets_sum }}zł</p>
+            <p class="accountancy__result">
+                <h2>Zysk z biletów: {{ tickets_sum }} zł</h2>
+            </p>
 
 
 
