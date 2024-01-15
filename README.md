@@ -9,7 +9,7 @@ I Can't Code
 1. Jacek Sosnowski (CEO) [(Vex0on)](https://github.com/Vex0on)
 2. Kacper Wadecki [(kacperwadecki)](https://github.com/kacperwadecki)
 3. Szymon Wielgosz [(SzWielgosz)](https://github.com/SzWielgosz)
-4. Adrian Sidor [(MadPapa)](https://github.com/MadPapa)
+4. Adrian Sidor [(MadPapa)](https://github.com/rodis00)
 
 ## Technologies:
 - Python
